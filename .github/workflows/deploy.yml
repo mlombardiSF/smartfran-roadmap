@@ -1,0 +1,23 @@
+name: Deploy Roadmap
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Inject token into HTML
+        run: |
+          sed -i "s|__ROADMAP_TOKEN__|${{ secrets.ROADMAP_TOKEN }}|g" index.html
+          sed -i "s|__REPO_OWNER__|${{ github.repository_owner }}|g" index.html
+          sed -i "s|__REPO_NAME__|${{ github.event.repository.name }}|g" index.html
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: .

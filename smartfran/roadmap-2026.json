@@ -1,0 +1,248 @@
+{
+  "meta": {
+    "project": "SmartFran Cloud",
+    "version": "2025",
+    "description": "Roadmap de desarrollo del sistema SmartFran Cloud",
+    "baseYear": 2025,
+    "image": "./assets/smartfrancloud-logo.svg",
+    "lastUpdated": "2025-06-01"
+  },
+  "categories": [
+    {
+      "id": "core",
+      "label": "Core & Infra",
+      "color": "#534AB7"
+    },
+    {
+      "id": "comercial",
+      "label": "Comercial B2B",
+      "color": "#993556"
+    },
+    {
+      "id": "catalogo",
+      "label": "Catálogo",
+      "color": "#185FA5"
+    },
+    {
+      "id": "fintech",
+      "label": "Fintech",
+      "color": "#0F6E56"
+    },
+    {
+      "id": "expansion",
+      "label": "Expansión",
+      "color": "#3B6D11"
+    },
+    {
+      "id": "negocio",
+      "label": "Negocio",
+      "color": "#854F0B"
+    },
+    {
+      "id": "smartops",
+      "label": "Smart Ops & IA",
+      "color": "#993C1D"
+    },
+    {
+      "id": "franquicias",
+      "label": "Franquicias",
+      "color": "#D4537E"
+    },
+    {
+      "id": "fidelizacion",
+      "label": "Fidelización",
+      "color": "#7F77DD"
+    },
+    {
+      "id": "retailtech",
+      "label": "Retail Tech",
+      "color": "#5F5E5A"
+    }
+  ],
+  "quarters": [
+    {
+      "id": "Q2",
+      "label": "Q2 2025",
+      "status": "active",
+      "dateStart": "2025-04-01",
+      "dateEnd": "2025-06-30",
+      "description": "Ejecución en curso. Foco en estabilización del core transaccional, expansión comercial y pagos.",
+      "tasks": [
+        {
+          "id": "q2-01",
+          "title": "Estabilización de Venta y Observabilidad",
+          "description": "Consolidación del motor transaccional, expansión de parsers y monitoreo en Servicellus.",
+          "category": "core",
+          "priority": "alta",
+          "status": "in_progress",
+          "progress": 65,
+          "owner": "Equipo Core",
+          "dateStart": "2025-04-01",
+          "dateEnd": "2025-06-15",
+          "dateClosedActual": null,
+          "notes": "Parser v3 liberado. Pendiente integración con módulo de alertas."
+        },
+        {
+          "id": "q2-02",
+          "title": "Módulo de Venta Mayorista",
+          "description": "Gestión de Cuenta Corriente y tunelización segmentada del cliente (Minorista vs. Mayorista).",
+          "category": "comercial",
+          "priority": "alta",
+          "status": "in_progress",
+          "progress": 45,
+          "owner": "Equipo Comercial",
+          "dateStart": "2025-04-15",
+          "dateEnd": "2025-06-30",
+          "dateClosedActual": null,
+          "notes": "Segmentación de cliente lista. Cuenta Corriente en desarrollo."
+        },
+        {
+          "id": "q2-03",
+          "title": "Evolución de Catálogo (v2) y Stock",
+          "description": "Control de opcionales, API de proveedores y omnicanalidad de stock desde el Cloud por plataforma.",
+          "category": "catalogo",
+          "priority": "media",
+          "status": "in_progress",
+          "progress": 30,
+          "owner": "Equipo Catálogo",
+          "dateStart": "2025-05-01",
+          "dateEnd": "2025-06-30",
+          "dateClosedActual": null,
+          "notes": "API de proveedores en diseño. Omnicanalidad pospuesta a Q3."
+        },
+        {
+          "id": "q2-04",
+          "title": "Integración Mercado Pago & Terceros",
+          "description": "Puntos de cobro físicos (Point), QR, checkout y flujos con plataformas externas.",
+          "category": "fintech",
+          "priority": "alta",
+          "status": "review",
+          "progress": 80,
+          "owner": "Equipo Fintech",
+          "dateStart": "2025-04-01",
+          "dateEnd": "2025-05-31",
+          "dateClosedActual": null,
+          "notes": "QR y Point operativos en staging. Checkout en revisión final."
+        }
+      ]
+    },
+    {
+      "id": "Q3",
+      "label": "Q3 2025",
+      "status": "planned",
+      "dateStart": "2025-07-01",
+      "dateEnd": "2025-09-30",
+      "description": "Expansión internacional y desarrollo del módulo de facturación propio.",
+      "tasks": [
+        {
+          "id": "q3-01",
+          "title": "Localización Internacional (Chile & USA)",
+          "description": "Adaptación multi-lenguaje y sistemas de facturación legal para nuevos mercados.",
+          "category": "expansion",
+          "priority": "alta",
+          "status": "planned",
+          "progress": 0,
+          "owner": "Equipo Expansión",
+          "dateStart": "2025-07-01",
+          "dateEnd": "2025-09-15",
+          "dateClosedActual": null,
+          "notes": "Requiere validación legal en Chile. Contacto con proveedor fiscal USA en curso."
+        },
+        {
+          "id": "q3-02",
+          "title": "Módulo de Facturación In-House",
+          "description": "Célula de exploración para el desarrollo de un módulo fiscal propio independiente de proveedores externos.",
+          "category": "fintech",
+          "priority": "media",
+          "status": "planned",
+          "progress": 0,
+          "owner": "Equipo Fintech",
+          "dateStart": "2025-07-15",
+          "dateEnd": "2025-09-30",
+          "dateClosedActual": null,
+          "notes": "Sprint de investigación previo al kick-off."
+        },
+        {
+          "id": "q3-03",
+          "title": "Evolución de Licand Fee",
+          "description": "Reestructuración y cambios en el modelo de tarifas de licenciamiento.",
+          "category": "negocio",
+          "priority": "media",
+          "status": "planned",
+          "progress": 0,
+          "owner": "Producto & Negocio",
+          "dateStart": "2025-08-01",
+          "dateEnd": "2025-09-30",
+          "dateClosedActual": null,
+          "notes": "Pendiente definición de nuevas estructuras tarifarias."
+        }
+      ]
+    },
+    {
+      "id": "Q4",
+      "label": "Q4 2025",
+      "status": "backlog",
+      "dateStart": "2025-10-01",
+      "dateEnd": "2025-12-31",
+      "description": "Visión de largo plazo: IA, franquicias, fidelización y optimización de tiendas físicas.",
+      "tasks": [
+        {
+          "id": "q4-01",
+          "title": "Asistentes Inteligentes y Automatización",
+          "description": "Asistente de compras, Chatbot comunicacional, proyección predictiva de ventas y carga automática de facturas.",
+          "category": "smartops",
+          "priority": "alta",
+          "status": "backlog",
+          "progress": 0,
+          "owner": "Equipo IA",
+          "dateStart": "2025-10-01",
+          "dateEnd": "2025-12-31",
+          "dateClosedActual": null,
+          "notes": "Exploración de modelos LLM para asistente de compras iniciada."
+        },
+        {
+          "id": "q4-02",
+          "title": "Portal y App del Franquiciado",
+          "description": "Ecosistema móvil con sistema de notificaciones y herramientas avanzadas para el franquiciado.",
+          "category": "franquicias",
+          "priority": "alta",
+          "status": "backlog",
+          "progress": 0,
+          "owner": "Equipo Mobile",
+          "dateStart": "2025-10-01",
+          "dateEnd": "2025-12-15",
+          "dateClosedActual": null,
+          "notes": "Wireframes en revisión con stakeholders."
+        },
+        {
+          "id": "q4-03",
+          "title": "Loyalty V2 & Personalización",
+          "description": "Campañas de comunicación segmentadas, ofertas personalizadas a clientes y cuentas cruzadas.",
+          "category": "fidelizacion",
+          "priority": "media",
+          "status": "backlog",
+          "progress": 0,
+          "owner": "Equipo CRM",
+          "dateStart": "2025-10-15",
+          "dateEnd": "2025-12-31",
+          "dateClosedActual": null,
+          "notes": "Dependencia con módulo de segmentación de cliente (Q2)."
+        },
+        {
+          "id": "q4-04",
+          "title": "Optimización de Tiendas Físicas",
+          "description": "Gestión avanzada del turnero para tótems, multi-monetaria y pedidos integrados mediante WhatsApp.",
+          "category": "retailtech",
+          "priority": "baja",
+          "status": "backlog",
+          "progress": 0,
+          "owner": "Equipo Retail",
+          "dateStart": "2025-11-01",
+          "dateEnd": "2025-12-31",
+          "dateClosedActual": null,
+          "notes": "Sujeto a disponibilidad de recursos en Q4."
+        }
+      ]
+    }
+  ]
+}
