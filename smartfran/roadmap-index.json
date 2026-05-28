@@ -1,0 +1,16 @@
+{
+  "versions": [
+    {
+      "year": 2025,
+      "label": "2025 — Actual",
+      "file": "roadmap-2025.json",
+      "current": true
+    },
+    {
+      "year": 2024,
+      "label": "2024 — Histórico",
+      "file": "roadmap-2024.json",
+      "current": false
+    }
+  ]
+}

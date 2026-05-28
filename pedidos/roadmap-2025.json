@@ -1,0 +1,172 @@
+{
+  "meta": {
+    "project": "Smart Pedidos",
+    "version": "2025",
+    "description": "Roadmap de gestión de pedidos integrada",
+    "baseYear": 2025,
+    "image": "./assets/pedidos-logo.svg",
+    "lastUpdated": "2025-06-01"
+  },
+  "categories": [
+    {
+      "id": "core",
+      "label": "Core & Infra",
+      "color": "#534AB7"
+    },
+    {
+      "id": "canal",
+      "label": "Canales",
+      "color": "#185FA5"
+    },
+    {
+      "id": "cocina",
+      "label": "Cocina & KDS",
+      "color": "#0F6E56"
+    },
+    {
+      "id": "pagos",
+      "label": "Pagos",
+      "color": "#854F0B"
+    },
+    {
+      "id": "logistica",
+      "label": "Logística",
+      "color": "#993C1D"
+    },
+    {
+      "id": "analytics",
+      "label": "Analytics",
+      "color": "#5F5E5A"
+    }
+  ],
+  "quarters": [
+    {
+      "id": "Q2",
+      "label": "Q2 2025",
+      "status": "active",
+      "dateStart": "2025-04-01",
+      "dateEnd": "2025-06-30",
+      "description": "Canal WhatsApp operativo y Kitchen Display System v1.",
+      "tasks": [
+        {
+          "id": "ped-q2-01",
+          "title": "Canal WhatsApp — Pedidos Bot",
+          "description": "Bot conversacional para recepción de pedidos vía WhatsApp Business con menú dinámico y confirmación automática.",
+          "category": "canal",
+          "priority": "alta",
+          "status": "in_progress",
+          "progress": 55,
+          "owner": "Equipo Canales",
+          "dateStart": "2025-04-01",
+          "dateEnd": "2025-06-30",
+          "dateClosedActual": null,
+          "notes": "Flujo de pedido simple funcionando en staging. Pendiente integración con catálogo dinámico."
+        },
+        {
+          "id": "ped-q2-02",
+          "title": "Kitchen Display System v1",
+          "description": "Pantalla de cocina con cola de pedidos en tiempo real, tiempos estimados y alertas de demora.",
+          "category": "cocina",
+          "priority": "alta",
+          "status": "in_progress",
+          "progress": 80,
+          "owner": "Equipo Hardware & SW",
+          "dateStart": "2025-04-01",
+          "dateEnd": "2025-05-31",
+          "dateClosedActual": null,
+          "notes": "Instalado en 2 locales piloto. Feedback positivo del equipo de cocina."
+        },
+        {
+          "id": "ped-q2-03",
+          "title": "Integración Pagos Online",
+          "description": "Checkout embebido en el flujo de pedido con soporte para Mercado Pago, tarjeta y QR.",
+          "category": "pagos",
+          "priority": "alta",
+          "status": "review",
+          "progress": 90,
+          "owner": "Equipo Fintech",
+          "dateStart": "2025-04-15",
+          "dateEnd": "2025-05-31",
+          "dateClosedActual": null,
+          "notes": "QR y tarjeta operativos. En revisión de seguridad previo a producción."
+        }
+      ]
+    },
+    {
+      "id": "Q3",
+      "label": "Q3 2025",
+      "status": "planned",
+      "dateStart": "2025-07-01",
+      "dateEnd": "2025-09-30",
+      "description": "Tótem de autogestión y tracking de pedido para el cliente.",
+      "tasks": [
+        {
+          "id": "ped-q3-01",
+          "title": "Tótem de Autogestión v2",
+          "description": "Nueva versión del tótem con UX rediseñada, soporte multi-idioma y pago integrado sin efectivo.",
+          "category": "canal",
+          "priority": "alta",
+          "status": "planned",
+          "progress": 0,
+          "owner": "Equipo Producto",
+          "dateStart": "2025-07-01",
+          "dateEnd": "2025-09-15",
+          "dateClosedActual": null,
+          "notes": "Diseño UX aprobado. Prototipo en hardware pendiente de fabricación."
+        },
+        {
+          "id": "ped-q3-02",
+          "title": "Tracking en Tiempo Real",
+          "description": "Estado del pedido visible para el cliente en tiempo real: recibido, en preparación, listo para retirar.",
+          "category": "logistica",
+          "priority": "media",
+          "status": "planned",
+          "progress": 0,
+          "owner": "Equipo Backend",
+          "dateStart": "2025-07-15",
+          "dateEnd": "2025-09-30",
+          "dateClosedActual": null,
+          "notes": "Requiere WebSocket server. Evaluando opciones de infra."
+        }
+      ]
+    },
+    {
+      "id": "Q4",
+      "label": "Q4 2025",
+      "status": "backlog",
+      "dateStart": "2025-10-01",
+      "dateEnd": "2025-12-31",
+      "description": "Delivery propio y analytics de operación.",
+      "tasks": [
+        {
+          "id": "ped-q4-01",
+          "title": "Módulo de Delivery Propio",
+          "description": "Gestión de repartidores propios con asignación automática, tracking GPS y liquidación.",
+          "category": "logistica",
+          "priority": "alta",
+          "status": "backlog",
+          "progress": 0,
+          "owner": "Equipo Logística",
+          "dateStart": "2025-10-01",
+          "dateEnd": "2025-12-15",
+          "dateClosedActual": null,
+          "notes": "Requisito de varios franquiciados. Evaluando providers de mapas."
+        },
+        {
+          "id": "ped-q4-02",
+          "title": "Analytics de Operación",
+          "description": "Dashboard de tiempos de preparación, picos de demanda, productos más pedidos y rendimiento por canal.",
+          "category": "analytics",
+          "priority": "media",
+          "status": "backlog",
+          "progress": 0,
+          "owner": "Equipo Data",
+          "dateStart": "2025-11-01",
+          "dateEnd": "2025-12-31",
+          "dateClosedActual": null,
+          "notes": "Dependencia con KDS v1 para datos de tiempos de cocina."
+        }
+      ]
+    }
+  ]
+}

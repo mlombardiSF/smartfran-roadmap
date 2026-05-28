@@ -1,0 +1,33 @@
+{
+  "organization": "SmartFran",
+  "lastUpdated": "2025-06-01",
+  "projects": [
+    {
+      "id": "smartfran",
+      "name": "SmartFran Cloud",
+      "color": "#6e59ee",
+      "description": "Motor transaccional, ecosistema de franquicias y expansión B2B.",
+      "owner": "Equipo Core",
+      "status": "active",
+      "indexFile": "smartfran/roadmap-index.json"
+    },
+    {
+      "id": "loyalty",
+      "name": "Smart Loyalty",
+      "color": "#2cced7",
+      "description": "Fidelización, campañas segmentadas y personalización de clientes.",
+      "owner": "Equipo CRM",
+      "status": "active",
+      "indexFile": "loyalty/roadmap-index.json"
+    },
+    {
+      "id": "pedidos",
+      "name": "Smart Pedidos",
+      "color": "#f0b034",
+      "description": "Gestión de pedidos integrada vía app, WhatsApp y tótem.",
+      "owner": "Equipo Retail",
+      "status": "active",
+      "indexFile": "pedidos/roadmap-index.json"
+    }
+  ]
+}

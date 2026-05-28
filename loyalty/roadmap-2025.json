@@ -1,0 +1,186 @@
+{
+  "meta": {
+    "project": "Smart Loyalty",
+    "version": "2025",
+    "description": "Roadmap de fidelización y campañas segmentadas",
+    "baseYear": 2025,
+    "image": "./assets/loyalty-logo.svg",
+    "lastUpdated": "2025-06-01"
+  },
+  "categories": [
+    {
+      "id": "core",
+      "label": "Core & Infra",
+      "color": "#534AB7"
+    },
+    {
+      "id": "crm",
+      "label": "CRM",
+      "color": "#185FA5"
+    },
+    {
+      "id": "campanas",
+      "label": "Campañas",
+      "color": "#0F6E56"
+    },
+    {
+      "id": "analytics",
+      "label": "Analytics",
+      "color": "#854F0B"
+    },
+    {
+      "id": "integracion",
+      "label": "Integración",
+      "color": "#993C1D"
+    },
+    {
+      "id": "mobile",
+      "label": "Mobile",
+      "color": "#D4537E"
+    }
+  ],
+  "quarters": [
+    {
+      "id": "Q2",
+      "label": "Q2 2025",
+      "status": "active",
+      "dateStart": "2025-04-01",
+      "dateEnd": "2025-06-30",
+      "description": "Refactoring del motor de puntos y primeras campañas automatizadas.",
+      "tasks": [
+        {
+          "id": "loy-q2-01",
+          "title": "Motor de Puntos v2",
+          "description": "Reescritura del motor de acumulación con soporte multi-esquema y reglas configurables por cliente.",
+          "category": "core",
+          "priority": "alta",
+          "status": "in_progress",
+          "progress": 70,
+          "owner": "Equipo CRM",
+          "dateStart": "2025-04-01",
+          "dateEnd": "2025-06-15",
+          "dateClosedActual": null,
+          "notes": "Esquema multi-cliente validado. En proceso de migración de datos legacy."
+        },
+        {
+          "id": "loy-q2-02",
+          "title": "Campañas Automáticas por Segmento",
+          "description": "Disparadores automáticos de campañas basados en comportamiento de compra y segmentación dinámica.",
+          "category": "campanas",
+          "priority": "alta",
+          "status": "in_progress",
+          "progress": 40,
+          "owner": "Equipo Marketing Tech",
+          "dateStart": "2025-04-15",
+          "dateEnd": "2025-06-30",
+          "dateClosedActual": null,
+          "notes": "Segmentos base definidos. Motor de disparadores en desarrollo."
+        },
+        {
+          "id": "loy-q2-03",
+          "title": "Dashboard de Métricas CRM",
+          "description": "Panel de control con KPIs de fidelización: retención, frecuencia, ticket promedio por segmento.",
+          "category": "analytics",
+          "priority": "media",
+          "status": "review",
+          "progress": 85,
+          "owner": "Equipo Analytics",
+          "dateStart": "2025-04-01",
+          "dateEnd": "2025-05-31",
+          "dateClosedActual": null,
+          "notes": "En revisión final con stakeholders. Pendiente ajuste de filtros de fecha."
+        }
+      ]
+    },
+    {
+      "id": "Q3",
+      "label": "Q3 2025",
+      "status": "planned",
+      "dateStart": "2025-07-01",
+      "dateEnd": "2025-09-30",
+      "description": "Integración con canales externos y personalización avanzada.",
+      "tasks": [
+        {
+          "id": "loy-q3-01",
+          "title": "Integración WhatsApp & Email",
+          "description": "Canal de comunicación bidireccional para campañas vía WhatsApp Business API y email transaccional.",
+          "category": "integracion",
+          "priority": "alta",
+          "status": "planned",
+          "progress": 0,
+          "owner": "Equipo Integraciones",
+          "dateStart": "2025-07-01",
+          "dateEnd": "2025-08-31",
+          "dateClosedActual": null,
+          "notes": "Proveedor WhatsApp Business seleccionado. Contrato en revisión legal."
+        },
+        {
+          "id": "loy-q3-02",
+          "title": "App Mobile — Módulo Loyalty",
+          "description": "Módulo de wallet de puntos, historial de canje y notificaciones push en la app del cliente.",
+          "category": "mobile",
+          "priority": "alta",
+          "status": "planned",
+          "progress": 0,
+          "owner": "Equipo Mobile",
+          "dateStart": "2025-07-15",
+          "dateEnd": "2025-09-30",
+          "dateClosedActual": null,
+          "notes": "Wireframes aprobados. Pendiente definición de API de puntos v2."
+        },
+        {
+          "id": "loy-q3-03",
+          "title": "Personalización de Ofertas con ML",
+          "description": "Motor de recomendación básico para ofertas personalizadas basado en historial de compra.",
+          "category": "analytics",
+          "priority": "media",
+          "status": "planned",
+          "progress": 0,
+          "owner": "Equipo Data",
+          "dateStart": "2025-08-01",
+          "dateEnd": "2025-09-30",
+          "dateClosedActual": null,
+          "notes": "Requiere dataset mínimo de 6 meses de historial por cliente."
+        }
+      ]
+    },
+    {
+      "id": "Q4",
+      "label": "Q4 2025",
+      "status": "backlog",
+      "dateStart": "2025-10-01",
+      "dateEnd": "2025-12-31",
+      "description": "Expansión del programa y gamificación.",
+      "tasks": [
+        {
+          "id": "loy-q4-01",
+          "title": "Gamificación — Niveles y Badges",
+          "description": "Sistema de niveles (Bronce, Plata, Oro, Platinum) con beneficios diferenciados y badges coleccionables.",
+          "category": "crm",
+          "priority": "media",
+          "status": "backlog",
+          "progress": 0,
+          "owner": "Equipo Producto",
+          "dateStart": "2025-10-01",
+          "dateEnd": "2025-11-30",
+          "dateClosedActual": null,
+          "notes": "Concepto validado con foco group. Diseño de mecánicas pendiente."
+        },
+        {
+          "id": "loy-q4-02",
+          "title": "Programa Multi-Marca",
+          "description": "Extensión del programa de puntos para franquicias con múltiples marcas bajo un mismo grupo.",
+          "category": "core",
+          "priority": "alta",
+          "status": "backlog",
+          "progress": 0,
+          "owner": "Equipo Core",
+          "dateStart": "2025-11-01",
+          "dateEnd": "2025-12-31",
+          "dateClosedActual": null,
+          "notes": "Dependencia con módulo de franquicias de SmartFran Cloud Q4."
+        }
+      ]
+    }
+  ]
+}

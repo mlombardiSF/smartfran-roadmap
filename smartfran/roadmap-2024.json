@@ -1,0 +1,244 @@
+{
+  "meta": {
+    "project": "SmartFran Cloud",
+    "version": "2024",
+    "description": "Roadmap de desarrollo del sistema SmartFran Cloud",
+    "baseYear": 2024,
+    "image": "./assets/smartfrancloud-logo.svg",
+    "lastUpdated": "2024-12-15"
+  },
+  "categories": [
+    {
+      "id": "core",
+      "label": "Core & Infra",
+      "color": "#534AB7"
+    },
+    {
+      "id": "comercial",
+      "label": "Comercial B2B",
+      "color": "#993556"
+    },
+    {
+      "id": "catalogo",
+      "label": "Catálogo",
+      "color": "#185FA5"
+    },
+    {
+      "id": "fintech",
+      "label": "Fintech",
+      "color": "#0F6E56"
+    },
+    {
+      "id": "expansion",
+      "label": "Expansión",
+      "color": "#3B6D11"
+    },
+    {
+      "id": "negocio",
+      "label": "Negocio",
+      "color": "#854F0B"
+    },
+    {
+      "id": "smartops",
+      "label": "Smart Ops & IA",
+      "color": "#993C1D"
+    },
+    {
+      "id": "franquicias",
+      "label": "Franquicias",
+      "color": "#D4537E"
+    },
+    {
+      "id": "fidelizacion",
+      "label": "Fidelización",
+      "color": "#7F77DD"
+    },
+    {
+      "id": "retailtech",
+      "label": "Retail Tech",
+      "color": "#5F5E5A"
+    }
+  ],
+  "quarters": [
+    {
+      "id": "Q1",
+      "label": "Q1 2024",
+      "status": "done",
+      "dateStart": "2024-01-01",
+      "dateEnd": "2024-03-31",
+      "description": "Fundaciones del sistema.",
+      "tasks": [
+        {
+          "id": "2024-q1-01",
+          "title": "Motor Transaccional v1",
+          "description": "Diseño e implementación del núcleo de procesamiento de ventas.",
+          "category": "core",
+          "priority": "alta",
+          "status": "done",
+          "progress": 100,
+          "owner": "Equipo Core",
+          "dateStart": "2024-01-01",
+          "dateEnd": "2024-03-15",
+          "dateClosedActual": "2024-03-12",
+          "notes": "Entregado 3 días antes de lo estimado."
+        },
+        {
+          "id": "2024-q1-02",
+          "title": "Infraestructura Cloud Base",
+          "description": "Setup de entornos cloud y CI/CD.",
+          "category": "core",
+          "priority": "alta",
+          "status": "done",
+          "progress": 100,
+          "owner": "Equipo Infra",
+          "dateStart": "2024-01-15",
+          "dateEnd": "2024-03-31",
+          "dateClosedActual": "2024-03-28",
+          "notes": "Reducción de costos en 18%."
+        }
+      ]
+    },
+    {
+      "id": "Q2",
+      "label": "Q2 2024",
+      "status": "done",
+      "dateStart": "2024-04-01",
+      "dateEnd": "2024-06-30",
+      "description": "MVP de catálogo y pagos.",
+      "tasks": [
+        {
+          "id": "2024-q2-01",
+          "title": "Catálogo de Productos MVP",
+          "description": "Gestión básica de productos y precios.",
+          "category": "catalogo",
+          "priority": "alta",
+          "status": "done",
+          "progress": 100,
+          "owner": "Equipo Catálogo",
+          "dateStart": "2024-04-01",
+          "dateEnd": "2024-06-15",
+          "dateClosedActual": "2024-06-20",
+          "notes": "Leve demora por scope."
+        },
+        {
+          "id": "2024-q2-02",
+          "title": "Integración Prisma / Pagos",
+          "description": "Primera integración con pasarela de pagos.",
+          "category": "fintech",
+          "priority": "alta",
+          "status": "done",
+          "progress": 100,
+          "owner": "Equipo Fintech",
+          "dateStart": "2024-04-15",
+          "dateEnd": "2024-06-30",
+          "dateClosedActual": "2024-06-30",
+          "notes": "Tasa de aprobación del 94%."
+        },
+        {
+          "id": "2024-q2-03",
+          "title": "Portal de Administración v1",
+          "description": "Backoffice para sucursales y usuarios.",
+          "category": "negocio",
+          "priority": "media",
+          "status": "done",
+          "progress": 100,
+          "owner": "Equipo Producto",
+          "dateStart": "2024-05-01",
+          "dateEnd": "2024-06-30",
+          "dateClosedActual": "2024-07-05",
+          "notes": "5 días de demora."
+        }
+      ]
+    },
+    {
+      "id": "Q3",
+      "label": "Q3 2024",
+      "status": "done",
+      "dateStart": "2024-07-01",
+      "dateEnd": "2024-09-30",
+      "description": "Consolidación y fidelización.",
+      "tasks": [
+        {
+          "id": "2024-q3-01",
+          "title": "Módulo de Reportería",
+          "description": "Dashboard con KPIs de ventas y stock.",
+          "category": "core",
+          "priority": "alta",
+          "status": "done",
+          "progress": 100,
+          "owner": "Equipo Core",
+          "dateStart": "2024-07-01",
+          "dateEnd": "2024-09-15",
+          "dateClosedActual": "2024-09-10",
+          "notes": "100% de adopción."
+        },
+        {
+          "id": "2024-q3-02",
+          "title": "Loyalty V1",
+          "description": "Sistema básico de puntos y canje.",
+          "category": "fidelizacion",
+          "priority": "media",
+          "status": "done",
+          "progress": 100,
+          "owner": "Equipo CRM",
+          "dateStart": "2024-07-15",
+          "dateEnd": "2024-09-30",
+          "dateClosedActual": "2024-09-30",
+          "notes": "+12% frecuencia de visita."
+        }
+      ]
+    },
+    {
+      "id": "Q4",
+      "label": "Q4 2024",
+      "status": "done",
+      "dateStart": "2024-10-01",
+      "dateEnd": "2024-12-31",
+      "description": "Escalabilidad y deuda técnica.",
+      "tasks": [
+        {
+          "id": "2024-q4-01",
+          "title": "Performance & Escalabilidad",
+          "description": "Optimización de queries y caché.",
+          "category": "core",
+          "priority": "alta",
+          "status": "done",
+          "progress": 100,
+          "owner": "Equipo Core",
+          "dateStart": "2024-10-01",
+          "dateEnd": "2024-11-30",
+          "dateClosedActual": "2024-11-28",
+          "notes": "420ms a 95ms."
+        },
+        {
+          "id": "2024-q4-02",
+          "title": "Módulo Franquicias v1",
+          "description": "Panel para franquiciantes.",
+          "category": "franquicias",
+          "priority": "alta",
+          "status": "done",
+          "progress": 100,
+          "owner": "Equipo Producto",
+          "dateStart": "2024-10-15",
+          "dateEnd": "2024-12-15",
+          "dateClosedActual": "2024-12-18",
+          "notes": "3 días de demora."
+        },
+        {
+          "id": "2024-q4-03",
+          "title": "Cierre Deuda Técnica",
+          "description": "Refactor y documentación.",
+          "category": "core",
+          "priority": "media",
+          "status": "done",
+          "progress": 100,
+          "owner": "Equipo Core",
+          "dateStart": "2024-11-01",
+          "dateEnd": "2024-12-31",
+          "dateClosedActual": "2024-12-31",
+          "notes": "Cobertura 41% a 78%."
+        }
+      ]
+    }
+  ]
+}
