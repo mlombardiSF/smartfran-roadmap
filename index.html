@@ -348,9 +348,51 @@ let _notes = {};      // in-memory cache
 let _activeTaskId = null;
 let _activeStaticNote = '';
 
+// In-memory notes cache keyed by projectId: { smartfran: {...}, loyalty: {...}, ... }
+const _notesCache = {};
+
 function loadNotes() {
-  try { _notes = JSON.parse(localStorage.getItem(notesKey()) || '{}'); }
+  // Load from localStorage into active project cache
+  const key = notesKey();
+  try { _notes = JSON.parse(localStorage.getItem(key) || '{}'); }
   catch { _notes = {}; }
+}
+
+function mergeNotes(local, remote) {
+  // Remote is source of truth — merge any local entries not yet in remote
+  const merged = Object.assign({}, remote);
+  Object.keys(local).forEach(taskId => {
+    if (!merged[taskId]) {
+      merged[taskId] = local[taskId];
+    } else {
+      // Merge by timestamp — avoid duplicates
+      const remoteTimes = new Set(merged[taskId].map(n => n.ts));
+      local[taskId].forEach(n => {
+        if (!remoteTimes.has(n.ts)) merged[taskId].push(n);
+      });
+      // Sort chronologically
+      merged[taskId].sort((a, b) => a.ts - b.ts);
+    }
+  });
+  return merged;
+}
+
+async function loadNotesFromGitHub(projectId) {
+  if (!GITHUB_CONFIG) return null;
+  try {
+    const { owner, repo, token } = GITHUB_CONFIG;
+    const path = projectId + '/notes.json';
+    const res = await fetch(
+      `https://api.github.com/repos/${owner}/${repo}/contents/${path}`,
+      { headers: { Authorization: `token ${token}` } }
+    );
+    if (!res.ok) return null;
+    const data = await res.json();
+    return JSON.parse(decodeURIComponent(escape(atob(data.content))));
+  } catch(e) {
+    console.warn(`GitHub notes load failed for ${projectId}:`, e);
+    return null;
+  }
 }
 
 function persistNotes() {
@@ -376,17 +418,14 @@ async function syncToGitHub() {
 }
 
 async function loadFromGitHub() {
-  if (!GITHUB_CONFIG) return;
-  try {
-    const { owner, repo, token } = GITHUB_CONFIG; const path = (CURRENT_PROJECT_ID || 'global') + '/notes.json';
-    const res = await fetch(
-      `https://api.github.com/repos/${owner}/${repo}/contents/${path}`,
-      { headers: { Authorization: `token ${token}` } }
-    );
-    const data = await res.json();
-    _notes = JSON.parse(decodeURIComponent(escape(atob(data.content))));
+  // Legacy single-project load — now handled by loadAllData
+  if (!CURRENT_PROJECT_ID) return;
+  const remote = await loadNotesFromGitHub(CURRENT_PROJECT_ID);
+  if (remote) {
+    const local = JSON.parse(localStorage.getItem(notesKey()) || '{}');
+    _notes = mergeNotes(local, remote);
     localStorage.setItem(notesKey(), JSON.stringify(_notes));
-  } catch(e) { console.warn('GitHub load failed, using localStorage', e); }
+  }
 }
 
 function fmtTs(ts) {
@@ -560,9 +599,6 @@ function closeNotesModal(e) {
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') document.getElementById('notes-modal-overlay').classList.remove('open');
 });
-
-loadNotes();
-if (GITHUB_CONFIG) loadFromGitHub();
 
 /* ── Dark mode (localStorage + class on <html>) ─────────────────── */
 const ROOT = document.documentElement;
@@ -1046,6 +1082,8 @@ let ALL_ROADMAPS   = {};
 
 async function loadAllData() {
   PROJECTS_INDEX = await fetch('projects-index.json').then(r => r.json());
+
+  // Load roadmap data for all projects in parallel
   await Promise.all(PROJECTS_INDEX.projects.map(async function(proj) {
     const base  = proj.indexFile.replace('/roadmap-index.json', '');
     const index = await fetch(proj.indexFile).then(r => r.json());
@@ -1058,6 +1096,17 @@ async function loadAllData() {
     );
     ALL_ROADMAPS[proj.id] = { index: index };
     versionData.forEach(function(vd) { ALL_ROADMAPS[proj.id][vd.file] = vd.data; });
+  }));
+
+  // Load and merge notes for all projects
+  // GitHub is source of truth — merges with any local-only notes
+  await Promise.all(PROJECTS_INDEX.projects.map(async function(proj) {
+    const localKey    = 'sf-notes-' + proj.id;
+    const local       = JSON.parse(localStorage.getItem(localKey) || '{}');
+    const remote      = await loadNotesFromGitHub(proj.id);
+    const merged      = remote ? mergeNotes(local, remote) : local;
+    // Write merged result back to localStorage
+    localStorage.setItem(localKey, JSON.stringify(merged));
   }));
 }
 
