@@ -312,36 +312,36 @@ body {
 
 <script>
 /* ─────────────────────────────────────────────────────────────────
-   SmartFran Roadmap — index.html
-   Estructura de archivos requerida (mismo directorio):
+  SmartFran Roadmap — index.html
+  Estructura de archivos requerida (mismo directorio):
 
-   index.html                  ← este archivo
-   projects-index.json         ← índice de proyectos
-   smartfran/
-     roadmap-index.json        ← versiones disponibles
-     roadmap-2025.json
-     roadmap-2024.json
-     notes.json                ← notas del equipo (auto-generado)
-   loyalty/
-     roadmap-index.json
-     roadmap-2025.json
-     notes.json
-   pedidos/
-     roadmap-index.json
-     roadmap-2025.json
-     notes.json
+  index.html                  ← este archivo
+  projects-index.json         ← índice de proyectos
+  smartfran/
+    roadmap-index.json        ← versiones disponibles
+    roadmap-2025.json
+    roadmap-2024.json
+    notes.json                ← notas del equipo (auto-generado)
+  loyalty/
+    roadmap-index.json
+    roadmap-2025.json
+    notes.json
+  pedidos/
+    roadmap-index.json
+    roadmap-2025.json
+    notes.json
 
-   Para GitHub sync de notas, configurar GITHUB_CONFIG en el script.
-   Para servir localmente: python3 -m http.server 8080
 ───────────────────────────────────────────────────────────────── */
 /* ── Notes engine ──────────────────────────────────────────────
-   Storage: localStorage (key: sf-notes)
-   Schema:  { [taskId]: [ { author, text, ts } ] }
-   GitHub integration: set GITHUB_CONFIG before deploying.
+  Storage: localStorage (key: sf-notes)
+  Schema:  { [taskId]: [ { author, text, ts } ] }
+  GitHub integration: set GITHUB_CONFIG before deploying.
 ─────────────────────────────────────────────────────────────── */
-const GITHUB_CONFIG = null;
-// To enable GitHub persistence, replace null with:
-// { owner: 'tu-usuario', repo: 'tu-repo', token: 'ghp_...' }  // path auto por proyecto
+const GITHUB_CONFIG = {
+  owner: '__REPO_OWNER__',
+  repo:  '__REPO_NAME__',
+  token: '__ROADMAP_TOKEN__'
+};
 
 function notesKey() { return 'sf-notes-' + (CURRENT_PROJECT_ID || 'global'); }
 let _notes = {};      // in-memory cache
