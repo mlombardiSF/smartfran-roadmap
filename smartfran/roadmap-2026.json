@@ -1,11 +1,11 @@
 {
   "meta": {
     "project": "SmartFran Cloud",
-    "version": "2025",
+    "version": "2026",
     "description": "Roadmap de desarrollo del sistema SmartFran Cloud",
-    "baseYear": 2025,
+    "baseYear": 2026,
     "image": "./assets/smartfrancloud-logo.svg",
-    "lastUpdated": "2025-06-01"
+    "lastUpdated": "2026-06-01"
   },
   "categories": [
     {
@@ -62,10 +62,10 @@
   "quarters": [
     {
       "id": "Q2",
-      "label": "Q2 2025",
+      "label": "Q2 2026",
       "status": "active",
-      "dateStart": "2025-04-01",
-      "dateEnd": "2025-06-30",
+      "dateStart": "2026-04-01",
+      "dateEnd": "2026-06-30",
       "description": "Ejecución en curso. Foco en estabilización del core transaccional, expansión comercial y pagos.",
       "tasks": [
         {
@@ -77,8 +77,8 @@
           "status": "in_progress",
           "progress": 65,
           "owner": "Equipo Core",
-          "dateStart": "2025-04-01",
-          "dateEnd": "2025-06-15",
+          "dateStart": "2026-04-01",
+          "dateEnd": "2026-06-15",
           "dateClosedActual": null,
           "notes": "Parser v3 liberado. Pendiente integración con módulo de alertas."
         },
@@ -91,8 +91,8 @@
           "status": "in_progress",
           "progress": 45,
           "owner": "Equipo Comercial",
-          "dateStart": "2025-04-15",
-          "dateEnd": "2025-06-30",
+          "dateStart": "2026-04-15",
+          "dateEnd": "2026-06-30",
           "dateClosedActual": null,
           "notes": "Segmentación de cliente lista. Cuenta Corriente en desarrollo."
         },
@@ -105,8 +105,8 @@
           "status": "in_progress",
           "progress": 30,
           "owner": "Equipo Catálogo",
-          "dateStart": "2025-05-01",
-          "dateEnd": "2025-06-30",
+          "dateStart": "2026-05-01",
+          "dateEnd": "2026-06-30",
           "dateClosedActual": null,
           "notes": "API de proveedores en diseño. Omnicanalidad pospuesta a Q3."
         },
@@ -119,8 +119,8 @@
           "status": "review",
           "progress": 80,
           "owner": "Equipo Fintech",
-          "dateStart": "2025-04-01",
-          "dateEnd": "2025-05-31",
+          "dateStart": "2026-04-01",
+          "dateEnd": "2026-05-31",
           "dateClosedActual": null,
           "notes": "QR y Point operativos en staging. Checkout en revisión final."
         }
@@ -128,10 +128,10 @@
     },
     {
       "id": "Q3",
-      "label": "Q3 2025",
+      "label": "Q3 2026",
       "status": "planned",
-      "dateStart": "2025-07-01",
-      "dateEnd": "2025-09-30",
+      "dateStart": "2026-07-01",
+      "dateEnd": "2026-09-30",
       "description": "Expansión internacional y desarrollo del módulo de facturación propio.",
       "tasks": [
         {
@@ -143,8 +143,8 @@
           "status": "planned",
           "progress": 0,
           "owner": "Equipo Expansión",
-          "dateStart": "2025-07-01",
-          "dateEnd": "2025-09-15",
+          "dateStart": "2026-07-01",
+          "dateEnd": "2026-09-15",
           "dateClosedActual": null,
           "notes": "Requiere validación legal en Chile. Contacto con proveedor fiscal USA en curso."
         },
@@ -157,8 +157,8 @@
           "status": "planned",
           "progress": 0,
           "owner": "Equipo Fintech",
-          "dateStart": "2025-07-15",
-          "dateEnd": "2025-09-30",
+          "dateStart": "2026-07-15",
+          "dateEnd": "2026-09-30",
           "dateClosedActual": null,
           "notes": "Sprint de investigación previo al kick-off."
         },
@@ -171,8 +171,8 @@
           "status": "planned",
           "progress": 0,
           "owner": "Producto & Negocio",
-          "dateStart": "2025-08-01",
-          "dateEnd": "2025-09-30",
+          "dateStart": "2026-08-01",
+          "dateEnd": "2026-09-30",
           "dateClosedActual": null,
           "notes": "Pendiente definición de nuevas estructuras tarifarias."
         }
@@ -180,10 +180,10 @@
     },
     {
       "id": "Q4",
-      "label": "Q4 2025",
+      "label": "Q4 2026",
       "status": "backlog",
-      "dateStart": "2025-10-01",
-      "dateEnd": "2025-12-31",
+      "dateStart": "2026-10-01",
+      "dateEnd": "2026-12-31",
       "description": "Visión de largo plazo: IA, franquicias, fidelización y optimización de tiendas físicas.",
       "tasks": [
         {
@@ -195,8 +195,8 @@
           "status": "backlog",
           "progress": 0,
           "owner": "Equipo IA",
-          "dateStart": "2025-10-01",
-          "dateEnd": "2025-12-31",
+          "dateStart": "2026-10-01",
+          "dateEnd": "2026-12-31",
           "dateClosedActual": null,
           "notes": "Exploración de modelos LLM para asistente de compras iniciada."
         },
@@ -209,8 +209,8 @@
           "status": "backlog",
           "progress": 0,
           "owner": "Equipo Mobile",
-          "dateStart": "2025-10-01",
-          "dateEnd": "2025-12-15",
+          "dateStart": "2026-10-01",
+          "dateEnd": "2026-12-15",
           "dateClosedActual": null,
           "notes": "Wireframes en revisión con stakeholders."
         },
@@ -223,8 +223,8 @@
           "status": "backlog",
           "progress": 0,
           "owner": "Equipo CRM",
-          "dateStart": "2025-10-15",
-          "dateEnd": "2025-12-31",
+          "dateStart": "2026-10-15",
+          "dateEnd": "2026-12-31",
           "dateClosedActual": null,
           "notes": "Dependencia con módulo de segmentación de cliente (Q2)."
         },
@@ -237,8 +237,8 @@
           "status": "backlog",
           "progress": 0,
           "owner": "Equipo Retail",
-          "dateStart": "2025-11-01",
-          "dateEnd": "2025-12-31",
+          "dateStart": "2026-11-01",
+          "dateEnd": "2026-12-31",
           "dateClosedActual": null,
           "notes": "Sujeto a disponibilidad de recursos en Q4."
         }
