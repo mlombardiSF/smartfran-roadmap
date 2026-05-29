@@ -1265,6 +1265,10 @@ function openProject(projectId) {
   const roadmap = getActiveRoadmap(projectId);
   const versions = ALL_ROADMAPS[projectId].index.versions;
 
+  // Load this project's notes into _notes before render
+  // (loadAllData already merged GitHub + localStorage, so this reads the merged result)
+  loadNotes();
+
   // Switch views
   document.getElementById('dashboard-view').classList.add('view-hidden');
   document.getElementById('project-view').classList.remove('view-hidden');
@@ -1293,6 +1297,7 @@ window.switchVersion = function(file) {
     const proj = PROJECTS_INDEX.projects.find(p => p.id === CURRENT_PROJECT_ID);
     const data = projData[file];
     if (data) {
+      loadNotes(); // refresh _notes for current project before re-render
       render(data, projData.index.versions, proj);
       app.classList.remove('fading');
     }
