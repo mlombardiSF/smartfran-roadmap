@@ -70,20 +70,34 @@
       "tasks": [
         {
           "id": "q2-01",
-          "title": "Estabilización de Venta y Observabilidad",
-          "description": "Consolidación del motor transaccional, expansión de parsers y monitoreo en Servicellus.",
+          "title": "Estabilización de Venta CodeGenerator & Secuenciadores",
+          "description": "Consolidación del motor transaccional, mejora del proceso del Codegenerator y secuenciadores.",
           "category": "core",
           "priority": "alta",
           "status": "in_progress",
-          "progress": 65,
-          "owner": "Equipo Core",
-          "dateStart": "2026-04-01",
-          "dateEnd": "2026-06-15",
+          "progress": 25,
+          "owner": "Equipo Cloud",
+          "dateStart": "2026-04-23",
+          "dateEnd": "2026-06-31",
           "dateClosedActual": null,
-          "notes": "Parser v3 liberado. Pendiente integración con módulo de alertas."
+          "notes": "El trabajo sobre el CodeGenerator comenzó a principios de mayo a raíz de bugs detectados en producción que afectaban la generación y sincronización de secuenciadores en distintos tenants (Weiss, Grido Perú)."
         },
         {
           "id": "q2-02",
+          "title": "Estabilización de Venta ServiceBus",
+          "description": "Mejoras en la arquitectura de mensajería para garantizar la consistencia y performance del proceso de venta, incluyendo optimizaciones en el ServiceBus y manejo de eventos asíncronos.",
+          "category": "core",
+          "priority": "alta",
+          "status": "in_progress",
+          "progress": 25,
+          "owner": "Equipo Cloud",
+          "dateStart": "2026-04-14",
+          "dateEnd": "2026-06-31",
+          "dateClosedActual": null,
+          "notes": "El origen del discovery fue un bug crítico: después de cada deploy, el módulo de facturación se bloqueaba por una desincronización de objetos de sesión/tokens entre el POS y el backend, impidiendo procesar ventas hasta cerrar y reabrir el turno. Otro desencadenador fue la inconsistencias en las ventas que derivan de la desincronización de los informes del sistema."
+        },
+        {
+          "id": "q2-03",
           "title": "Módulo de Venta Mayorista",
           "description": "Gestión de Cuenta Corriente y tunelización segmentada del cliente (Minorista vs. Mayorista).",
           "category": "comercial",
@@ -91,13 +105,13 @@
           "status": "in_progress",
           "progress": 45,
           "owner": "Equipo Comercial",
-          "dateStart": "2026-04-15",
-          "dateEnd": "2026-06-30",
+          "dateStart": "2026-04-16",
+          "dateEnd": "2026-06-31",
           "dateClosedActual": null,
-          "notes": "Segmentación de cliente lista. Cuenta Corriente en desarrollo."
+          "notes": "A partir del discovery inicial se relevaron las entidades core del negocio mayorista (clientes, locaciones, zonas, vendedores, freezers, cuentas corrientes) y se comenzó el desarrollo de los ABMs necesarios."
         },
         {
-          "id": "q2-03",
+          "id": "q2-04",
           "title": "Evolución de Catálogo (v2) y Stock",
           "description": "Control de opcionales, API de proveedores y omnicanalidad de stock desde el Cloud por plataforma.",
           "category": "catalogo",
@@ -105,13 +119,13 @@
           "status": "in_progress",
           "progress": 30,
           "owner": "Equipo Catálogo",
-          "dateStart": "2026-05-01",
-          "dateEnd": "2026-06-30",
+          "dateStart": "2026-04-16",
+          "dateEnd": "2026-05-31",
           "dateClosedActual": null,
-          "notes": "API de proveedores en diseño. Omnicanalidad pospuesta a Q3."
+          "notes": "Se diseñó e implementó un nuevo modelo de datos que reemplaza el campo plano PriceLists.Channel por entidades estructuradas (SaleChannel y SaleSubChannel), con relación N:N entre SubCanales y Listas de Precios. Esto permite segmentar la oferta comercial por canal (Minorista, Mayorista, Delivery) y subcanal (PedidosYa, Rappi, Store, Gastronómico, etc.)."
         },
         {
-          "id": "q2-04",
+          "id": "q2-05",
           "title": "Integración Mercado Pago & Terceros",
           "description": "Puntos de cobro físicos (Point), QR, checkout y flujos con plataformas externas.",
           "category": "fintech",
@@ -122,7 +136,7 @@
           "dateStart": "2026-04-01",
           "dateEnd": "2026-05-31",
           "dateClosedActual": null,
-          "notes": "QR y Point operativos en staging. Checkout en revisión final."
+          "notes": "Se implementó una arquitectura desacoplada (strategy pattern con contratos agnósticos IDigitalWallet*) para integrar billeteras digitales al ecosistema SmartFran, comenzando con Mercado Pago."
         }
       ]
     },
