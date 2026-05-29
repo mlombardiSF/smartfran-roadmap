@@ -1,462 +1,637 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>SmartFran — Roadmaps</title>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet"/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<script id="tailwind-config">
-tailwind.config = {
-  darkMode: "class",
-  theme: {
-    extend: {
-      colors: {
-        /* ── Light tokens (DS) ── */
-        "surface-container-lowest": "#ffffff",
-        "surface-container-low":    "#f8f1ff",
-        "surface-container":        "#f3eaff",
-        "surface-container-high":   "#ede4ff",
-        "surface-container-highest":"#e8ddff",
-        "surface":                  "#fdf7ff",
-        "surface-dim":              "#e0d4ff",
-        "surface-bright":           "#fdf7ff",
-        "surface-variant":          "#e8ddff",
-        "background":               "#fdf7ff",
-        "on-background":            "#1f1144",
-        "on-surface":               "#1f1144",
-        "on-surface-variant":       "#4f4255",
-        "outline":                  "#817287",
-        "outline-variant":          "#d3c0d8",
-        "primary":                  "#8a00cb",
-        "on-primary":               "#ffffff",
-        "primary-container":        "#ae00ff",
-        "on-primary-container":     "#fef1ff",
-        "primary-fixed":            "#f5d9ff",
-        "primary-fixed-dim":        "#e6b4ff",
-        "on-primary-fixed":         "#30004a",
-        "on-primary-fixed-variant": "#7000a6",
-        "inverse-primary":          "#e6b4ff",
-        "secondary":                "#63568c",
-        "on-secondary":             "#ffffff",
-        "secondary-container":      "#d0c0fe",
-        "on-secondary-container":   "#594c81",
-        "secondary-fixed":          "#e8ddff",
-        "secondary-fixed-dim":      "#cebefb",
-        "on-secondary-fixed":       "#1f1144",
-        "on-secondary-fixed-variant":"#4b3e73",
-        "tertiary":                 "#006267",
-        "on-tertiary":              "#ffffff",
-        "tertiary-container":       "#007d83",
-        "on-tertiary-container":    "#d8fdff",
-        "tertiary-fixed":           "#6bf6ff",
-        "tertiary-fixed-dim":       "#40dae3",
-        "on-tertiary-fixed":        "#002022",
-        "on-tertiary-fixed-variant":"#004f53",
-        "inverse-surface":          "#35285b",
-        "inverse-on-surface":       "#f5eeff",
-        "surface-tint":             "#9300d9",
-        "error":                    "#ba1a1a",
-        "on-error":                 "#ffffff",
-        "error-container":          "#ffdad6",
-        "on-error-container":       "#93000a",
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SmartFran — Roadmaps</title>
+  <!-- Favicon 	-->
+  <link rel="icon" type="image/png" href="/assets/images/favicon-32x32.png" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            /* ── Light tokens (DS) ── */
+            "surface-container-lowest": "#ffffff",
+            "surface-container-low": "#f8f1ff",
+            "surface-container": "#f3eaff",
+            "surface-container-high": "#ede4ff",
+            "surface-container-highest": "#e8ddff",
+            "surface": "#fdf7ff",
+            "surface-dim": "#e0d4ff",
+            "surface-bright": "#fdf7ff",
+            "surface-variant": "#e8ddff",
+            "background": "#fdf7ff",
+            "on-background": "#1f1144",
+            "on-surface": "#1f1144",
+            "on-surface-variant": "#4f4255",
+            "outline": "#817287",
+            "outline-variant": "#d3c0d8",
+            "primary": "#8a00cb",
+            "on-primary": "#ffffff",
+            "primary-container": "#ae00ff",
+            "on-primary-container": "#fef1ff",
+            "primary-fixed": "#f5d9ff",
+            "primary-fixed-dim": "#e6b4ff",
+            "on-primary-fixed": "#30004a",
+            "on-primary-fixed-variant": "#7000a6",
+            "inverse-primary": "#e6b4ff",
+            "secondary": "#63568c",
+            "on-secondary": "#ffffff",
+            "secondary-container": "#d0c0fe",
+            "on-secondary-container": "#594c81",
+            "secondary-fixed": "#e8ddff",
+            "secondary-fixed-dim": "#cebefb",
+            "on-secondary-fixed": "#1f1144",
+            "on-secondary-fixed-variant": "#4b3e73",
+            "tertiary": "#006267",
+            "on-tertiary": "#ffffff",
+            "tertiary-container": "#007d83",
+            "on-tertiary-container": "#d8fdff",
+            "tertiary-fixed": "#6bf6ff",
+            "tertiary-fixed-dim": "#40dae3",
+            "on-tertiary-fixed": "#002022",
+            "on-tertiary-fixed-variant": "#004f53",
+            "inverse-surface": "#35285b",
+            "inverse-on-surface": "#f5eeff",
+            "surface-tint": "#9300d9",
+            "error": "#ba1a1a",
+            "on-error": "#ffffff",
+            "error-container": "#ffdad6",
+            "on-error-container": "#93000a",
+          },
+          fontFamily: {
+            "headline": ["Plus Jakarta Sans"],
+            "body": ["Manrope"],
+            "label": ["Manrope"],
+          },
+          borderRadius: {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px",
+          },
+        },
       },
-      fontFamily: {
-        "headline": ["Plus Jakarta Sans"],
-        "body":     ["Manrope"],
-        "label":    ["Manrope"],
-      },
-      borderRadius: {
-        "DEFAULT": "1rem",
-        "lg":      "2rem",
-        "xl":      "3rem",
-        "full":    "9999px",
-      },
-    },
-  },
-}
-</script>
-<style>
-/* ── Dashboard styles ────────────────────────────────────────── */
-.project-card {
-  border-radius: 1.25rem;
-  overflow: hidden;
-  cursor: default;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-.project-card:hover { transform: translateY(-2px); }
+    }
+  </script>
+  <style>
+    /* ── Dashboard styles ────────────────────────────────────────── */
+    .project-card {
+      border-radius: 1.25rem;
+      overflow: hidden;
+      cursor: default;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
 
-.project-enter-btn {
-  width: 32px; height: 32px;
-  border-radius: 50%;
-  border: none;
-  cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
-  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
-  flex-shrink: 0;
-}
-.project-enter-btn:hover { transform: scale(1.12); }
+    .project-card:hover {
+      transform: translateY(-2px);
+    }
 
-.mini-gantt-bar {
-  height: 10px;
-  border-radius: 999px;
-  position: relative;
-  overflow: hidden;
-  flex: 1;
-}
-.mini-gantt-fill {
-  height: 100%;
-  border-radius: 999px;
-  transition: width 1s cubic-bezier(0.4,0,0.2,1);
-}
+    .project-enter-btn {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      flex-shrink: 0;
+    }
 
-/* View transitions */
-#dashboard-view, #project-view {
-  transition: opacity 0.25s ease;
-}
-.view-hidden { opacity: 0; pointer-events: none; display: none !important; }
-.view-fading { opacity: 0; pointer-events: none; }
+    .project-enter-btn:hover {
+      transform: scale(1.12);
+    }
 
-/* ── Tailwind can't express these ─────────────────────────────── */
+    .mini-gantt-bar {
+      height: 10px;
+      border-radius: 999px;
+      position: relative;
+      overflow: hidden;
+      flex: 1;
+    }
 
-/* ── LIGHT body glow ── */
-body {
-  background-image: radial-gradient(ellipse 80% 50% at 60% -10%, rgba(174,0,255,0.06) 0%, transparent 70%);
-  transition: background-color 0.35s ease, color 0.35s ease;
-}
-/* ── DARK body glow (deeper purple) ── */
-.dark body, body.dark {
-  background-image: radial-gradient(ellipse 80% 50% at 60% -10%, rgba(174,0,255,0.12) 0%, transparent 70%);
-}
+    .mini-gantt-fill {
+      height: 100%;
+      border-radius: 999px;
+      transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+    }
 
-/* ── Signature gradient (same both modes) ── */
-.grad-primary { background: linear-gradient(135deg, #8a00cb 0%, #ae00ff 100%); }
-.grad-text {
-  background: linear-gradient(135deg, #8a00cb 0%, #ae00ff 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
+    /* View transitions */
+    #dashboard-view,
+    #project-view {
+      transition: opacity 0.25s ease;
+    }
 
-/* ── Ghost borders ── */
-.ghost-border         { box-shadow: inset 0 0 0 1px rgba(211,192,216,0.45); }
-.ghost-border-primary { box-shadow: inset 0 0 0 1px rgba(138,0,203,0.20); }
-/* dark variants */
-.dark .ghost-border         { box-shadow: inset 0 0 0 1px rgba(230,180,255,0.15); }
-.dark .ghost-border-primary { box-shadow: inset 0 0 0 1px rgba(230,180,255,0.25); }
+    .view-hidden {
+      opacity: 0;
+      pointer-events: none;
+      display: none !important;
+    }
 
-/* ── Glassmorphism header ── */
-.glass {
-  background: rgba(253,247,255,0.82);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  transition: background 0.35s ease, box-shadow 0.35s ease;
-}
-.dark .glass {
-  background: rgba(28,10,55,0.82);
-}
+    .view-fading {
+      opacity: 0;
+      pointer-events: none;
+    }
 
-/* ── Ambient shadows ── */
-.shadow-ambient { box-shadow: 0 8px 40px -5px rgba(31,17,68,0.07); }
-.shadow-float   { box-shadow: 0 16px 40px -5px rgba(31,17,68,0.13); }
-.dark .shadow-ambient { box-shadow: 0 8px 40px -5px rgba(0,0,0,0.30); }
-.dark .shadow-float   { box-shadow: 0 16px 40px -5px rgba(0,0,0,0.45); }
+    /* ── Tailwind can't express these ─────────────────────────────── */
 
-/* ── Dark mode surface overrides ──
+    /* ── LIGHT body glow ── */
+    body {
+      background-image: radial-gradient(ellipse 80% 50% at 60% -10%, rgba(174, 0, 255, 0.06) 0%, transparent 70%);
+      transition: background-color 0.35s ease, color 0.35s ease;
+    }
+
+    /* ── DARK body glow (deeper purple) ── */
+    .dark body,
+    body.dark {
+      background-image: radial-gradient(ellipse 80% 50% at 60% -10%, rgba(174, 0, 255, 0.12) 0%, transparent 70%);
+    }
+
+    /* ── Signature gradient (same both modes) ── */
+    .grad-primary {
+      background: linear-gradient(135deg, #8a00cb 0%, #ae00ff 100%);
+    }
+
+    .grad-text {
+      background: linear-gradient(135deg, #8a00cb 0%, #ae00ff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* ── Ghost borders ── */
+    .ghost-border {
+      box-shadow: inset 0 0 0 1px rgba(211, 192, 216, 0.45);
+    }
+
+    .ghost-border-primary {
+      box-shadow: inset 0 0 0 1px rgba(138, 0, 203, 0.20);
+    }
+
+    /* dark variants */
+    .dark .ghost-border {
+      box-shadow: inset 0 0 0 1px rgba(230, 180, 255, 0.15);
+    }
+
+    .dark .ghost-border-primary {
+      box-shadow: inset 0 0 0 1px rgba(230, 180, 255, 0.25);
+    }
+
+    /* ── Glassmorphism header ── */
+    .glass {
+      background: rgba(253, 247, 255, 0.82);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      transition: background 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    .dark .glass {
+      background: rgba(28, 10, 55, 0.82);
+    }
+
+    /* ── Ambient shadows ── */
+    .shadow-ambient {
+      box-shadow: 0 8px 40px -5px rgba(31, 17, 68, 0.07);
+    }
+
+    .shadow-float {
+      box-shadow: 0 16px 40px -5px rgba(31, 17, 68, 0.13);
+    }
+
+    .dark .shadow-ambient {
+      box-shadow: 0 8px 40px -5px rgba(0, 0, 0, 0.30);
+    }
+
+    .dark .shadow-float {
+      box-shadow: 0 16px 40px -5px rgba(0, 0, 0, 0.45);
+    }
+
+    /* ── Dark mode surface overrides ──
    DS: inverse-surface #35285b as base.
    We derive a 4-step tonal scale from it. ── */
-.dark { color-scheme: dark; }
+    .dark {
+      color-scheme: dark;
+    }
 
-/* background → deep navy below inverse-surface */
-.dark .dk-bg            { background-color: #1c0a37 !important; }
-/* surface-container-lowest → inverse-surface */
-.dark .dk-lowest        { background-color: #35285b !important; }
-/* surface-container-low → one step lighter */
-.dark .dk-low           { background-color: #3d2f66 !important; }
-/* surface-container (mid) → two steps */
-.dark .dk-mid           { background-color: #473870 !important; }
-/* surface-container-high → three steps */
-.dark .dk-high          { background-color: #52437c !important; }
-/* surface-dim → subtle separator */
-.dark .dk-dim           { background-color: #2e2050 !important; }
+    /* background → deep navy below inverse-surface */
+    .dark .dk-bg {
+      background-color: #1c0a37 !important;
+    }
 
-/* text tokens in dark */
-.dark .dk-text-primary  { color: #f5eeff !important; }   /* inverse-on-surface */
-.dark .dk-text-muted    { color: #cebefb !important; }   /* secondary-fixed-dim */
-.dark .dk-text-tertiary { color: #40dae3 !important; }   /* tertiary-fixed-dim */
+    /* surface-container-lowest → inverse-surface */
+    .dark .dk-lowest {
+      background-color: #35285b !important;
+    }
 
-/* ── Accordion ── */
-.q-body {
-  display: grid;
-  grid-template-rows: 0fr;
-  transition: grid-template-rows 0.4s cubic-bezier(0.4,0,0.2,1);
-}
-.q-card.open .q-body { grid-template-rows: 1fr; }
-.q-body-inner { overflow: hidden; }
+    /* surface-container-low → one step lighter */
+    .dark .dk-low {
+      background-color: #3d2f66 !important;
+    }
 
-/* ── Chevron ── */
-.q-chevron-icon { transition: transform 0.35s cubic-bezier(0.4,0,0.2,1), stroke 0.25s; }
-.q-card.open .q-chevron-icon  { transform: rotate(180deg); stroke: #ae00ff !important; }
-.q-card.open .q-chevron-wrap  { background: rgba(174,0,255,0.12) !important; }
+    /* surface-container (mid) → two steps */
+    .dark .dk-mid {
+      background-color: #473870 !important;
+    }
 
-/* ── Task slide-in ── */
-@keyframes taskSlideIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-.task-anim { animation: taskSlideIn 0.35s cubic-bezier(0.4,0,0.2,1) both; }
+    /* surface-container-high → three steps */
+    .dark .dk-high {
+      background-color: #52437c !important;
+    }
 
-/* ── Progress transitions ── */
-.bar-transition      { transition: width 1.2s cubic-bezier(0.4,0,0.2,1); }
-.bar-transition-fast { transition: width 1s cubic-bezier(0.4,0,0.2,1); }
+    /* surface-dim → subtle separator */
+    .dark .dk-dim {
+      background-color: #2e2050 !important;
+    }
 
-/* ── Version select reset ── */
-.version-select { appearance: none; }
+    /* text tokens in dark */
+    .dark .dk-text-primary {
+      color: #f5eeff !important;
+    }
 
-/* ── App fade ── */
-#app { transition: opacity 0.2s ease; }
-#app.fading { opacity: 0; pointer-events: none; }
+    /* inverse-on-surface */
+    .dark .dk-text-muted {
+      color: #cebefb !important;
+    }
 
-/* ── Theme toggle button ── */
-.theme-btn {
-  width: 36px; height: 36px;
-  border-radius: 9999px;
-  border: none;
-  cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
-  transition: background 0.25s, box-shadow 0.25s, transform 0.15s;
-  flex-shrink: 0;
-}
-.theme-btn:hover { transform: scale(1.08); }
+    /* secondary-fixed-dim */
+    .dark .dk-text-tertiary {
+      color: #40dae3 !important;
+    }
 
-/* ── Notes left accent ── */
-.notes-block { box-shadow: inset 3px 0 0 0 #8a00cb; }
+    /* tertiary-fixed-dim */
 
-/* ── Notes modal ── */
-#notes-modal-overlay {
-  position: fixed; inset: 0; z-index: 200;
-  background: rgba(15,0,53,0.55);
-  backdrop-filter: blur(6px);
-  display: flex; align-items: center; justify-content: center;
-  opacity: 0; pointer-events: none;
-  transition: opacity 0.25s ease;
-}
-#notes-modal-overlay.open { opacity: 1; pointer-events: all; }
-#notes-modal {
-  width: 480px; max-width: calc(100vw - 2rem);
-  border-radius: 1.5rem;
-  padding: 2rem;
-  transform: translateY(12px) scale(0.98);
-  transition: transform 0.25s cubic-bezier(0.4,0,0.2,1);
-}
-#notes-modal-overlay.open #notes-modal { transform: translateY(0) scale(1); }
-#notes-modal textarea, #notes-modal input[type=text] {
-  width: 100%; border: none; outline: none; resize: none;
-  font-family: 'Manrope', sans-serif; font-size: 0.85rem;
-  border-radius: 0.75rem; padding: 0.75rem 1rem;
-  transition: box-shadow 0.2s;
-}
-#notes-modal textarea:focus, #notes-modal input[type=text]:focus {
-  box-shadow: inset 0 0 0 2px #8a00cb;
-}
-.note-entry {
-  border-radius: 0.75rem;
-  padding: 0.65rem 0.9rem;
-  margin-bottom: 0.5rem;
-  font-size: 0.75rem;
-  line-height: 1.5;
-}
-.note-add-btn {
-  width: 28px; height: 28px; border-radius: 50%; border: none;
-  cursor: pointer; display: flex; align-items: center; justify-content: center;
-  transition: background 0.2s, transform 0.15s; flex-shrink: 0;
-}
-.note-add-btn:hover { transform: scale(1.1); }
-</style>
+    /* ── Accordion ── */
+    .q-body {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .q-card.open .q-body {
+      grid-template-rows: 1fr;
+    }
+
+    .q-body-inner {
+      overflow: hidden;
+    }
+
+    /* ── Chevron ── */
+    .q-chevron-icon {
+      transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.25s;
+    }
+
+    .q-card.open .q-chevron-icon {
+      transform: rotate(180deg);
+      stroke: #ae00ff !important;
+    }
+
+    .q-card.open .q-chevron-wrap {
+      background: rgba(174, 0, 255, 0.12) !important;
+    }
+
+    /* ── Task slide-in ── */
+    @keyframes taskSlideIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .task-anim {
+      animation: taskSlideIn 0.35s cubic-bezier(0.4, 0, 0.2, 1) both;
+    }
+
+    /* ── Progress transitions ── */
+    .bar-transition {
+      transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .bar-transition-fast {
+      transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* ── Version select reset ── */
+    .version-select {
+      appearance: none;
+    }
+
+    /* ── App fade ── */
+    #app {
+      transition: opacity 0.2s ease;
+    }
+
+    #app.fading {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    /* ── Theme toggle button ── */
+    .theme-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 9999px;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.25s, box-shadow 0.25s, transform 0.15s;
+      flex-shrink: 0;
+    }
+
+    .theme-btn:hover {
+      transform: scale(1.08);
+    }
+
+    /* ── Notes left accent ── */
+    .notes-block {
+      box-shadow: inset 3px 0 0 0 #8a00cb;
+    }
+
+    /* ── Notes modal ── */
+    #notes-modal-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background: rgba(15, 0, 53, 0.55);
+      backdrop-filter: blur(6px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+
+    #notes-modal-overlay.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    #notes-modal {
+      width: 480px;
+      max-width: calc(100vw - 2rem);
+      border-radius: 1.5rem;
+      padding: 2rem;
+      transform: translateY(12px) scale(0.98);
+      transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    #notes-modal-overlay.open #notes-modal {
+      transform: translateY(0) scale(1);
+    }
+
+    #notes-modal textarea,
+    #notes-modal input[type=text] {
+      width: 100%;
+      border: none;
+      outline: none;
+      resize: none;
+      font-family: 'Manrope', sans-serif;
+      font-size: 0.85rem;
+      border-radius: 0.75rem;
+      padding: 0.75rem 1rem;
+      transition: box-shadow 0.2s;
+    }
+
+    #notes-modal textarea:focus,
+    #notes-modal input[type=text]:focus {
+      box-shadow: inset 0 0 0 2px #8a00cb;
+    }
+
+    .note-entry {
+      border-radius: 0.75rem;
+      padding: 0.65rem 0.9rem;
+      margin-bottom: 0.5rem;
+      font-size: 0.75rem;
+      line-height: 1.5;
+    }
+
+    .note-add-btn {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s, transform 0.15s;
+      flex-shrink: 0;
+    }
+
+    .note-add-btn:hover {
+      transform: scale(1.1);
+    }
+  </style>
 </head>
+
 <body class="bg-background text-on-surface font-body min-h-screen overflow-x-hidden transition-colors duration-300">
 
-<!-- ── Notes modal ── -->
-<div id="notes-modal-overlay" onclick="closeNotesModal(event)">
-  <div id="notes-modal" onclick="event.stopPropagation()">
-    <div class="flex items-start justify-between mb-4">
-      <div>
-        <h2 class="font-headline font-bold text-base" id="modal-task-title">Comentarios</h2>
-        <p class="font-body text-[11px] mt-0.5" id="modal-task-sub"></p>
+  <!-- ── Notes modal ── -->
+  <div id="notes-modal-overlay" onclick="closeNotesModal(event)">
+    <div id="notes-modal" onclick="event.stopPropagation()">
+      <div class="flex items-start justify-between mb-4">
+        <div>
+          <h2 class="font-headline font-bold text-base" id="modal-task-title">Comentarios</h2>
+          <p class="font-body text-[11px] mt-0.5" id="modal-task-sub"></p>
+        </div>
+        <button onclick="closeNotesModal()" class="note-add-btn" id="modal-close-btn" aria-label="Cerrar">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round">
+            <path d="M18 6 6 18M6 6l12 12" />
+          </svg>
+        </button>
       </div>
-      <button onclick="closeNotesModal()" class="note-add-btn" id="modal-close-btn" aria-label="Cerrar">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
-      </button>
-    </div>
-    <div id="modal-notes-list" class="mb-4 max-h-52 overflow-y-auto flex flex-col gap-2"></div>
-    <div id="modal-form" class="flex flex-col gap-3">
-      <input type="text" id="modal-author" placeholder="Tu nombre…" maxlength="40"/>
-      <textarea id="modal-text" rows="3" placeholder="Escribí tu observación…" maxlength="500"></textarea>
-      <div class="flex gap-2 justify-end">
-        <button onclick="closeNotesModal()" class="font-body text-[12px] font-semibold px-4 py-2 rounded-full border-none cursor-pointer transition-colors duration-200" id="modal-cancel-btn">Cancelar</button>
-        <button onclick="saveNote()" class="font-body text-[12px] font-bold px-5 py-2 rounded-full border-none cursor-pointer text-white transition-all duration-200 hover:brightness-110 active:scale-95" style="background:linear-gradient(135deg,#8a00cb,#ae00ff)">Registrar nota</button>
+      <div id="modal-notes-list" class="mb-4 max-h-52 overflow-y-auto flex flex-col gap-2"></div>
+      <div id="modal-form" class="flex flex-col gap-3">
+        <input type="text" id="modal-author" placeholder="Tu nombre…" maxlength="40" />
+        <textarea id="modal-text" rows="3" placeholder="Escribí tu observación…" maxlength="500"></textarea>
+        <div class="flex gap-2 justify-end">
+          <button onclick="closeNotesModal()"
+            class="font-body text-[12px] font-semibold px-4 py-2 rounded-full border-none cursor-pointer transition-colors duration-200"
+            id="modal-cancel-btn">Cancelar</button>
+          <button onclick="saveNote()"
+            class="font-body text-[12px] font-bold px-5 py-2 rounded-full border-none cursor-pointer text-white transition-all duration-200 hover:brightness-110 active:scale-95"
+            style="background:linear-gradient(135deg,#8a00cb,#ae00ff)">Registrar nota</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<!-- ── Dashboard view ── -->
-<div id="dashboard-view"></div>
+  <!-- ── Dashboard view ── -->
+  <div id="dashboard-view"></div>
 
-<!-- ── Project view ── -->
-<div id="project-view" class="view-hidden">
-  <div id="loading-project" class="flex items-center justify-center h-[60vh] gap-3 font-headline text-base font-semibold text-on-surface-variant" style="display:none!important">
-    <div class="spinner"></div>Cargando roadmap…
+  <!-- ── Project view ── -->
+  <div id="project-view" class="view-hidden">
+    <div id="loading-project"
+      class="flex items-center justify-center h-[60vh] gap-3 font-headline text-base font-semibold text-on-surface-variant"
+      style="display:none!important">
+      <div class="spinner"></div>Cargando roadmap…
+    </div>
+    <div id="app"></div>
   </div>
-  <div id="app"></div>
-</div>
 
-<script>
-/* ─────────────────────────────────────────────────────────────────
-  SmartFran Roadmap — index.html
-  Estructura de archivos requerida (mismo directorio):
+  <script>
+    /* ─────────────────────────────────────────────────────────────────
+      SmartFran Roadmap — index.html
+      Estructura de archivos requerida (mismo directorio):
+    
+      index.html                  ← este archivo
+      projects-index.json         ← índice de proyectos
+      smartfran/
+        roadmap-index.json        ← versiones disponibles
+        roadmap-2025.json
+        roadmap-2024.json
+        notes.json                ← notas del equipo (auto-generado)
+      loyalty/
+        roadmap-index.json
+        roadmap-2025.json
+        notes.json
+      pedidos/
+        roadmap-index.json
+        roadmap-2025.json
+        notes.json
+    
+    ───────────────────────────────────────────────────────────────── */
+    /* ── Notes engine ──────────────────────────────────────────────
+      Storage: localStorage (key: sf-notes)
+      Schema:  { [taskId]: [ { author, text, ts } ] }
+      GitHub integration: set GITHUB_CONFIG before deploying.
+    ─────────────────────────────────────────────────────────────── */
+    const GITHUB_CONFIG = {
+      owner: '__REPO_OWNER__',
+      repo: '__REPO_NAME__',
+      token: '__ROADMAP_TOKEN__'
+    };
 
-  index.html                  ← este archivo
-  projects-index.json         ← índice de proyectos
-  smartfran/
-    roadmap-index.json        ← versiones disponibles
-    roadmap-2025.json
-    roadmap-2024.json
-    notes.json                ← notas del equipo (auto-generado)
-  loyalty/
-    roadmap-index.json
-    roadmap-2025.json
-    notes.json
-  pedidos/
-    roadmap-index.json
-    roadmap-2025.json
-    notes.json
+    function notesKey() { return 'sf-notes-' + (CURRENT_PROJECT_ID || 'global'); }
+    let _notes = {};      // in-memory cache
+    let _activeTaskId = null;
+    let _activeStaticNote = '';
 
-───────────────────────────────────────────────────────────────── */
-/* ── Notes engine ──────────────────────────────────────────────
-  Storage: localStorage (key: sf-notes)
-  Schema:  { [taskId]: [ { author, text, ts } ] }
-  GitHub integration: set GITHUB_CONFIG before deploying.
-─────────────────────────────────────────────────────────────── */
-const GITHUB_CONFIG = {
-  owner: '__REPO_OWNER__',
-  repo:  '__REPO_NAME__',
-  token: '__ROADMAP_TOKEN__'
-};
+    // In-memory notes cache keyed by projectId: { smartfran: {...}, loyalty: {...}, ... }
+    const _notesCache = {};
 
-function notesKey() { return 'sf-notes-' + (CURRENT_PROJECT_ID || 'global'); }
-let _notes = {};      // in-memory cache
-let _activeTaskId = null;
-let _activeStaticNote = '';
-
-// In-memory notes cache keyed by projectId: { smartfran: {...}, loyalty: {...}, ... }
-const _notesCache = {};
-
-function loadNotes() {
-  // Load from localStorage into active project cache
-  const key = notesKey();
-  try { _notes = JSON.parse(localStorage.getItem(key) || '{}'); }
-  catch { _notes = {}; }
-}
-
-function mergeNotes(local, remote) {
-  // Remote is source of truth — merge any local entries not yet in remote
-  const merged = Object.assign({}, remote);
-  Object.keys(local).forEach(taskId => {
-    if (!merged[taskId]) {
-      merged[taskId] = local[taskId];
-    } else {
-      // Merge by timestamp — avoid duplicates
-      const remoteTimes = new Set(merged[taskId].map(n => n.ts));
-      local[taskId].forEach(n => {
-        if (!remoteTimes.has(n.ts)) merged[taskId].push(n);
-      });
-      // Sort chronologically
-      merged[taskId].sort((a, b) => a.ts - b.ts);
+    function loadNotes() {
+      // Load from localStorage into active project cache
+      const key = notesKey();
+      try { _notes = JSON.parse(localStorage.getItem(key) || '{}'); }
+      catch { _notes = {}; }
     }
-  });
-  return merged;
-}
 
-async function loadNotesFromGitHub(projectId) {
-  if (!GITHUB_CONFIG) return null;
-  try {
-    const { owner, repo, token } = GITHUB_CONFIG;
-    const path = projectId + '/notes.json';
-    const res = await fetch(
-      `https://api.github.com/repos/${owner}/${repo}/contents/${path}`,
-      { headers: { Authorization: `token ${token}` } }
-    );
-    if (!res.ok) return null;
-    const data = await res.json();
-    return JSON.parse(decodeURIComponent(escape(atob(data.content))));
-  } catch(e) {
-    console.warn(`GitHub notes load failed for ${projectId}:`, e);
-    return null;
-  }
-}
+    function mergeNotes(local, remote) {
+      // Remote is source of truth — merge any local entries not yet in remote
+      const merged = Object.assign({}, remote);
+      Object.keys(local).forEach(taskId => {
+        if (!merged[taskId]) {
+          merged[taskId] = local[taskId];
+        } else {
+          // Merge by timestamp — avoid duplicates
+          const remoteTimes = new Set(merged[taskId].map(n => n.ts));
+          local[taskId].forEach(n => {
+            if (!remoteTimes.has(n.ts)) merged[taskId].push(n);
+          });
+          // Sort chronologically
+          merged[taskId].sort((a, b) => a.ts - b.ts);
+        }
+      });
+      return merged;
+    }
 
-function persistNotes() {
-  localStorage.setItem(notesKey(), JSON.stringify(_notes));
-  // GitHub sync (fire-and-forget when configured)
-  if (GITHUB_CONFIG) syncToGitHub();
-}
+    async function loadNotesFromGitHub(projectId) {
+      if (!GITHUB_CONFIG) return null;
+      try {
+        const { owner, repo, token } = GITHUB_CONFIG;
+        const path = projectId + '/notes.json';
+        const res = await fetch(
+          `https://api.github.com/repos/${owner}/${repo}/contents/${path}`,
+          { headers: { Authorization: `token ${token}` } }
+        );
+        if (!res.ok) return null;
+        const data = await res.json();
+        return JSON.parse(decodeURIComponent(escape(atob(data.content))));
+      } catch (e) {
+        console.warn(`GitHub notes load failed for ${projectId}:`, e);
+        return null;
+      }
+    }
 
-async function syncToGitHub() {
-  try {
-    const { owner, repo, token } = GITHUB_CONFIG; const path = (CURRENT_PROJECT_ID || 'global') + '/notes.json';
-    const base = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
-    const headers = { Authorization: `token ${token}`, 'Content-Type': 'application/json' };
-    // Get current SHA
-    const meta = await fetch(base, { headers }).then(r => r.json());
-    const sha = meta.sha;
-    const content = btoa(unescape(encodeURIComponent(JSON.stringify(_notes, null, 2))));
-    await fetch(base, {
-      method: 'PUT', headers,
-      body: JSON.stringify({ message: 'update notes', content, sha })
-    });
-  } catch(e) { console.warn('GitHub sync failed', e); }
-}
+    function persistNotes() {
+      localStorage.setItem(notesKey(), JSON.stringify(_notes));
+      // GitHub sync (fire-and-forget when configured)
+      if (GITHUB_CONFIG) syncToGitHub();
+    }
 
-async function loadFromGitHub() {
-  // Legacy single-project load — now handled by loadAllData
-  if (!CURRENT_PROJECT_ID) return;
-  const remote = await loadNotesFromGitHub(CURRENT_PROJECT_ID);
-  if (remote) {
-    const local = JSON.parse(localStorage.getItem(notesKey()) || '{}');
-    _notes = mergeNotes(local, remote);
-    localStorage.setItem(notesKey(), JSON.stringify(_notes));
-  }
-}
+    async function syncToGitHub() {
+      try {
+        const { owner, repo, token } = GITHUB_CONFIG; const path = (CURRENT_PROJECT_ID || 'global') + '/notes.json';
+        const base = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
+        const headers = { Authorization: `token ${token}`, 'Content-Type': 'application/json' };
+        // Get current SHA
+        const meta = await fetch(base, { headers }).then(r => r.json());
+        const sha = meta.sha;
+        const content = btoa(unescape(encodeURIComponent(JSON.stringify(_notes, null, 2))));
+        await fetch(base, {
+          method: 'PUT', headers,
+          body: JSON.stringify({ message: 'update notes', content, sha })
+        });
+      } catch (e) { console.warn('GitHub sync failed', e); }
+    }
 
-function fmtTs(ts) {
-  return new Date(ts).toLocaleString('es-AR', {
-    day:'2-digit', month:'2-digit', year:'numeric',
-    hour:'2-digit', minute:'2-digit'
-  });
-}
+    async function loadFromGitHub() {
+      // Legacy single-project load — now handled by loadAllData
+      if (!CURRENT_PROJECT_ID) return;
+      const remote = await loadNotesFromGitHub(CURRENT_PROJECT_ID);
+      if (remote) {
+        const local = JSON.parse(localStorage.getItem(notesKey()) || '{}');
+        _notes = mergeNotes(local, remote);
+        localStorage.setItem(notesKey(), JSON.stringify(_notes));
+      }
+    }
 
-function avatarColor(name) {
-  // Deterministic color from name — cycles through category palette
-  const palette = ['#534AB7','#993556','#185FA5','#0F6E56','#3B6D11','#854F0B','#993C1D','#D4537E'];
-  let hash = 0;
-  for (let i = 0; i < name.length; i++) hash = name.charCodeAt(i) + ((hash << 5) - hash);
-  return palette[Math.abs(hash) % palette.length];
-}
+    function fmtTs(ts) {
+      return new Date(ts).toLocaleString('es-AR', {
+        day: '2-digit', month: '2-digit', year: 'numeric',
+        hour: '2-digit', minute: '2-digit'
+      });
+    }
 
-function initials(name) {
-  const parts = name.trim().split(/\s+/);
-  return (parts[0][0] + (parts[1] ? parts[1][0] : '')).toUpperCase();
-}
+    function avatarColor(name) {
+      // Deterministic color from name — cycles through category palette
+      const palette = ['#534AB7', '#993556', '#185FA5', '#0F6E56', '#3B6D11', '#854F0B', '#993C1D', '#D4537E'];
+      let hash = 0;
+      for (let i = 0; i < name.length; i++) hash = name.charCodeAt(i) + ((hash << 5) - hash);
+      return palette[Math.abs(hash) % palette.length];
+    }
 
-function renderComment(author, text, ts, dark, isSystem) {
-  const textPri = dark ? '#f5eeff' : '#1f1144';
-  const textMut = dark ? '#cebefb' : '#817287';
-  const bgHover = dark ? 'rgba(255,255,255,0.03)' : 'rgba(138,0,203,0.03)';
-  const avatarBg = isSystem ? '#473870' : avatarColor(author);
-  const avatarTxt = isSystem ? '★' : initials(author);
-  const timeStr = ts ? fmtTs(ts) : '';
+    function initials(name) {
+      const parts = name.trim().split(/\s+/);
+      return (parts[0][0] + (parts[1] ? parts[1][0] : '')).toUpperCase();
+    }
 
-  return `
+    function renderComment(author, text, ts, dark, isSystem) {
+      const textPri = dark ? '#f5eeff' : '#1f1144';
+      const textMut = dark ? '#cebefb' : '#817287';
+      const bgHover = dark ? 'rgba(255,255,255,0.03)' : 'rgba(138,0,203,0.03)';
+      const avatarBg = isSystem ? '#473870' : avatarColor(author);
+      const avatarTxt = isSystem ? '★' : initials(author);
+      const timeStr = ts ? fmtTs(ts) : '';
+
+      return `
     <div class="flex gap-3 py-2.5 px-1 rounded-xl transition-colors duration-150" style="cursor:default"
          onmouseenter="this.style.background='${bgHover}'" onmouseleave="this.style.background='transparent'">
       <div class="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center font-label text-[11px] font-extrabold text-white"
@@ -469,277 +644,277 @@ function renderComment(author, text, ts, dark, isSystem) {
         <p class="font-body text-[12px] leading-relaxed mt-0.5 m-0" style="color:${dark ? '#e2d9f3' : '#2d1f4e'}">${text}</p>
       </div>
     </div>`;
-}
+    }
 
-function renderTaskNotes(taskId, staticNote, dark) {
-  const dynamic = _notes[taskId] || [];
-  if (!staticNote && !dynamic.length) return '';
+    function renderTaskNotes(taskId, staticNote, dark) {
+      const dynamic = _notes[taskId] || [];
+      if (!staticNote && !dynamic.length) return '';
 
-  const divider = dark ? 'rgba(230,180,255,0.08)' : 'rgba(138,0,203,0.07)';
-  const wrapBg  = dark ? '#2e2050' : '#f8f1ff';
+      const divider = dark ? 'rgba(230,180,255,0.08)' : 'rgba(138,0,203,0.07)';
+      const wrapBg = dark ? '#2e2050' : '#f8f1ff';
 
-  const staticHtml = staticNote
-    ? renderComment('Sistema', staticNote, null, dark, true)
-    : '';
+      const staticHtml = staticNote
+        ? renderComment('Sistema', staticNote, null, dark, true)
+        : '';
 
-  const dynamicHtml = dynamic
-    .map(n => renderComment(n.author, n.text, n.ts, dark, false))
-    .join(`<div style="height:1px;background:${divider};margin:0 0.25rem"></div>`);
+      const dynamicHtml = dynamic
+        .map(n => renderComment(n.author, n.text, n.ts, dark, false))
+        .join(`<div style="height:1px;background:${divider};margin:0 0.25rem"></div>`);
 
-  const sep = staticNote && dynamic.length
-    ? `<div style="height:1px;background:${divider};margin:0 0.25rem"></div>`
-    : '';
+      const sep = staticNote && dynamic.length
+        ? `<div style="height:1px;background:${divider};margin:0 0.25rem"></div>`
+        : '';
 
-  return `
+      return `
     <div id="task-notes-${taskId}" class="mt-3 overflow-hidden" style="background:${wrapBg};border-radius:0.5rem;margin-left:-0.1rem;margin-right:-0.1rem">
       <div class="px-1 py-0.5">
         ${staticHtml}${sep}${dynamicHtml}
       </div>
     </div>`;
-}
+    }
 
-function openNotesModal(taskId, taskTitle, taskSub, staticNote) {
-  loadNotes();
-  _activeTaskId = taskId;
-  _activeStaticNote = staticNote || '';
-  const dark = isDark();
+    function openNotesModal(taskId, taskTitle, taskSub, staticNote) {
+      loadNotes();
+      _activeTaskId = taskId;
+      _activeStaticNote = staticNote || '';
+      const dark = isDark();
 
-  // Modal surfaces
-  const modal = document.getElementById('notes-modal');
-  const overlay = document.getElementById('notes-modal-overlay');
-  modal.style.background   = dark ? '#3d2f66' : '#ffffff';
-  modal.style.boxShadow    = dark
-    ? '0 24px 60px rgba(0,0,0,0.5)'
-    : '0 24px 60px rgba(31,17,68,0.15)';
+      // Modal surfaces
+      const modal = document.getElementById('notes-modal');
+      const overlay = document.getElementById('notes-modal-overlay');
+      modal.style.background = dark ? '#3d2f66' : '#ffffff';
+      modal.style.boxShadow = dark
+        ? '0 24px 60px rgba(0,0,0,0.5)'
+        : '0 24px 60px rgba(31,17,68,0.15)';
 
-  // Title
-  document.getElementById('modal-task-title').style.color = dark ? '#f5eeff' : '#1f1144';
-  document.getElementById('modal-task-title').textContent  = taskTitle;
-  document.getElementById('modal-task-sub').style.color   = dark ? '#cebefb' : '#4f4255';
-  document.getElementById('modal-task-sub').textContent   = taskSub;
+      // Title
+      document.getElementById('modal-task-title').style.color = dark ? '#f5eeff' : '#1f1144';
+      document.getElementById('modal-task-title').textContent = taskTitle;
+      document.getElementById('modal-task-sub').style.color = dark ? '#cebefb' : '#4f4255';
+      document.getElementById('modal-task-sub').textContent = taskSub;
 
-  // Close btn
-  const closeBtn = document.getElementById('modal-close-btn');
-  closeBtn.style.background = dark ? '#473870' : '#f3eaff';
-  closeBtn.style.color      = dark ? '#cebefb' : '#4f4255';
+      // Close btn
+      const closeBtn = document.getElementById('modal-close-btn');
+      closeBtn.style.background = dark ? '#473870' : '#f3eaff';
+      closeBtn.style.color = dark ? '#cebefb' : '#4f4255';
 
-  // Cancel btn
-  const cancelBtn = document.getElementById('modal-cancel-btn');
-  cancelBtn.style.background = dark ? '#473870' : '#f3eaff';
-  cancelBtn.style.color      = dark ? '#cebefb' : '#4f4255';
+      // Cancel btn
+      const cancelBtn = document.getElementById('modal-cancel-btn');
+      cancelBtn.style.background = dark ? '#473870' : '#f3eaff';
+      cancelBtn.style.color = dark ? '#cebefb' : '#4f4255';
 
-  // Inputs
-  ['modal-author','modal-text'].forEach(id => {
-    const el = document.getElementById(id);
-    el.style.background = dark ? '#2e2050' : '#f8f1ff';
-    el.style.color      = dark ? '#f5eeff' : '#1f1144';
-  });
-  document.getElementById('modal-author').value = '';
-  document.getElementById('modal-text').value   = '';
+      // Inputs
+      ['modal-author', 'modal-text'].forEach(id => {
+        const el = document.getElementById(id);
+        el.style.background = dark ? '#2e2050' : '#f8f1ff';
+        el.style.color = dark ? '#f5eeff' : '#1f1144';
+      });
+      document.getElementById('modal-author').value = '';
+      document.getElementById('modal-text').value = '';
 
-  // Render existing notes
-  const listWrap = document.getElementById('modal-notes-list');
-  listWrap.style.background = dark ? '#2e2050' : '#f8f1ff';
-  listWrap.style.borderRadius = '0.75rem';
-  listWrap.style.padding = (_notes[_activeTaskId]||[]).length ? '0.25rem 0.5rem' : '0';
-  renderNotesList(dark);
+      // Render existing notes
+      const listWrap = document.getElementById('modal-notes-list');
+      listWrap.style.background = dark ? '#2e2050' : '#f8f1ff';
+      listWrap.style.borderRadius = '0.75rem';
+      listWrap.style.padding = (_notes[_activeTaskId] || []).length ? '0.25rem 0.5rem' : '0';
+      renderNotesList(dark);
 
-  overlay.classList.add('open');
-  setTimeout(() => document.getElementById('modal-author').focus(), 300);
-}
+      overlay.classList.add('open');
+      setTimeout(() => document.getElementById('modal-author').focus(), 300);
+    }
 
-function renderNotesList(dark) {
-  const list    = document.getElementById('modal-notes-list');
-  const entries = (_notes[_activeTaskId] || []).slice().reverse();
-  const textMut = dark ? '#cebefb' : '#817287';
-  const divider = dark ? 'rgba(230,180,255,0.08)' : 'rgba(138,0,203,0.07)';
+    function renderNotesList(dark) {
+      const list = document.getElementById('modal-notes-list');
+      const entries = (_notes[_activeTaskId] || []).slice().reverse();
+      const textMut = dark ? '#cebefb' : '#817287';
+      const divider = dark ? 'rgba(230,180,255,0.08)' : 'rgba(138,0,203,0.07)';
 
-  if (!entries.length) {
-    list.innerHTML = `<p class="font-body text-[11px] text-center py-3" style="color:${textMut}">Sin comentarios registrados aún.</p>`;
-    return;
-  }
-  list.innerHTML = entries
-    .map(n => renderComment(n.author, n.text, n.ts, dark, false))
-    .join(`<div style="height:1px;background:${divider};margin:0 0.25rem"></div>`);
-}
+      if (!entries.length) {
+        list.innerHTML = `<p class="font-body text-[11px] text-center py-3" style="color:${textMut}">Sin comentarios registrados aún.</p>`;
+        return;
+      }
+      list.innerHTML = entries
+        .map(n => renderComment(n.author, n.text, n.ts, dark, false))
+        .join(`<div style="height:1px;background:${divider};margin:0 0.25rem"></div>`);
+    }
 
-function saveNote() {
-  const author = document.getElementById('modal-author').value.trim();
-  const text   = document.getElementById('modal-text').value.trim();
-  if (!author) { document.getElementById('modal-author').focus(); return; }
-  if (!text)   { document.getElementById('modal-text').focus();   return; }
+    function saveNote() {
+      const author = document.getElementById('modal-author').value.trim();
+      const text = document.getElementById('modal-text').value.trim();
+      if (!author) { document.getElementById('modal-author').focus(); return; }
+      if (!text) { document.getElementById('modal-text').focus(); return; }
 
-  if (!_notes[_activeTaskId]) _notes[_activeTaskId] = [];
-  _notes[_activeTaskId].push({ author, text, ts: Date.now() });
-  persistNotes();
+      if (!_notes[_activeTaskId]) _notes[_activeTaskId] = [];
+      _notes[_activeTaskId].push({ author, text, ts: Date.now() });
+      persistNotes();
 
-  // Refresh list and clear inputs
-  renderNotesList(isDark());
-  document.getElementById('modal-author').value = '';
-  document.getElementById('modal-text').value   = '';
-  document.getElementById('modal-author').focus();
+      // Refresh list and clear inputs
+      renderNotesList(isDark());
+      document.getElementById('modal-author').value = '';
+      document.getElementById('modal-text').value = '';
+      document.getElementById('modal-author').focus();
 
-  // Refresh notes block inside the task card
-  const taskNotesEl = document.getElementById(`task-notes-${_activeTaskId}`);
-  if (taskNotesEl) {
-    const newBlock = renderTaskNotes(_activeTaskId, _activeStaticNote, isDark());
-    const tmp = document.createElement('div');
-    tmp.innerHTML = newBlock;
-    taskNotesEl.replaceWith(tmp.firstElementChild);
-  }
-}
+      // Refresh notes block inside the task card
+      const taskNotesEl = document.getElementById(`task-notes-${_activeTaskId}`);
+      if (taskNotesEl) {
+        const newBlock = renderTaskNotes(_activeTaskId, _activeStaticNote, isDark());
+        const tmp = document.createElement('div');
+        tmp.innerHTML = newBlock;
+        taskNotesEl.replaceWith(tmp.firstElementChild);
+      }
+    }
 
-function closeNotesModal(e) {
-  if (e && e.target !== document.getElementById('notes-modal-overlay')) return;
-  document.getElementById('notes-modal-overlay').classList.remove('open');
-  _activeTaskId = null;
-}
+    function closeNotesModal(e) {
+      if (e && e.target !== document.getElementById('notes-modal-overlay')) return;
+      document.getElementById('notes-modal-overlay').classList.remove('open');
+      _activeTaskId = null;
+    }
 
-// Close on Escape
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') document.getElementById('notes-modal-overlay').classList.remove('open');
-});
+    // Close on Escape
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') document.getElementById('notes-modal-overlay').classList.remove('open');
+    });
 
-/* ── Dark mode (localStorage + class on <html>) ─────────────────── */
-const ROOT = document.documentElement;
+    /* ── Dark mode (localStorage + class on <html>) ─────────────────── */
+    const ROOT = document.documentElement;
 
-function isDark() { return ROOT.classList.contains('dark'); }
+    function isDark() { return ROOT.classList.contains('dark'); }
 
-function setTheme(dark) {
-  ROOT.classList.toggle('dark', dark);
-  localStorage.setItem('sfTheme', dark ? 'dark' : 'light');
-  // Swap icon inside button if already rendered
-  const btn = document.getElementById('theme-toggle');
-  if (btn) btn.innerHTML = themeIcon(!dark);
-}
+    function setTheme(dark) {
+      ROOT.classList.toggle('dark', dark);
+      localStorage.setItem('sfTheme', dark ? 'dark' : 'light');
+      // Swap icon inside button if already rendered
+      const btn = document.getElementById('theme-toggle');
+      if (btn) btn.innerHTML = themeIcon(!dark);
+    }
 
-function toggleTheme() { setTheme(!isDark()); }
+    function toggleTheme() { setTheme(!isDark()); }
 
-// Sun icon (shown in dark mode → click to go light)
-// Moon icon (shown in light mode → click to go dark)
-function themeIcon(showMoon) {
-  return showMoon
-    ? `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    // Sun icon (shown in dark mode → click to go light)
+    // Moon icon (shown in light mode → click to go dark)
+    function themeIcon(showMoon) {
+      return showMoon
+        ? `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
        </svg>`
-    : `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        : `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
          <circle cx="12" cy="12" r="5"/>
          <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
          <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
        </svg>`;
-}
+    }
 
-// Apply persisted preference immediately (before render, avoids flash)
-(function() {
-  const saved = localStorage.getItem('sfTheme');
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  setTheme(saved ? saved === 'dark' : prefersDark);
-})();
+    // Apply persisted preference immediately (before render, avoids flash)
+    (function () {
+      const saved = localStorage.getItem('sfTheme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      setTheme(saved ? saved === 'dark' : prefersDark);
+    })();
 
-/* ── Data ──────────────────────────────────────────────────────── */
-/* Data loaded via fetch — see loadAllData() below */
+    /* ── Data ──────────────────────────────────────────────────────── */
+    /* Data loaded via fetch — see loadAllData() below */
 
-/* ── Helpers ───────────────────────────────────────────────────── */
-function getCatColor(data, catId) {
-  return (data.categories.find(c => c.id === catId) || {}).color || '#817287';
-}
-function getCatLabel(data, catId) {
-  return (data.categories.find(c => c.id === catId) || {}).label || catId;
-}
+    /* ── Helpers ───────────────────────────────────────────────────── */
+    function getCatColor(data, catId) {
+      return (data.categories.find(c => c.id === catId) || {}).color || '#817287';
+    }
+    function getCatLabel(data, catId) {
+      return (data.categories.find(c => c.id === catId) || {}).label || catId;
+    }
 
-// ── Status: semántico, ninguno usa el purple del DS brand ──────
-const STATUS_CONFIG = {
-  active:      { label: 'Ejecutando',  bg: '#eeedfe', border: '#AFA9EC', color: '#3C3489' }, // violeta
-  planned:     { label: 'Próximo',     bg: '#faeeda', border: '#FAC775', color: '#633806' }, // ámbar
-  backlog:     { label: 'Largo Plazo', bg: '#f1efe8', border: '#D3D1C7', color: '#444441' }, // gris
-  in_progress: { label: 'En Curso',    bg: '#eeedfe', border: '#AFA9EC', color: '#3C3489' }, // violeta
-  review:      { label: 'En Revisión', bg: '#e6f1fb', border: '#B5D4F4', color: '#0C447C' }, // azul
-  done:        { label: 'Completado',  bg: '#e1f5ee', border: '#9FE1CB', color: '#085041' }, // verde
-};
-// ── Dark variants — stops 800/100 de cada ramp ─────────────────
-const STATUS_CONFIG_DARK = {
-  active:      { label: 'Ejecutando',  bg: '#26215C', border: '#534AB7', color: '#CECBF6' },
-  planned:     { label: 'Próximo',     bg: '#412402', border: '#854F0B', color: '#FAC775' },
-  backlog:     { label: 'Largo Plazo', bg: '#2C2C2A', border: '#5F5E5A', color: '#D3D1C7' },
-  in_progress: { label: 'En Curso',    bg: '#26215C', border: '#534AB7', color: '#CECBF6' },
-  review:      { label: 'En Revisión', bg: '#042C53', border: '#185FA5', color: '#B5D4F4' },
-  done:        { label: 'Completado',  bg: '#04342C', border: '#0F6E56', color: '#9FE1CB' },
-};
+    // ── Status: semántico, ninguno usa el purple del DS brand ──────
+    const STATUS_CONFIG = {
+      active: { label: 'Ejecutando', bg: '#eeedfe', border: '#AFA9EC', color: '#3C3489' }, // violeta
+      planned: { label: 'Próximo', bg: '#faeeda', border: '#FAC775', color: '#633806' }, // ámbar
+      backlog: { label: 'Largo Plazo', bg: '#f1efe8', border: '#D3D1C7', color: '#444441' }, // gris
+      in_progress: { label: 'En Curso', bg: '#eeedfe', border: '#AFA9EC', color: '#3C3489' }, // violeta
+      review: { label: 'En Revisión', bg: '#e6f1fb', border: '#B5D4F4', color: '#0C447C' }, // azul
+      done: { label: 'Completado', bg: '#e1f5ee', border: '#9FE1CB', color: '#085041' }, // verde
+    };
+    // ── Dark variants — stops 800/100 de cada ramp ─────────────────
+    const STATUS_CONFIG_DARK = {
+      active: { label: 'Ejecutando', bg: '#26215C', border: '#534AB7', color: '#CECBF6' },
+      planned: { label: 'Próximo', bg: '#412402', border: '#854F0B', color: '#FAC775' },
+      backlog: { label: 'Largo Plazo', bg: '#2C2C2A', border: '#5F5E5A', color: '#D3D1C7' },
+      in_progress: { label: 'En Curso', bg: '#26215C', border: '#534AB7', color: '#CECBF6' },
+      review: { label: 'En Revisión', bg: '#042C53', border: '#185FA5', color: '#B5D4F4' },
+      done: { label: 'Completado', bg: '#04342C', border: '#0F6E56', color: '#9FE1CB' },
+    };
 
-// ── Priority: rojo/ámbar/gris — urgencia universal ─────────────
-const PRIORITY_COLORS      = { alta: '#E24B4A', media: '#BA7517', baja: '#888780' };
-const PRIORITY_COLORS_DARK = { alta: '#F09595', media: '#EF9F27', baja: '#B4B2A9' };
-const PRIORITY_LABELS      = { alta: 'Alta',    media: 'Media',   baja: 'Baja'   };
+    // ── Priority: rojo/ámbar/gris — urgencia universal ─────────────
+    const PRIORITY_COLORS = { alta: '#E24B4A', media: '#BA7517', baja: '#888780' };
+    const PRIORITY_COLORS_DARK = { alta: '#F09595', media: '#EF9F27', baja: '#B4B2A9' };
+    const PRIORITY_LABELS = { alta: 'Alta', media: 'Media', baja: 'Baja' };
 
-function fmtDate(str) {
-  if (!str) return '—';
-  const [y, m, d] = str.split('-');
-  return `${d}/${m}/${y}`;
-}
-function avgProgress(tasks) {
-  if (!tasks.length) return 0;
-  return Math.round(tasks.reduce((s, t) => s + t.progress, 0) / tasks.length);
-}
-function parseDate(str) {
-  const [y, m, d] = str.split('-').map(Number);
-  return new Date(y, m - 1, d);
-}
+    function fmtDate(str) {
+      if (!str) return '—';
+      const [y, m, d] = str.split('-');
+      return `${d}/${m}/${y}`;
+    }
+    function avgProgress(tasks) {
+      if (!tasks.length) return 0;
+      return Math.round(tasks.reduce((s, t) => s + t.progress, 0) / tasks.length);
+    }
+    function parseDate(str) {
+      const [y, m, d] = str.split('-').map(Number);
+      return new Date(y, m - 1, d);
+    }
 
-/* ── Gantt ─────────────────────────────────────────────────────── */
-function buildGantt(data) {
-  const dark = isDark();
-  let minDate = parseDate(data.quarters[0].dateStart);
-  let maxDate = parseDate(data.quarters[data.quarters.length - 1].dateEnd);
-  data.quarters.forEach(q => q.tasks.forEach(t => {
-    const s = parseDate(t.dateStart), e = parseDate(t.dateEnd);
-    if (s < minDate) minDate = s;
-    if (e > maxDate) maxDate = e;
-  }));
+    /* ── Gantt ─────────────────────────────────────────────────────── */
+    function buildGantt(data) {
+      const dark = isDark();
+      let minDate = parseDate(data.quarters[0].dateStart);
+      let maxDate = parseDate(data.quarters[data.quarters.length - 1].dateEnd);
+      data.quarters.forEach(q => q.tasks.forEach(t => {
+        const s = parseDate(t.dateStart), e = parseDate(t.dateEnd);
+        if (s < minDate) minDate = s;
+        if (e > maxDate) maxDate = e;
+      }));
 
-  const totalMs = maxDate - minDate;
-  function pct(d) { return Math.max(0, Math.min(100, ((d - minDate) / totalMs) * 100)); }
+      const totalMs = maxDate - minDate;
+      function pct(d) { return Math.max(0, Math.min(100, ((d - minDate) / totalMs) * 100)); }
 
-  const months = [];
-  let cur = new Date(minDate.getFullYear(), minDate.getMonth(), 1);
-  while (cur <= maxDate) {
-    months.push({ label: cur.toLocaleDateString('es-AR', { month: 'short', year: '2-digit' }), pos: pct(cur) });
-    cur = new Date(cur.getFullYear(), cur.getMonth() + 1, 1);
-  }
+      const months = [];
+      let cur = new Date(minDate.getFullYear(), minDate.getMonth(), 1);
+      while (cur <= maxDate) {
+        months.push({ label: cur.toLocaleDateString('es-AR', { month: 'short', year: '2-digit' }), pos: pct(cur) });
+        cur = new Date(cur.getFullYear(), cur.getMonth() + 1, 1);
+      }
 
-  const rows = [];
-  data.quarters.forEach(q => q.tasks.forEach(t => {
-    const left  = pct(parseDate(t.dateStart));
-    const width = pct(parseDate(t.dateEnd)) - left;
-    rows.push({ q, t, catColor: getCatColor(data, t.category), left, width });
-  }));
+      const rows = [];
+      data.quarters.forEach(q => q.tasks.forEach(t => {
+        const left = pct(parseDate(t.dateStart));
+        const width = pct(parseDate(t.dateEnd)) - left;
+        rows.push({ q, t, catColor: getCatColor(data, t.category), left, width });
+      }));
 
-  const wrapBg   = dark ? '#3d2f66' : '';
-  const headerBg = dark ? '#473870' : '';
-  const trackBg  = dark ? '#2e2050' : '#e0d4ff';
-  const labelCol = dark ? '#cebefb' : '#4f4255';
+      const wrapBg = dark ? '#3d2f66' : '';
+      const headerBg = dark ? '#473870' : '';
+      const trackBg = dark ? '#2e2050' : '#e0d4ff';
+      const labelCol = dark ? '#cebefb' : '#4f4255';
 
-  const labelGrid = months.map(m =>
-    `<span style="position:absolute;left:${m.pos}%;transform:translateX(-50%);color:${labelCol}" class="font-label text-[10px] font-bold uppercase tracking-widest">${m.label}</span>`
-  ).join('');
+      const labelGrid = months.map(m =>
+        `<span style="position:absolute;left:${m.pos}%;transform:translateX(-50%);color:${labelCol}" class="font-label text-[10px] font-bold uppercase tracking-widest">${m.label}</span>`
+      ).join('');
 
-  const ganttRows = rows.map(({ q, t, catColor, left, width }) => {
-    const qStatus     = STATUS_CONFIG[q.status]      || STATUS_CONFIG.backlog;
-    const qStatusDark = STATUS_CONFIG_DARK[q.status] || STATUS_CONFIG_DARK.backlog;
-    const qCol = dark ? qStatusDark.color : qStatus.color;
-    const qBg  = dark ? qStatusDark.bg    : qStatus.bg;
+      const ganttRows = rows.map(({ q, t, catColor, left, width }) => {
+        const qStatus = STATUS_CONFIG[q.status] || STATUS_CONFIG.backlog;
+        const qStatusDark = STATUS_CONFIG_DARK[q.status] || STATUS_CONFIG_DARK.backlog;
+        const qCol = dark ? qStatusDark.color : qStatus.color;
+        const qBg = dark ? qStatusDark.bg : qStatus.bg;
 
-    // Overrun: only when dateClosedActual exists and is after dateEnd
-    let overrunBar = '';
-    const hasOverrun = t.dateClosedActual && parseDate(t.dateClosedActual) > parseDate(t.dateEnd);
-    if (hasOverrun) {
-      const closedDate   = parseDate(t.dateClosedActual);
-      const endDate      = parseDate(t.dateEnd);
-      const overrunLeft  = pct(endDate);
-      const overrunWidth = pct(closedDate) - overrunLeft;
-      const days = Math.round((closedDate - endDate) / (1000*60*60*24));
-      overrunBar = `
+        // Overrun: only when dateClosedActual exists and is after dateEnd
+        let overrunBar = '';
+        const hasOverrun = t.dateClosedActual && parseDate(t.dateClosedActual) > parseDate(t.dateEnd);
+        if (hasOverrun) {
+          const closedDate = parseDate(t.dateClosedActual);
+          const endDate = parseDate(t.dateEnd);
+          const overrunLeft = pct(endDate);
+          const overrunWidth = pct(closedDate) - overrunLeft;
+          const days = Math.round((closedDate - endDate) / (1000 * 60 * 60 * 24));
+          overrunBar = `
         <div class="absolute flex items-center overflow-hidden cursor-default"
              style="left:${overrunLeft}%;width:${overrunWidth}%;height:24px;top:0;
                     border-radius:0 9999px 9999px 0;
@@ -748,11 +923,11 @@ function buildGantt(data) {
                     outline-offset:-1px"
              title="Desvío: cerrado el ${fmtDate(t.dateClosedActual)} (+${days} días)">
         </div>`;
-    }
+        }
 
-    const mainBarRadius = hasOverrun ? '9999px 0 0 9999px' : '9999px';
+        const mainBarRadius = hasOverrun ? '9999px 0 0 9999px' : '9999px';
 
-    return `
+        return `
     <div class="flex mb-1" style="min-height:40px">
       <div style="width:240px;min-width:240px;color:${dark ? '#f5eeff' : '#1f1144'}" class="font-body text-[11px] font-semibold pr-4 flex items-start gap-1.5 py-1">
         <span class="font-label text-[9px] font-extrabold flex-shrink-0 px-1.5 py-0.5 rounded mt-0.5" style="background:${qBg};color:${qCol}">${q.id}</span>
@@ -772,51 +947,51 @@ function buildGantt(data) {
         </div>
       </div>
     </div>`;
-  }).join('');
+      }).join('');
 
-  return `
+      return `
     <div class="mx-10 mt-10 rounded-lg shadow-ambient overflow-hidden" style="${dark ? `background:${wrapBg}` : 'background:#f8f1ff'}">
       <div class="flex justify-between items-center px-7 py-4" style="${dark ? `background:${headerBg}` : 'background:#f3eaff'}">
         <h2 class="font-headline text-[11px] font-bold uppercase tracking-[0.14em]" style="color:${dark ? '#cebefb' : '#4f4255'}">Vista General — Línea de Tiempo</h2>
-        <span class="font-body text-xs" style="color:${dark ? '#cebefb' : '#4f4255'}">${fmtDate(data.quarters[0].dateStart)} → ${fmtDate(data.quarters[data.quarters.length-1].dateEnd)}</span>
+        <span class="font-body text-xs" style="color:${dark ? '#cebefb' : '#4f4255'}">${fmtDate(data.quarters[0].dateStart)} → ${fmtDate(data.quarters[data.quarters.length - 1].dateEnd)}</span>
       </div>
       <div class="px-7 pb-7 pt-5 overflow-x-auto">
         <div style="position:relative;height:20px;padding-left:240px;margin-bottom:0.5rem">${labelGrid}</div>
         <div style="position:relative">${ganttRows}</div>
       </div>
     </div>`;
-}
+    }
 
 
-/* ── Quarter card ───────────────────────────────────────────────── */
-function buildQuarterCard(data, q) {
-  const dark    = isDark();
-  const sCfg    = dark ? STATUS_CONFIG_DARK : STATUS_CONFIG;
-  const pColors = dark ? PRIORITY_COLORS_DARK : PRIORITY_COLORS;
-  const qConf   = sCfg[q.status] || sCfg.backlog;
-  const avg     = avgProgress(q.tasks);
-  const isOpen  = q.status === 'active';
+    /* ── Quarter card ───────────────────────────────────────────────── */
+    function buildQuarterCard(data, q) {
+      const dark = isDark();
+      const sCfg = dark ? STATUS_CONFIG_DARK : STATUS_CONFIG;
+      const pColors = dark ? PRIORITY_COLORS_DARK : PRIORITY_COLORS;
+      const qConf = sCfg[q.status] || sCfg.backlog;
+      const avg = avgProgress(q.tasks);
+      const isOpen = q.status === 'active';
 
-  const cardBg  = dark ? '#3d2f66' : '#f8f1ff';
-  const taskBg  = dark ? '#35285b' : '#ffffff';
-  const hdrHov  = dark ? '#473870' : '#f3eaff';
-  const dimCol  = dark ? '#2e2050' : '#e0d4ff';
-  const textPri = dark ? '#f5eeff' : '#1f1144';
-  const textMut = dark ? '#cebefb' : '#4f4255';
-  const chevBg  = dark ? '#473870' : '#f3eaff';
-  const chevStr = dark ? '#cebefb' : '#4f4255';
+      const cardBg = dark ? '#3d2f66' : '#f8f1ff';
+      const taskBg = dark ? '#35285b' : '#ffffff';
+      const hdrHov = dark ? '#473870' : '#f3eaff';
+      const dimCol = dark ? '#2e2050' : '#e0d4ff';
+      const textPri = dark ? '#f5eeff' : '#1f1144';
+      const textMut = dark ? '#cebefb' : '#4f4255';
+      const chevBg = dark ? '#473870' : '#f3eaff';
+      const chevStr = dark ? '#cebefb' : '#4f4255';
 
-  const tasks = q.tasks.map((t, ti) => {
-    const catColor = getCatColor(data, t.category);
-    const catLabel = getCatLabel(data, t.category);
-    const tsCfg    = sCfg[t.status] || sCfg.backlog;
-    const priColor = pColors[t.priority] || (dark ? '#cebefb' : '#817287');
-    const priLabel = PRIORITY_LABELS[t.priority] || t.priority;
-    const closedColor = dark ? '#40dae3' : '#006267';
+      const tasks = q.tasks.map((t, ti) => {
+        const catColor = getCatColor(data, t.category);
+        const catLabel = getCatLabel(data, t.category);
+        const tsCfg = sCfg[t.status] || sCfg.backlog;
+        const priColor = pColors[t.priority] || (dark ? '#cebefb' : '#817287');
+        const priLabel = PRIORITY_LABELS[t.priority] || t.priority;
+        const closedColor = dark ? '#40dae3' : '#006267';
 
-    return `
+        return `
       <div class="task-anim rounded-DEFAULT p-5 grid gap-4 shadow-ambient transition-all duration-200 hover:shadow-float hover:-translate-y-px"
-           style="grid-template-columns:1fr auto;background:${taskBg};animation-delay:${ti*0.06}s">
+           style="grid-template-columns:1fr auto;background:${taskBg};animation-delay:${ti * 0.06}s">
         <div>
           <div class="flex flex-wrap items-center gap-2 mb-1.5">
             <span class="font-label text-[9px] font-extrabold uppercase tracking-widest px-2.5 py-0.5 rounded-full"
@@ -847,15 +1022,15 @@ function buildQuarterCard(data, q) {
           <div class="flex items-center gap-2">
             <button class="note-add-btn" title="Agregar comentario"
                     style="background:${dark ? '#473870' : '#f3eaff'};color:${dark ? '#cebefb' : '#8a00cb'}"
-                    onclick="openNotesModal('${t.id}','${t.title.replace(/'/g,"\\'")}','${catLabel} · ${priLabel}','${(t.notes||'').replace(/'/g,"\\'")}')">
+                    onclick="openNotesModal('${t.id}','${t.title.replace(/'/g, "\\'")}','${catLabel} · ${priLabel}','${(t.notes || '').replace(/'/g, "\\'")}')">
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
                 <line x1="12" y1="9" x2="12" y2="13"/><line x1="10" y1="11" x2="14" y2="11"/>
               </svg>
               <span id="note-count-${t.id}"
                     class="font-label text-[9px] font-extrabold ml-0.5"
-                    style="display:${(_notes[t.id]||[]).length ? 'inline-flex' : 'none'};color:#8a00cb">
-                ${(_notes[t.id]||[]).length || ''}
+                    style="display:${(_notes[t.id] || []).length ? 'inline-flex' : 'none'};color:#8a00cb">
+                ${(_notes[t.id] || []).length || ''}
               </span>
             </button>
             <span class="font-label text-[9px] font-extrabold uppercase tracking-widest px-2.5 py-0.5 rounded-full"
@@ -869,9 +1044,9 @@ function buildQuarterCard(data, q) {
           </div>
         </div>
       </div>`;
-  }).join('');
+      }).join('');
 
-  return `
+      return `
     <div class="q-card${isOpen ? ' open' : ''} rounded-lg shadow-ambient transition-all duration-300 overflow-hidden hover:shadow-float hover:-translate-y-px"
          id="qcard-${q.id}" style="background:${cardBg}">
       <div class="flex items-center gap-5 px-7 py-6 cursor-pointer select-none rounded-t-lg transition-colors duration-200"
@@ -907,46 +1082,46 @@ function buildQuarterCard(data, q) {
         </div>
       </div>
     </div>`;
-}
+    }
 
-/* ── Legend ─────────────────────────────────────────────────────── */
-function buildLegend(data) {
-  const dark    = isDark();
-  const sCfg    = dark ? STATUS_CONFIG_DARK : STATUS_CONFIG;
-  const pColors = dark ? PRIORITY_COLORS_DARK : PRIORITY_COLORS;
-  const textMut = dark ? '#cebefb' : '#4f4255';
-  const dimCol  = dark ? '#2e2050' : '#e0d4ff';
+    /* ── Legend ─────────────────────────────────────────────────────── */
+    function buildLegend(data) {
+      const dark = isDark();
+      const sCfg = dark ? STATUS_CONFIG_DARK : STATUS_CONFIG;
+      const pColors = dark ? PRIORITY_COLORS_DARK : PRIORITY_COLORS;
+      const textMut = dark ? '#cebefb' : '#4f4255';
+      const dimCol = dark ? '#2e2050' : '#e0d4ff';
 
-  const statusLegend = [
-    { key: 'in_progress', label: 'En Curso' },
-    { key: 'review',      label: 'En Revisión' },
-    { key: 'planned',     label: 'Planificado' },
-    { key: 'backlog',     label: 'Backlog' },
-    { key: 'done',        label: 'Completado' },
-  ].map(s => {
-    const cfg = sCfg[s.key];
-    return `<span class="flex items-center gap-1.5 font-label text-[11px] font-semibold" style="color:${textMut}">
+      const statusLegend = [
+        { key: 'in_progress', label: 'En Curso' },
+        { key: 'review', label: 'En Revisión' },
+        { key: 'planned', label: 'Planificado' },
+        { key: 'backlog', label: 'Backlog' },
+        { key: 'done', label: 'Completado' },
+      ].map(s => {
+        const cfg = sCfg[s.key];
+        return `<span class="flex items-center gap-1.5 font-label text-[11px] font-semibold" style="color:${textMut}">
       <span class="w-2 h-2 rounded-full flex-shrink-0" style="background:${cfg.border}"></span>${s.label}
     </span>`;
-  }).join('');
+      }).join('');
 
-  const priLegend = [
-    { key: 'alta', label: 'Alta' },
-    { key: 'media', label: 'Media' },
-    { key: 'baja',  label: 'Baja' },
-  ].map(p =>
-    `<span class="flex items-center gap-1.5 font-label text-[11px] font-semibold" style="color:${textMut}">
+      const priLegend = [
+        { key: 'alta', label: 'Alta' },
+        { key: 'media', label: 'Media' },
+        { key: 'baja', label: 'Baja' },
+      ].map(p =>
+        `<span class="flex items-center gap-1.5 font-label text-[11px] font-semibold" style="color:${textMut}">
       <span class="w-2 h-2 rounded-full flex-shrink-0" style="background:${pColors[p.key]}"></span>${p.label}
     </span>`
-  ).join('');
+      ).join('');
 
-  const catLegend = data.categories.map(c =>
-    `<span class="flex items-center gap-1.5 font-label text-[11px] font-semibold" style="color:${textMut}">
+      const catLegend = data.categories.map(c =>
+        `<span class="flex items-center gap-1.5 font-label text-[11px] font-semibold" style="color:${textMut}">
       <span class="w-6 h-2 rounded-full flex-shrink-0" style="background:${c.color}28;box-shadow:inset 0 0 0 1px ${c.color}55"></span>${c.label}
     </span>`
-  ).join('');
+      ).join('');
 
-  return `
+      return `
     <div class="flex flex-wrap gap-4 mx-10 mb-10 pt-5" style="border-top:2px solid ${dimCol}">
       ${statusLegend}
       <span style="color:${dimCol}">│</span>
@@ -954,32 +1129,32 @@ function buildLegend(data) {
       <span style="color:${dimCol}">│</span>
       ${catLegend}
     </div>`;
-}
+    }
 
-/* ── Toggle accordion ───────────────────────────────────────────── */
-function toggleQ(id) { document.getElementById('qcard-' + id).classList.toggle('open'); }
-function expandAll()  { document.querySelectorAll('.q-card').forEach(c => c.classList.add('open')); }
-function collapseAll(){ document.querySelectorAll('.q-card').forEach(c => c.classList.remove('open')); }
+    /* ── Toggle accordion ───────────────────────────────────────────── */
+    function toggleQ(id) { document.getElementById('qcard-' + id).classList.toggle('open'); }
+    function expandAll() { document.querySelectorAll('.q-card').forEach(c => c.classList.add('open')); }
+    function collapseAll() { document.querySelectorAll('.q-card').forEach(c => c.classList.remove('open')); }
 
-/* ── Render ─────────────────────────────────────────────────────── */
-function render(data, versions, projCtx) {
-  const { meta, quarters } = data;
-  const dark    = isDark();
-  const textPri = dark ? '#f5eeff' : '#1f1144';
-  const textMut = dark ? '#cebefb' : '#4f4255';
-  const dimCol  = dark ? '#2e2050' : '#e0d4ff';
-  const badgeBg = dark ? '#473870' : '#f3eaff';
-  const btnBg   = dark ? '#473870' : '#f3eaff';
-  const btnHov  = dark ? '#52437c' : '#ede4ff';
-  const selBg   = dark ? '#3d2f66' : '#f8f1ff';
-  const themeBtnBg  = dark ? '#473870' : '#f3eaff';
-  const themeBtnCol = dark ? '#e6b4ff' : '#8a00cb';
+    /* ── Render ─────────────────────────────────────────────────────── */
+    function render(data, versions, projCtx) {
+      const { meta, quarters } = data;
+      const dark = isDark();
+      const textPri = dark ? '#f5eeff' : '#1f1144';
+      const textMut = dark ? '#cebefb' : '#4f4255';
+      const dimCol = dark ? '#2e2050' : '#e0d4ff';
+      const badgeBg = dark ? '#473870' : '#f3eaff';
+      const btnBg = dark ? '#473870' : '#f3eaff';
+      const btnHov = dark ? '#52437c' : '#ede4ff';
+      const selBg = dark ? '#3d2f66' : '#f8f1ff';
+      const themeBtnBg = dark ? '#473870' : '#f3eaff';
+      const themeBtnCol = dark ? '#e6b4ff' : '#8a00cb';
 
-  const quartersHTML = quarters.map(q => buildQuarterCard(data, q)).join('');
+      const quartersHTML = quarters.map(q => buildQuarterCard(data, q)).join('');
 
-  // Breadcrumb — only when inside a project
-  const accentColor = projCtx ? projCtx.color : '#8a00cb';
-  const breadcrumbHTML = projCtx ? `
+      // Breadcrumb — only when inside a project
+      const accentColor = projCtx ? projCtx.color : '#8a00cb';
+      const breadcrumbHTML = projCtx ? `
     <div class="flex items-center gap-2 mb-2">
       <button onclick="goBack()"
               class="flex items-center gap-1.5 font-label text-[11px] font-bold uppercase tracking-widest border-none bg-transparent cursor-pointer p-0 transition-opacity duration-150 hover:opacity-60"
@@ -993,12 +1168,12 @@ function render(data, versions, projCtx) {
       <span class="font-label text-[11px] font-semibold" style="color:${textMut}">${projCtx.name}</span>
     </div>` : '';
 
-  const versionSelectorHTML = versions ? (() => {
-    const opts = versions.map(v =>
-      `<option value="${v.file}"${v.year === meta.baseYear ? ' selected' : ''}>${v.label}</option>`
-    ).join('');
-    const cur = versions.find(v => v.year === meta.baseYear);
-    return `
+      const versionSelectorHTML = versions ? (() => {
+        const opts = versions.map(v =>
+          `<option value="${v.file}"${v.year === meta.baseYear ? ' selected' : ''}>${v.label}</option>`
+        ).join('');
+        const cur = versions.find(v => v.year === meta.baseYear);
+        return `
       <div class="flex items-center gap-2">
         <span class="font-label text-[10px] font-bold uppercase tracking-widest whitespace-nowrap" style="color:${textMut}">Versión</span>
         <select class="version-select font-body text-sm font-semibold rounded-full px-3 pr-8 py-1.5 cursor-pointer outline-none ghost-border-primary transition-all duration-200"
@@ -1007,9 +1182,9 @@ function render(data, versions, projCtx) {
           ${opts}
         </select>
       </div>`;
-  })() : '';
+      })() : '';
 
-  const html = `
+      const html = `
     <header class="glass sticky top-0 z-50 px-10 py-5 flex items-center justify-between gap-8"
             style="box-shadow:0 1px 0 0 rgba(138,0,203,0.10),0 8px 40px -5px rgba(31,17,68,0.07);border-top:3px solid ${accentColor}">
       <div class="flex flex-col min-w-0">
@@ -1023,7 +1198,7 @@ function render(data, versions, projCtx) {
           <div class="flex items-center gap-2 flex-wrap">
             <span class="font-label text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full ghost-border" style="background:${badgeBg};color:${textMut}">Actualizado ${fmtDate(meta.lastUpdated)}</span>
             <span class="font-label text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full ghost-border" style="background:${badgeBg};color:${textMut}">${quarters.length} trimestres</span>
-            <span class="font-label text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full ghost-border" style="background:${badgeBg};color:${textMut}">${quarters.reduce((s,q)=>s+q.tasks.length,0)} tareas</span>
+            <span class="font-label text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full ghost-border" style="background:${badgeBg};color:${textMut}">${quarters.reduce((s, q) => s + q.tasks.length, 0)} tareas</span>
           </div>
         </div>
       </div>
@@ -1058,86 +1233,86 @@ function render(data, versions, projCtx) {
     ${buildLegend(data)}
   `;
 
-  document.getElementById('app').innerHTML = html;
-  const _loading = document.getElementById('loading') || document.getElementById('loading-project');
-  if (_loading) _loading.style.display = 'none';
-  document.getElementById('app').style.display = 'block';
-  document.body.style.backgroundColor = dark ? '#1c0a37' : '';
+      document.getElementById('app').innerHTML = html;
+      const _loading = document.getElementById('loading') || document.getElementById('loading-project');
+      if (_loading) _loading.style.display = 'none';
+      document.getElementById('app').style.display = 'block';
+      document.body.style.backgroundColor = dark ? '#1c0a37' : '';
 
-  requestAnimationFrame(() => {
-    document.querySelectorAll('.task-progress-bar-fill, .q-overall-bar-fill, .gantt-bar-fill').forEach(el => {
-      const w = el.style.width;
-      el.style.width = '0';
-      setTimeout(() => { el.style.width = w; }, 80);
-    });
-  });
-}
-
-/* ── Version switching ──────────────────────────────────────────── */
-
-
-/* ── Multi-project data loaded via fetch ── */
-let PROJECTS_INDEX = null;
-let ALL_ROADMAPS   = {};
-
-async function loadAllData() {
-  PROJECTS_INDEX = await fetch('projects-index.json').then(r => r.json());
-
-  // Load roadmap data for all projects in parallel
-  await Promise.all(PROJECTS_INDEX.projects.map(async function(proj) {
-    const base  = proj.indexFile.replace('/roadmap-index.json', '');
-    const index = await fetch(proj.indexFile).then(r => r.json());
-    const versionData = await Promise.all(
-      index.versions.map(function(v) {
-        return fetch(base + '/' + v.file).then(r => r.json()).then(function(data) {
-          return { file: v.file, data: data };
+      requestAnimationFrame(() => {
+        document.querySelectorAll('.task-progress-bar-fill, .q-overall-bar-fill, .gantt-bar-fill').forEach(el => {
+          const w = el.style.width;
+          el.style.width = '0';
+          setTimeout(() => { el.style.width = w; }, 80);
         });
-      })
-    );
-    ALL_ROADMAPS[proj.id] = { index: index };
-    versionData.forEach(function(vd) { ALL_ROADMAPS[proj.id][vd.file] = vd.data; });
-  }));
+      });
+    }
 
-  // Load and merge notes for all projects
-  // GitHub is source of truth — merges with any local-only notes
-  await Promise.all(PROJECTS_INDEX.projects.map(async function(proj) {
-    const localKey    = 'sf-notes-' + proj.id;
-    const local       = JSON.parse(localStorage.getItem(localKey) || '{}');
-    const remote      = await loadNotesFromGitHub(proj.id);
-    const merged      = remote ? mergeNotes(local, remote) : local;
-    // Write merged result back to localStorage
-    localStorage.setItem(localKey, JSON.stringify(merged));
-  }));
-}
+    /* ── Version switching ──────────────────────────────────────────── */
 
-/* ── Navigation state ──────────────────────────────────────────── */
-let CURRENT_PROJECT_ID = null;
 
-function getActiveRoadmap(projectId) {
-  const proj = ALL_ROADMAPS[projectId];
-  const activeVer = proj.index.versions.find(v => v.current) || proj.index.versions[0];
-  return proj[activeVer.file];
-}
+    /* ── Multi-project data loaded via fetch ── */
+    let PROJECTS_INDEX = null;
+    let ALL_ROADMAPS = {};
 
-/* ── Dashboard ─────────────────────────────────────────────────── */
-function calcProjectProgress(roadmapData) {
-  const activeQ = roadmapData.quarters.find(q => q.status === 'active');
-  const q = activeQ || roadmapData.quarters[0];
-  if (!q || !q.tasks.length) return { pct: 0, quarter: '—', status: 'backlog', tasks: 0, done: 0 };
-  const pct = Math.round(q.tasks.reduce((s,t) => s+t.progress, 0) / q.tasks.length);
-  const done = q.tasks.filter(t => t.status === 'done').length;
-  return { pct, quarter: q.label, status: q.status, tasks: q.tasks.length, done };
-}
+    async function loadAllData() {
+      PROJECTS_INDEX = await fetch('projects-index.json').then(r => r.json());
 
-function buildMiniGantt(roadmapData, projectColor, dark) {
-  const quarters = roadmapData.quarters;
-  const trackBg = dark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.08)';
-  const sCfg = dark ? STATUS_CONFIG_DARK : STATUS_CONFIG;
+      // Load roadmap data for all projects in parallel
+      await Promise.all(PROJECTS_INDEX.projects.map(async function (proj) {
+        const base = proj.indexFile.replace('/roadmap-index.json', '');
+        const index = await fetch(proj.indexFile).then(r => r.json());
+        const versionData = await Promise.all(
+          index.versions.map(function (v) {
+            return fetch(base + '/' + v.file).then(r => r.json()).then(function (data) {
+              return { file: v.file, data: data };
+            });
+          })
+        );
+        ALL_ROADMAPS[proj.id] = { index: index };
+        versionData.forEach(function (vd) { ALL_ROADMAPS[proj.id][vd.file] = vd.data; });
+      }));
 
-  return quarters.map(q => {
-    const avg = Math.round(q.tasks.reduce((s,t)=>s+t.progress,0) / (q.tasks.length||1));
-    const cfg = sCfg[q.status] || sCfg.backlog;
-    return `
+      // Load and merge notes for all projects
+      // GitHub is source of truth — merges with any local-only notes
+      await Promise.all(PROJECTS_INDEX.projects.map(async function (proj) {
+        const localKey = 'sf-notes-' + proj.id;
+        const local = JSON.parse(localStorage.getItem(localKey) || '{}');
+        const remote = await loadNotesFromGitHub(proj.id);
+        const merged = remote ? mergeNotes(local, remote) : local;
+        // Write merged result back to localStorage
+        localStorage.setItem(localKey, JSON.stringify(merged));
+      }));
+    }
+
+    /* ── Navigation state ──────────────────────────────────────────── */
+    let CURRENT_PROJECT_ID = null;
+
+    function getActiveRoadmap(projectId) {
+      const proj = ALL_ROADMAPS[projectId];
+      const activeVer = proj.index.versions.find(v => v.current) || proj.index.versions[0];
+      return proj[activeVer.file];
+    }
+
+    /* ── Dashboard ─────────────────────────────────────────────────── */
+    function calcProjectProgress(roadmapData) {
+      const activeQ = roadmapData.quarters.find(q => q.status === 'active');
+      const q = activeQ || roadmapData.quarters[0];
+      if (!q || !q.tasks.length) return { pct: 0, quarter: '—', status: 'backlog', tasks: 0, done: 0 };
+      const pct = Math.round(q.tasks.reduce((s, t) => s + t.progress, 0) / q.tasks.length);
+      const done = q.tasks.filter(t => t.status === 'done').length;
+      return { pct, quarter: q.label, status: q.status, tasks: q.tasks.length, done };
+    }
+
+    function buildMiniGantt(roadmapData, projectColor, dark) {
+      const quarters = roadmapData.quarters;
+      const trackBg = dark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.08)';
+      const sCfg = dark ? STATUS_CONFIG_DARK : STATUS_CONFIG;
+
+      return quarters.map(q => {
+        const avg = Math.round(q.tasks.reduce((s, t) => s + t.progress, 0) / (q.tasks.length || 1));
+        const cfg = sCfg[q.status] || sCfg.backlog;
+        return `
       <div class="flex items-center gap-2">
         <span class="font-label text-[9px] font-extrabold w-6 flex-shrink-0" style="color:${cfg.color}">${q.id}</span>
         <div class="mini-gantt-bar" style="background:${trackBg}">
@@ -1145,29 +1320,29 @@ function buildMiniGantt(roadmapData, projectColor, dark) {
         </div>
         <span class="font-label text-[9px] font-bold w-7 text-right flex-shrink-0" style="color:${cfg.color}">${avg}%</span>
       </div>`;
-  }).join('');
-}
+      }).join('');
+    }
 
-function buildDashboard() {
-  const dark = isDark();
-  const bg       = dark ? '#1c0a37' : '#fdf7ff';
-  const cardBg   = dark ? '#35285b' : '#ffffff';
-  const textPri  = dark ? '#f5eeff' : '#1f1144';
-  const textMut  = dark ? '#cebefb' : '#4f4255';
-  const badgeBg  = dark ? '#473870' : '#f3eaff';
-  const divider  = dark ? 'rgba(230,180,255,0.10)' : 'rgba(138,0,203,0.08)';
-  const themeBtnBg  = dark ? '#473870' : '#f3eaff';
-  const themeBtnCol = dark ? '#e6b4ff' : '#8a00cb';
+    function buildDashboard() {
+      const dark = isDark();
+      const bg = dark ? '#1c0a37' : '#fdf7ff';
+      const cardBg = dark ? '#35285b' : '#ffffff';
+      const textPri = dark ? '#f5eeff' : '#1f1144';
+      const textMut = dark ? '#cebefb' : '#4f4255';
+      const badgeBg = dark ? '#473870' : '#f3eaff';
+      const divider = dark ? 'rgba(230,180,255,0.10)' : 'rgba(138,0,203,0.08)';
+      const themeBtnBg = dark ? '#473870' : '#f3eaff';
+      const themeBtnCol = dark ? '#e6b4ff' : '#8a00cb';
 
-  const cards = PROJECTS_INDEX.projects.map((proj, i) => {
-    const roadmap = getActiveRoadmap(proj.id);
-    const { pct, quarter, status, tasks, done } = calcProjectProgress(roadmap);
-    const sCfg = dark ? STATUS_CONFIG_DARK : STATUS_CONFIG;
-    const stCfg = sCfg[status] || sCfg.backlog;
-    const miniGantt = buildMiniGantt(roadmap, proj.color, dark);
-    const delay = i * 0.08;
+      const cards = PROJECTS_INDEX.projects.map((proj, i) => {
+        const roadmap = getActiveRoadmap(proj.id);
+        const { pct, quarter, status, tasks, done } = calcProjectProgress(roadmap);
+        const sCfg = dark ? STATUS_CONFIG_DARK : STATUS_CONFIG;
+        const stCfg = sCfg[status] || sCfg.backlog;
+        const miniGantt = buildMiniGantt(roadmap, proj.color, dark);
+        const delay = i * 0.08;
 
-    return `
+        return `
       <div class="project-card shadow-ambient hover:shadow-float task-anim"
            style="background:${cardBg};animation-delay:${delay}s">
         <!-- Color bar top -->
@@ -1215,15 +1390,15 @@ function buildDashboard() {
           <div class="flex items-center justify-between">
             <div class="flex items-center gap-2">
               <span class="font-label text-[9px] font-extrabold uppercase tracking-widest px-2 py-0.5 rounded-full"
-                    style="background:${stCfg.bg};color:${stCfg.color};box-shadow:inset 0 0 0 1px ${stCfg.border || stCfg.color+'44'}">${quarter}</span>
+                    style="background:${stCfg.bg};color:${stCfg.color};box-shadow:inset 0 0 0 1px ${stCfg.border || stCfg.color + '44'}">${quarter}</span>
             </div>
             <span class="font-label text-[10px]" style="color:${textMut}">${tasks} tareas · ${proj.owner}</span>
           </div>
         </div>
       </div>`;
-  }).join('');
+      }).join('');
 
-  const html = `
+      const html = `
     <!-- Dashboard header -->
     <header class="glass sticky top-0 z-50 px-10 py-5 flex items-center justify-between gap-8"
             style="box-shadow:0 1px 0 0 rgba(138,0,203,0.10),0 8px 40px -5px rgba(31,17,68,0.07)">
@@ -1246,84 +1421,85 @@ function buildDashboard() {
       </div>
     </div>`;
 
-  document.getElementById('dashboard-view').innerHTML = html;
-  document.body.style.backgroundColor = dark ? '#1c0a37' : '';
+      document.getElementById('dashboard-view').innerHTML = html;
+      document.body.style.backgroundColor = dark ? '#1c0a37' : '';
 
-  requestAnimationFrame(() => {
-    document.querySelectorAll('.mini-gantt-fill').forEach(el => {
-      const w = el.style.width;
-      el.style.width = '0';
-      setTimeout(() => { el.style.width = w; }, 100);
-    });
-  });
-}
-
-/* ── Project navigation ─────────────────────────────────────────── */
-function openProject(projectId) {
-  CURRENT_PROJECT_ID = projectId;
-  const proj = PROJECTS_INDEX.projects.find(p => p.id === projectId);
-  const roadmap = getActiveRoadmap(projectId);
-  const versions = ALL_ROADMAPS[projectId].index.versions;
-
-  // Load this project's notes into _notes before render
-  // (loadAllData already merged GitHub + localStorage, so this reads the merged result)
-  loadNotes();
-
-  // Switch views
-  document.getElementById('dashboard-view').classList.add('view-hidden');
-  document.getElementById('project-view').classList.remove('view-hidden');
-
-  // Inject back button into render via project context
-  render(roadmap, versions, proj);
-  window.scrollTo(0, 0);
-}
-
-function goBack() {
-  CURRENT_PROJECT_ID = null;
-  document.getElementById('project-view').classList.add('view-hidden');
-  document.getElementById('dashboard-view').classList.remove('view-hidden');
-  // Re-render dashboard to pick up any theme changes
-  buildDashboard();
-  window.scrollTo(0, 0);
-}
-
-/* ── Override switchVersion for project context ─────────────────── */
-window.switchVersion = function(file) {
-  const app = document.getElementById('app');
-  app.classList.add('fading');
-  setTimeout(() => {
-    if (!CURRENT_PROJECT_ID) return;
-    const projData = ALL_ROADMAPS[CURRENT_PROJECT_ID];
-    const proj = PROJECTS_INDEX.projects.find(p => p.id === CURRENT_PROJECT_ID);
-    const data = projData[file];
-    if (data) {
-      loadNotes(); // refresh _notes for current project before re-render
-      render(data, projData.index.versions, proj);
-      app.classList.remove('fading');
+      requestAnimationFrame(() => {
+        document.querySelectorAll('.mini-gantt-fill').forEach(el => {
+          const w = el.style.width;
+          el.style.width = '0';
+          setTimeout(() => { el.style.width = w; }, 100);
+        });
+      });
     }
-  }, 200);
-};
 
-/* ── Override toggleTheme to re-render current view ─────────────── */
-window.toggleTheme = function() {
-  setTheme(!isDark());
-  if (CURRENT_PROJECT_ID) {
-    const proj = PROJECTS_INDEX.projects.find(p => p.id === CURRENT_PROJECT_ID);
-    const roadmap = getActiveRoadmap(CURRENT_PROJECT_ID);
-    render(roadmap, ALL_ROADMAPS[CURRENT_PROJECT_ID].index.versions, proj);
-  } else {
-    buildDashboard();
-  }
-};
+    /* ── Project navigation ─────────────────────────────────────────── */
+    function openProject(projectId) {
+      CURRENT_PROJECT_ID = projectId;
+      const proj = PROJECTS_INDEX.projects.find(p => p.id === projectId);
+      const roadmap = getActiveRoadmap(projectId);
+      const versions = ALL_ROADMAPS[projectId].index.versions;
 
-/* ── Init ───────────────────────────────────────────────────────── */
-loadAllData()
-  .then(function() { buildDashboard(); })
-  .catch(function(err) {
-    console.error('Roadmap load error:', err);
-    var el = document.getElementById('dashboard-view');
-    if (el) el.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:60vh;font-family:Manrope,sans-serif;flex-direction:column;gap:1rem;color:#4f4255"><p style="font-size:1rem;color:#8a00cb">Error al cargar los datos</p><p style="font-size:0.8rem">' + err.message + '</p></div>';
-  });
-</script>
+      // Load this project's notes into _notes before render
+      // (loadAllData already merged GitHub + localStorage, so this reads the merged result)
+      loadNotes();
+
+      // Switch views
+      document.getElementById('dashboard-view').classList.add('view-hidden');
+      document.getElementById('project-view').classList.remove('view-hidden');
+
+      // Inject back button into render via project context
+      render(roadmap, versions, proj);
+      window.scrollTo(0, 0);
+    }
+
+    function goBack() {
+      CURRENT_PROJECT_ID = null;
+      document.getElementById('project-view').classList.add('view-hidden');
+      document.getElementById('dashboard-view').classList.remove('view-hidden');
+      // Re-render dashboard to pick up any theme changes
+      buildDashboard();
+      window.scrollTo(0, 0);
+    }
+
+    /* ── Override switchVersion for project context ─────────────────── */
+    window.switchVersion = function (file) {
+      const app = document.getElementById('app');
+      app.classList.add('fading');
+      setTimeout(() => {
+        if (!CURRENT_PROJECT_ID) return;
+        const projData = ALL_ROADMAPS[CURRENT_PROJECT_ID];
+        const proj = PROJECTS_INDEX.projects.find(p => p.id === CURRENT_PROJECT_ID);
+        const data = projData[file];
+        if (data) {
+          loadNotes(); // refresh _notes for current project before re-render
+          render(data, projData.index.versions, proj);
+          app.classList.remove('fading');
+        }
+      }, 200);
+    };
+
+    /* ── Override toggleTheme to re-render current view ─────────────── */
+    window.toggleTheme = function () {
+      setTheme(!isDark());
+      if (CURRENT_PROJECT_ID) {
+        const proj = PROJECTS_INDEX.projects.find(p => p.id === CURRENT_PROJECT_ID);
+        const roadmap = getActiveRoadmap(CURRENT_PROJECT_ID);
+        render(roadmap, ALL_ROADMAPS[CURRENT_PROJECT_ID].index.versions, proj);
+      } else {
+        buildDashboard();
+      }
+    };
+
+    /* ── Init ───────────────────────────────────────────────────────── */
+    loadAllData()
+      .then(function () { buildDashboard(); })
+      .catch(function (err) {
+        console.error('Roadmap load error:', err);
+        var el = document.getElementById('dashboard-view');
+        if (el) el.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:60vh;font-family:Manrope,sans-serif;flex-direction:column;gap:1rem;color:#4f4255"><p style="font-size:1rem;color:#8a00cb">Error al cargar los datos</p><p style="font-size:0.8rem">' + err.message + '</p></div>';
+      });
+  </script>
 </body>
+
 </html>
