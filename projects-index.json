@@ -1,6 +1,6 @@
 {
   "organization": "SmartFran",
-  "lastUpdated": "2025-06-01",
+  "lastUpdated": "2026-06-01",
   "projects": [
     {
       "id": "smartfran",
@@ -24,7 +24,7 @@
       "id": "pedidos",
       "name": "Smart Pedidos",
       "color": "#f0b034",
-      "description": "Gestión de pedidos integrada vía app, WhatsApp y tótem.",
+      "description": "Gestión de pedidos integrada vía concentrador de Apps.",
       "owner": "Equipo Retail",
       "status": "active",
       "indexFile": "pedidos/roadmap-index.json"

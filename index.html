@@ -895,9 +895,15 @@
       const trackBg = dark ? '#2e2050' : '#e0d4ff';
       const labelCol = dark ? '#cebefb' : '#4f4255';
 
-      const labelGrid = months.map(m =>
-        `<span style="position:absolute;left:${m.pos}%;transform:translateX(-50%);color:${labelCol}" class="font-label text-[10px] font-bold uppercase tracking-widest">${m.label}</span>`
-      ).join('');
+      const labelGrid = `
+        <div class="flex" style="height:20px">
+          <div style="width:240px;min-width:240px;flex-shrink:0"></div>
+          <div class="flex-1 relative">
+            ${months.map(m =>
+              `<span style="position:absolute;left:${m.pos}%;color:${labelCol};white-space:nowrap" class="font-label text-[10px] font-bold uppercase tracking-widest">${m.label}</span>`
+            ).join('')}
+          </div>
+        </div>`;
 
       const ganttRows = rows.map(({ q, t, catColor, left, width }) => {
         const qStatus = STATUS_CONFIG[q.status] || STATUS_CONFIG.backlog;
@@ -956,7 +962,7 @@
         <span class="font-body text-xs" style="color:${dark ? '#cebefb' : '#4f4255'}">${fmtDate(data.quarters[0].dateStart)} → ${fmtDate(data.quarters[data.quarters.length - 1].dateEnd)}</span>
       </div>
       <div class="px-7 pb-7 pt-5 overflow-x-auto">
-        <div style="position:relative;height:20px;padding-left:240px;margin-bottom:0.5rem">${labelGrid}</div>
+        <div class="mb-2">${labelGrid}</div>
         <div style="position:relative">${ganttRows}</div>
       </div>
     </div>`;
