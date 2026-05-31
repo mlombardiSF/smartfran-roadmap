@@ -943,12 +943,21 @@
         <div class="relative w-full" style="height:24px">
           <div class="absolute top-1/2 -translate-y-1/2 h-[2px] w-full rounded-full" style="background:${trackBg}"></div>
           ${overrunBar}
-          <div class="absolute flex items-center overflow-hidden cursor-pointer transition-all duration-200 hover:brightness-110"
-               style="left:${left}%;width:${width}%;background:${catColor}38;position:absolute;top:0;height:24px;border-radius:${mainBarRadius}"
-               title="Progreso: ${t.progress}%">
-            <div class="gantt-bar-fill bar-transition-fast h-full"
-                 style="width:${t.progress}%;border-radius:${hasOverrun ? '9999px 0 0 9999px' : '9999px'};background:${hasOverrun ? 'linear-gradient(90deg,#8a00cb 60%,rgba(138,0,203,0))' : 'linear-gradient(135deg,#8a00cb 0%,#ae00ff 100%)'};opacity:0.85"></div>
-            <span class="absolute left-3 font-label text-[10px] font-bold text-white pointer-events-none" style="text-shadow:0 1px 4px rgba(0,0,0,0.5)">${fmtDate(t.dateStart)} → ${fmtDate(t.dateEnd)}</span>
+          <div class="absolute flex items-center overflow-visible cursor-pointer transition-all duration-200 hover:brightness-110"
+               style="left:${left}%;width:${width}%;position:absolute;top:0;height:24px">
+            <!-- bar itself -->
+            <div class="absolute inset-0 overflow-hidden" style="border-radius:${mainBarRadius};background:${catColor}38">
+              <div class="gantt-bar-fill bar-transition-fast h-full"
+                   style="width:${t.progress}%;border-radius:${hasOverrun ? '9999px 0 0 9999px' : '9999px'};background:${hasOverrun ? 'linear-gradient(90deg,#8a00cb 60%,rgba(138,0,203,0))' : 'linear-gradient(135deg,#8a00cb 0%,#ae00ff 100%)'};opacity:0.85">
+                   <span class="font-label font-bold pointer-events-none"
+                  style="position:relative;left:6px;top:-2px;white-space:nowrap;font-size:10px;color:${dark ? '#cebefb' : '#4f4255'};text-shadow:none"
+                  title="Progreso: ${t.progress}%">${t.progress}%</span>
+              </div>
+            </div>
+            <!-- date label outside bar, to the right -->
+            <span class="font-label font-bold pointer-events-none"
+                  style="position:absolute;left:calc(100% + 6px);white-space:nowrap;font-size:9px;color:${dark ? '#cebefb' : '#4f4255'};text-shadow:none"
+                  title="Progreso: ${t.progress}%">${fmtDate(t.dateStart)} → ${fmtDate(t.dateEnd)}</span>
           </div>
         </div>
       </div>
