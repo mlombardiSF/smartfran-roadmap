@@ -107,9 +107,9 @@
           "progress": 85,
           "owner": "Equipo Devops",
           "dateStart": "2026-03-12",
-          "dateEnd": "2026-04-30",
+          "dateEnd": "2026-06-15",
           "dateClosedActual": null,
-          "notes": "Inició en Q1. 11 tickets completados, 2 cancelados, 2 pendientes."
+          "notes": "Inició en Q1. Cierre primera quincena junio junto con Saneamiento.."
         },
         {
           "id": "q1-07",
@@ -163,7 +163,7 @@
           "progress": 20,
           "owner": "Equipo Cloud",
           "dateStart": "2026-04-21",
-          "dateEnd": "2026-06-29",
+          "dateEnd": "2026-07-31",
           "dateClosedActual": null,
           "notes": "Proceso de mejora continua. Se utiliza tiempos de espera para realizar dicha tarea."
         }
@@ -186,10 +186,10 @@
           "status": "in_progress",
           "progress": 35,
           "owner": "Equipo Cloud",
-          "dateStart": "2026-05-01",
-          "dateEnd": "2026-08-31",
+          "dateStart": "2026-06-01",
+          "dateEnd": "2026-07-31",
           "dateClosedActual": null,
-          "notes": "Módulo nuevo iniciado en Q2"
+          "notes": "Módulo estratégico. Cierre estimado fin de julio."
         },
         {
           "id": "q2-02",
@@ -200,7 +200,7 @@
           "status": "in_progress",
           "progress": 71,
           "owner": "Equipo Cloud",
-          "dateStart": "2026-05-01",
+          "dateStart": "2026-06-01",
           "dateEnd": "2026-06-15",
           "dateClosedActual": null,
           "notes": "5 tickets completados, 2 pendientes."
@@ -214,10 +214,10 @@
           "status": "in_progress",
           "progress": 65,
           "owner": "Equipo Devops",
-          "dateStart": "2026-05-01",
-          "dateEnd": "2026-06-31",
+          "dateStart": "2026-06-01",
+          "dateEnd": "2026-06-15",
           "dateClosedActual": null,
-          "notes": ""
+          "notes": "Cierre primera quincena junio junto con Infra."
         },
         {
           "id": "q2-04",
@@ -228,8 +228,8 @@
           "status": "in_progress",
           "progress": 40,
           "owner": "Equipo Cloud",
-          "dateStart": "2026-05-15",
-          "dateEnd": "2026-07-31",
+          "dateStart": "2026-06-01",
+          "dateEnd": "2026-06-30",
           "dateClosedActual": null,
           "notes": "Analisis y desarrollo y logging en conjunto."
         },
@@ -243,7 +243,7 @@
           "progress": 90,
           "owner": "Equipo Cloud",
           "dateStart": "2026-05-15",
-          "dateEnd": "2026-06-31",
+          "dateEnd": "2026-06-15",
           "dateClosedActual": null,
           "notes": "1 tickets pendientes."
         },
@@ -257,7 +257,7 @@
           "progress": 75,
           "owner": "Equipo Cloud",
           "dateStart": "2026-05-16",
-          "dateEnd": "2026-07-31",
+          "dateEnd": "2026-06-15",
           "dateClosedActual": null,
           "notes": "Inciado en Q2."
         },
@@ -285,7 +285,7 @@
           "progress": 0,
           "owner": "Equipo Pedidos",
           "dateStart": "2026-06-01",
-          "dateEnd": "2026-07-31",
+          "dateEnd": "2026-06-30",
           "dateClosedActual": null,
           "notes": "Módulo nuevo iniciado en Q2."
         },
@@ -298,7 +298,7 @@
           "status": "planned",
           "progress": 0,
           "owner": "Equipo Cloud",
-          "dateStart": "2026-06-01",
+          "dateStart": "2026-07-01",
           "dateEnd": "2026-07-31",
           "dateClosedActual": null,
           "notes": "Analisis pendiente, desarrollo no iniciado."
@@ -313,7 +313,7 @@
           "progress": 10,
           "owner": "Equipo Cloud",
           "dateStart": "2026-05-29",
-          "dateEnd": "2026-06-10",
+          "dateEnd": "2026-06-15",
           "dateClosedActual": null,
           "notes": "Problemas en el flujo por perdida de información (ítems)."
         },
@@ -326,8 +326,8 @@
           "status": "planned",
           "progress": 0,
           "owner": "Equipo Cloud",
-          "dateStart": "2026-06-15",
-          "dateEnd": "2026-06-31",
+          "dateStart": "2026-06-16",
+          "dateEnd": "2026-06-30",
           "dateClosedActual": null,
           "notes": ""
         },
@@ -340,8 +340,8 @@
           "status": "planned",
           "progress": 0,
           "owner": "Equipo Loyalty",
-          "dateStart": "2026-07-01",
-          "dateEnd": "2026-08-31",
+          "dateStart": "2026-07-16",
+          "dateEnd": "2026-07-31",
           "dateClosedActual": null,
           "notes": "3 tickets en inicio pero sin avance desde SmartLoyalty."
         }
@@ -356,16 +356,157 @@
       "description": "Foco en completar grupos iniciados en Q1, lanzamiento del módulo mayoristas, evolución del catálogo y nuevas integraciones.",
       "tasks": [
         {
-          "id": "q1-03",
-          "title": "Facturación y Comprobantes",
-          "description": "Envío de comprobante legal por email y fix de facturación electrónica con combos.",
-          "category": "finanzas",
+          "id": "q3-01",
+          "title": "Separación del módulo de facturación",
+          "description": "Extracción del módulo de facturación para convertirlo en un servicio independiente, con el objetivo de mejorar la escalabilidad y flexibilidad del sistema.",
+          "category": "core",
           "priority": "alta",
           "status": "planned",
           "progress": 0,
           "owner": "Equipo Cloud",
           "dateStart": "2026-09-01",
+          "dateEnd": "2026-09-30",
+          "dateClosedActual": null,
+          "notes": "eparación del módulo de facturación. Primera mitad Q3."
+        },
+        {
+          "id": "q3-02",
+          "title": "Fintech internacional",
+          "description": "Expansión de alcance internacional del modulo de finanzas. Con objetivos en Chile, Mexico y USA.",
+          "category": "expansion",
+          "priority": "alta",
+          "status": "planned",
+          "progress": 0,
+          "owner": "Equipo Cloud",
+          "dateStart": "2026-09-01",
+          "dateEnd": "2026-10-15",
+          "dateClosedActual": null,
+          "notes": ""
+        },
+        {
+          "id": "q3-03",
+          "title": "Multimoneda y Multilenguaje en Finanzas",
+          "description": "Expansión de alcance internacional del modulo de finanzas. Con objetivos en Chile, Mexico y USA.",
+          "category": "expansion",
+          "priority": "alta",
+          "status": "planned",
+          "progress": 0,
+          "owner": "Equipo Cloud",
+          "dateStart": "2026-10-01",
           "dateEnd": "2026-10-31",
+          "dateClosedActual": null,
+          "notes": ""
+        },
+        {
+          "id": "q3-04",
+          "title": "Totem - Autoservicio para Clientes",
+          "description": "Desarrollo de un sistema de autoservicio para clientes, con funcionalidades de consulta de menú, realización de pedidos y pagos a través de un totem digital.",
+          "category": "plataforma",
+          "priority": "alta",
+          "status": "planned",
+          "progress": 0,
+          "owner": "Equipo Cloud",
+          "dateStart": "2026-11-01",
+          "dateEnd": "2026-12-15",
+          "dateClosedActual": null,
+          "notes": ""
+        },
+        {
+          "id": "q3-05",
+          "title": "Turnero Digital",
+          "description": "Desarrollo de un sistema de turnos digitales para mejorar la gestión de filas y tiempos de espera en los locales, permitiendo a los clientes tomar turnos a través de una aplicación móvil o desde el Totem digital.",
+          "category": "plataforma",
+          "priority": "alta",
+          "status": "planned",
+          "progress": 0,
+          "owner": "Equipo Cloud",
+          "dateStart": "2026-11-01",
+          "dateEnd": "2026-12-15",
+          "dateClosedActual": null,
+          "notes": ""
+        },
+        {
+          "id": "q3-06",
+          "title": "Nuevo Diseño de la Plataforma",
+          "description": "Rediseño completo de la interfaz de usuario de la plataforma SmartFran Cloud, con el objetivo de mejorar la experiencia del usuario, optimizar la navegación y modernizar la apariencia visual del sistema.",
+          "category": "plataforma",
+          "priority": "alta",
+          "status": "planned",
+          "progress": 0,
+          "owner": "Equipo Cloud",
+          "dateStart": "2026-10-01",
+          "dateEnd": "2026-11-15",
+          "dateClosedActual": null,
+          "notes": ""
+        },
+        {
+          "id": "q3-07",
+          "title": "Gestión de pedidos por Whatsapp",
+          "description": "Integración de la funcionalidad de gestión de pedidos a través de Whatsapp, permitiendo a los clientes realizar pedidos y realizar pagos directamente desde la aplicación.",
+          "category": "plataforma",
+          "priority": "alta",
+          "status": "planned",
+          "progress": 0,
+          "owner": "Equipo Pedidos",
+          "dateStart": "2026-11-16",
+          "dateEnd": "2026-12-31",
+          "dateClosedActual": null,
+          "notes": ""
+        },
+        {
+          "id": "q3-08",
+          "title": "Pronostico de ventas",
+          "description": "Desarrollo de un sistema de pronóstico de ventas para mejorar la planificación y gestión de inventario. Utilizando técnicas de machine learning para analizar datos históricos de ventas, tendencias de mercado y otros factores relevantes, el sistema podrá generar pronósticos precisos que ayuden a optimizar la cadena de suministro y reducir costos asociados al exceso o falta de inventario.",
+          "category": "plataforma",
+          "priority": "alta",
+          "status": "planned",
+          "progress": 0,
+          "owner": "Equipo Cloud",
+          "dateStart": "2026-11-16",
+          "dateEnd": "2026-12-31",
+          "dateClosedActual": null,
+          "notes": ""
+        },
+        {
+          "id": "q3-09",
+          "title": "App Móvil para Franquiciados",
+          "description": "Desarrollo de una aplicación móvil para franquiciados, permitiendo el acceso a información sobre sus tiendas, gestión de pedidos, seguimiento de ventas y comunicación con el equipo central.",
+          "category": "plataforma",
+          "priority": "alta",
+          "status": "planned",
+          "progress": 0,
+          "owner": "Equipo Cloud",
+          "dateStart": "2026-12-01",
+          "dateEnd": "2026-12-31",
+          "dateClosedActual": null,
+          "notes": ""
+        },
+        {
+          "id": "q3-10",
+          "title": "Integración de IA para Soporte y Atención al Cliente",
+          "description": "Desarrollo de un sistema de inteligencia artificial para mejorar el soporte y la atención al cliente, permitiendo a los usuarios obtener respuestas rápidas a sus consultas, resolver problemas comunes y recibir asistencia personalizada a través de chatbots o asistentes virtuales integrados en la plataforma.",
+          "category": "plataforma",
+          "priority": "alta",
+          "status": "planned",
+          "progress": 0,
+          "owner": "Equipo Cloud",
+          "dateStart": "2026-12-01",
+          "dateEnd": "2026-12-31",
+          "dateClosedActual": null,
+          "notes": ""
+        }
+        ,
+        {
+          "id": "q3-11",
+          "title": "Carga de Facturas con IA",
+          "description": "Desarrollo de un sistema de inteligencia artificial para mejorar la carga de facturas, permitiendo a los usuarios cargar facturas con facilidad y precisión.",
+          "category": "plataforma",
+          "priority": "alta",
+          "status": "planned",
+          "progress": 0,
+          "owner": "Equipo Cloud",
+          "dateStart": "2026-12-01",
+          "dateEnd": "2026-12-31",
           "dateClosedActual": null,
           "notes": ""
         }

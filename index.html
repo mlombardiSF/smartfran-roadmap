@@ -1212,7 +1212,7 @@
           </div>
           <div class="flex items-center gap-2 flex-wrap">
             <span class="font-label text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full ghost-border" style="background:${badgeBg};color:${textMut}">Actualizado ${fmtDate(meta.lastUpdated)}</span>
-            <span class="font-label text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full ghost-border" style="background:${badgeBg};color:${textMut}">${quarters.length} trimestres</span>
+            <span class="font-label text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full ghost-border" style="background:${badgeBg};color:${textMut}">${quarters.length} cuatrimestres</span>
             <span class="font-label text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full ghost-border" style="background:${badgeBg};color:${textMut}">${quarters.reduce((s, q) => s + q.tasks.length, 0)} tareas</span>
           </div>
         </div>
@@ -1313,10 +1313,17 @@
     function calcProjectProgress(roadmapData) {
       const activeQ = roadmapData.quarters.find(q => q.status === 'active');
       const q = activeQ || roadmapData.quarters[0];
-      if (!q || !q.tasks.length) return { pct: 0, quarter: '—', status: 'backlog', tasks: 0, done: 0 };
+      if (!q || !q.tasks.length) return { pct: 0, annualPct: 0, quarter: '—', status: 'backlog', tasks: 0, done: 0 };
       const pct = Math.round(q.tasks.reduce((s, t) => s + t.progress, 0) / q.tasks.length);
       const done = q.tasks.filter(t => t.status === 'done').length;
-      return { pct, quarter: q.label, status: q.status, tasks: q.tasks.length, done };
+
+      // Annual progress: average across ALL tasks of all quarters
+      const allTasks = roadmapData.quarters.flatMap(qq => qq.tasks);
+      const annualPct = allTasks.length
+        ? Math.round(allTasks.reduce((s, t) => s + t.progress, 0) / allTasks.length)
+        : 0;
+
+      return { pct, annualPct, quarter: q.label, status: q.status, tasks: q.tasks.length, done };
     }
 
     function buildMiniGantt(roadmapData, projectColor, dark) {
@@ -1351,7 +1358,7 @@
 
       const cards = PROJECTS_INDEX.projects.map((proj, i) => {
         const roadmap = getActiveRoadmap(proj.id);
-        const { pct, quarter, status, tasks, done } = calcProjectProgress(roadmap);
+        const { pct, annualPct, quarter, status, tasks, done } = calcProjectProgress(roadmap);
         const sCfg = dark ? STATUS_CONFIG_DARK : STATUS_CONFIG;
         const stCfg = sCfg[status] || sCfg.backlog;
         const miniGantt = buildMiniGantt(roadmap, proj.color, dark);
@@ -1386,12 +1393,18 @@
             </button>
           </div>
 
-          <!-- Overall progress -->
-          <div class="flex items-center gap-3 mb-4">
+          <!-- Overall progress (Qx activo) -->
+          <div class="flex items-center gap-3 mb-1">
             <div class="flex-1 h-2 rounded-full overflow-hidden" style="background:${dark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.07)'}">
               <div class="h-full rounded-full bar-transition" style="width:${pct}%;background:${proj.color}"></div>
             </div>
             <span class="font-headline text-[13px] font-bold flex-shrink-0" style="color:${proj.color}">${pct}%</span>
+          </div>
+
+          <!-- Annual progress (dato secundario) -->
+          <div class="flex items-center justify-between mb-4">
+            <span class="font-label text-[9px]" style="color:${textMut}">Trimestre activo</span>
+            <span class="font-label text-[10px]" style="color:${textMut}">Año completo <span class="font-bold" style="color:${proj.color}99">${annualPct}%</span></span>
           </div>
 
           <!-- Divider -->

@@ -7,7 +7,7 @@
       "name": "SmartFran Cloud",
       "color": "#6e59ee",
       "description": "Motor transaccional, ecosistema de franquicias y expansión B2B.",
-      "owner": "Equipo Core",
+      "owner": "Equipo Cloud",
       "status": "active",
       "indexFile": "smartfran/roadmap-index.json"
     },
@@ -16,7 +16,7 @@
       "name": "Smart Loyalty",
       "color": "#2cced7",
       "description": "Fidelización, campañas segmentadas y personalización de clientes.",
-      "owner": "Equipo CRM",
+      "owner": "Equipo Loyalty",
       "status": "active",
       "indexFile": "loyalty/roadmap-index.json"
     },
@@ -25,7 +25,7 @@
       "name": "Smart Pedidos",
       "color": "#f0b034",
       "description": "Gestión de pedidos integrada vía concentrador de Apps.",
-      "owner": "Equipo Retail",
+      "owner": "Equipo Pedidos",
       "status": "active",
       "indexFile": "pedidos/roadmap-index.json"
     }
