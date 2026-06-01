@@ -1,0 +1,13 @@
+{
+  "releases": [
+    {
+      "version": "1.2.00",
+      "date": "2026-05-10",
+      "environment": "production",
+      "author": "Equipo Canales",
+      "ticketRef": "PED-44",
+      "summary": "Canal WhatsApp operativo en staging con flujo completo de pedido. KDS v1 instalado en locales piloto.",
+      "file": "pedidos/releases/1.2.00.json"
+    }
+  ]
+}

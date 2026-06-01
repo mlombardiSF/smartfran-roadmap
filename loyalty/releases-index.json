@@ -1,0 +1,13 @@
+{
+  "releases": [
+    {
+      "version": "1.4.00",
+      "date": "2026-05-20",
+      "environment": "production",
+      "author": "Equipo CRM",
+      "ticketRef": "LOY-88",
+      "summary": "Motor de campañas automáticas por segmento y nuevos KPIs de retención en el dashboard de métricas.",
+      "file": "loyalty/releases/1.4.00.json"
+    }
+  ]
+}

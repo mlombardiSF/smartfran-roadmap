@@ -1,0 +1,22 @@
+{
+  "releases": [
+    {
+      "version": "2.27.00",
+      "date": "2026-05-28",
+      "environment": "production",
+      "author": "Matias Nahuel Lombardi Burgos",
+      "ticketRef": "GSFC-394",
+      "summary": "Esta versión representa un salto estructural masivo para la plataforma. Introducimos la arquitectura base de Canales y Subcanales de Venta, expandimos las capacidades del Canal Mayorista que sigue en etapa de desarrollo, perfeccionamos el control de mermas en el Plan de Cuentas y cerramos brechas críticas de seguridad y rendimiento.",
+      "file": "smartfran/releases/2.27.00.json"
+    },
+    {
+      "version": "2.26.00",
+      "date": "2026-04-15",
+      "environment": "production",
+      "author": "Matias Nahuel Lombardi Burgos",
+      "ticketRef": "GSFC-371",
+      "summary": "Cuenta Corriente Mayorista operativa, tunelización de clientes por segmento y nuevos parsers de medios de pago.",
+      "file": "smartfran/releases/2.26.00.json"
+    }
+  ]
+}

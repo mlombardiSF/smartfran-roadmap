@@ -1,0 +1,110 @@
+{
+  "version": "2.27.00",
+  "date": "2026-05-28",
+  "environment": "production",
+  "author": "Matias Nahuel Lombardi Burgos",
+  "ticketRef": "GSFC-394",
+  "summary": "Esta versión representa un salto estructural masivo para la plataforma. Introducimos la arquitectura base de Canales y Subcanales de Venta, expandimos las capacidades del Canal Mayorista que sigue en etapa de desarrollo, perfeccionamos el control de mermas en el Plan de Cuentas y cerramos brechas críticas de seguridad y rendimiento.",
+  "sections": [
+    {
+      "title": "Nueva Arquitectura Comercial: Canales y Subcanales",
+      "description": "Implementamos la estructura base para permitir configuraciones comerciales independientes por cada canal de venta.",
+      "category": "comercial",
+      "items": [
+        {
+          "ticket": "GSFC-59",
+          "title": "Infraestructura de Canales y Listas de Precios",
+          "description": "En el marco de mejorar el proceso en la gestión de catalogo con SmartPedidos y el desarrollo de Mayorista, se realiza la primera entrega de pantallas dedicadas para administrar Canales (ej. Mayorista, Delivery) y Subcanales (ej. Pedidos Ya, Rappi). Una vez finalizado el desarrollo se podrá asociar de forma flexible múltiples listas de precios a un subcanal y habilitarlas a franquiciados específicos con fechas de vigencia configurables."
+        },
+        {
+          "ticket": "GSFC-61",
+          "title": "Alarma y Bloqueos en Caja",
+          "description": "Alarmas visuales y bloqueos operativos ante diferencias de caja, ventas sin autorización o superación de límites configurados por el franquiciante."
+        }
+      ]
+    },
+    {
+      "title": "Stock Avanzado y Evolución Financiera",
+      "description": "Separamos contablemente las pérdidas operativas para una mejor toma de decisiones estratégicas.",
+      "category": "core",
+      "items": [
+        {
+          "ticket": "GSFC-148",
+          "title": "Plan de Cuentas - Gestión de Mermas",
+          "description": "Agregamos sub-clasificaciones específicas no visibles al usuario para mermas (Vencimiento, Rotura/Robo, Beneficios al Personal, Marketing). Diferenciamos el 'Ajuste de Stock' (errores de conteo) de la 'Merma' (pérdida física conocida)."
+        },
+        {
+          "ticket": "GSFC-192",
+          "title": "Panel de Configuración de Movimientos",
+          "description": "Nueva interfaz CRUD para que los Administradores gestionen los tipos de movimientos de stock por local de forma segura, bloqueando la edición de movimientos nativos del sistema (Ventas, Anulaciones)."
+        },
+        {
+          "ticket": "GSFC-355",
+          "title": "Fix Detalle de Movimientos",
+          "description": "Corregimos un fallo crítico que provocaba una pantalla en blanco al intentar inspeccionar o ver el detalle de un movimiento de stock en el Manager."
+        }
+      ]
+    },
+    {
+      "title": "Expansión del Módulo Mayorista",
+      "description": "Continuamos robusteciendo las herramientas para el control y seguimiento de activos en la calle. Es importante entender que el modulo de mayorista se encuentra en desarrollo, por lo tanto, no se disponibilizá el desarrollo al cliente final hasta se tenga un flujo de proceso funcional.",
+      "category": "core",
+      "items": [
+        {
+          "ticket": ["GSFC-218", "GSFC-220", "GSFC-221", "GSFC-222"],
+          "title": "Gestión Maestra de Equipamiento y Freezers",
+          "description": "Los franquiciados mayoristas podrán dar de alta, editar y listar sus equipos de frío o calor (freezers, heladeras, hornos) bajo comodato, registrando datos clave como el Número de Serie y la Capacidad en KGs. Para proteger la consistencia, el sistema impide borrar lógicamente cualquier equipo asignado a un cliente activo."
+        },
+        {
+          "ticket": ["GSFC-189", "GSFC-202"],
+          "title": "Visualización de Rubros y Zonas",
+          "description": "Añadimos paneles de visualización rápida y organizada por orden alfabético para las Zonas Logísticas y los Sectores Comerciales (Rubros) dados de alta."
+        }
+      ]
+    },
+    {
+      "title": "Punto de Venta (POS) y Gestión de Cierres",
+      "description": "Mayor estabilidad en las cajas y reportes contables transparentes.",
+      "category": "core",
+      "items": [
+        {
+          "ticket": "GSFC-321",
+          "title": "Informe de Turnos - Filtro de Fechas Inclusivo",
+          "description": "Corregimos la lógica de búsqueda de turnos en el Manager. El filtro ahora ignora la fecha de creación interna en la base de datos y se rige por el horario de apertura y cierre real (OpenDate/EndDate). Además, la búsqueda es inclusiva: si un turno abarcó varios días, aparecerá al buscar fechas intermedias."
+        },
+        {
+          "ticket": "GSFC-339",
+          "title": "Fix Alerta de Saldo de Caja",
+          "description": "Solucionamos el error de sistema ('Oops! Tenemos un inconveniente') que bloqueaba el POS al iniciar. Ocurría cuando un turno previo se cerraba sin un arqueo manual de efectivo, dejando el saldo de caja inicializado como vacío (null)."
+        },
+        {
+          "ticket": "GSFC-363",
+          "title": "Optimización de Ventas (Weiss)",
+          "description": "Eliminamos procesos intermediarios innecesarios al momento de generar el número de orden en ventas comunes y en AutoWeiss. Esto reduce los tiempos de espera y agiliza el flujo de pago final para el cliente."
+        }
+      ]
+    },
+    {
+      "title": "Seguridad, Permisos y Deuda Técnica",
+      "description": "Mayor estabilidad en las cajas y reportes contables transparentes.",
+      "category": "core",
+      "items": [
+        {
+          "ticket": "GSFC-321",
+          "title": "Informe de Turnos - Filtro de Fechas Inclusivo",
+          "description": "Corregimos la lógica de búsqueda de turnos en el Manager. El filtro ahora ignora la fecha de creación interna en la base de datos y se rige por el horario de apertura y cierre real (OpenDate/EndDate). Además, la búsqueda es inclusiva: si un turno abarcó varios días, aparecerá al buscar fechas intermedias."
+        },
+        {
+          "ticket": "GSFC-339",
+          "title": "Fix Alerta de Saldo de Caja",
+          "description": "Solucionamos el error de sistema ('Oops! Tenemos un inconveniente') que bloqueaba el POS al iniciar. Ocurría cuando un turno previo se cerraba sin un arqueo manual de efectivo, dejando el saldo de caja inicializado como vacío (null)."
+        },
+        {
+          "ticket": "GSFC-363",
+          "title": "Optimización de Ventas (Weiss)",
+          "description": "Eliminamos procesos intermediarios innecesarios al momento de generar el número de orden en ventas comunes y en AutoWeiss. Esto reduce los tiempos de espera y agiliza el flujo de pago final para el cliente."
+        }
+      ]
+    }
+  ]
+}

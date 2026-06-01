@@ -1,0 +1,39 @@
+{
+  "version": "2.26.00",
+  "date": "2026-04-15",
+  "environment": "production",
+  "author": "Matias Nahuel Lombardi Burgos",
+  "ticketRef": "GSFC-371",
+  "summary": "Cuenta Corriente Mayorista operativa, tunelización de clientes por segmento y nuevos parsers de medios de pago.",
+  "sections": [
+    {
+      "title": "Módulo Mayorista — Cuenta Corriente",
+      "description": "Primera versión operativa de Cuenta Corriente para clientes mayoristas.",
+      "category": "comercial",
+      "items": [
+        {
+          "ticket": "GSFC-310",
+          "title": "Gestión de Cuenta Corriente Mayorista",
+          "description": "Alta, consulta y gestión de límites de crédito por cliente mayorista. Vista de saldo, movimientos y alertas de vencimiento."
+        },
+        {
+          "ticket": "GSFC-325",
+          "title": "Segmentación Minorista / Mayorista",
+          "description": "Tunelización del flujo de venta según tipo de cliente. Detección automática del segmento con aplicación de reglas de precio y condiciones de pago correspondientes."
+        }
+      ]
+    },
+    {
+      "title": "Fintech — Parsers de Medios de Pago",
+      "description": "Expansión de cobertura de parsers para nuevos medios.",
+      "category": "fintech",
+      "items": [
+        {
+          "ticket": "GSFC-358",
+          "title": "Parser Modo / Billetera Virtual",
+          "description": "Soporte para pagos con Modo en QR y link de pago. Conciliación automática y manejo de rechazos."
+        }
+      ]
+    }
+  ]
+}

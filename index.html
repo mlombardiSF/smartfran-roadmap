@@ -1434,12 +1434,34 @@
         <img src="./assets/smartfran-logo.svg" alt="SmartFran Logo" class="w-32 h-20">
         <p class="font-body text-[11px] font-medium mt-0.5" style="color:${textMut}">Vista general de productos · ${PROJECTS_INDEX.projects.length} proyectos activos</p>
       </div>
-      <button id="dash-theme-toggle" onclick="toggleTheme()"
-              class="theme-btn shadow-ambient"
-              style="background:${themeBtnBg};color:${themeBtnCol}"
-              title="${dark ? 'Modo claro' : 'Modo oscuro'}">
-        ${themeIcon(!dark)}
-      </button>
+      <div class="flex items-center gap-3 flex-shrink-0">
+        <!-- Releases link -->
+        <a href="changelog.html"
+           class="flex items-center gap-2 font-label text-[11px] font-bold px-4 py-2 rounded-full no-underline transition-all duration-200 shadow-ambient hover:shadow-float hover:-translate-y-px"
+           style="background:${dark ? '#473870' : '#f3eaff'};color:${dark ? '#cebefb' : '#4f4255'};box-shadow:inset 0 0 0 1px ${dark ? 'rgba(230,180,255,0.15)' : 'rgba(138,0,203,0.15)'}">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="16" y1="13" x2="8" y2="13"/>
+            <line x1="16" y1="17" x2="8" y2="17"/>
+          </svg>
+          Releases
+        </a>
+        
+        <!-- Github repo link -->
+        <a href="https://github.com/mlombardiSF/smartfran-roadmap" class="theme-btn shadow-ambient"
+           style="background:${dark ? '#473870' : '#f3eaff'};color:${dark ? '#cebefb' : '#4f4255'};box-shadow:inset 0 0 0 1px ${dark ? 'rgba(230,180,255,0.15)' : 'rgba(138,0,203,0.15)'}">
+          <img src="./assets/github-logo.svg" alt="GitHub Repo" class="w-4 h-4">
+        </a>
+
+        <!-- Theme toggle -->
+        <button id="dash-theme-toggle" onclick="toggleTheme()"
+                class="theme-btn shadow-ambient"
+                style="background:${themeBtnBg};color:${themeBtnCol}"
+                title="${dark ? 'Modo claro' : 'Modo oscuro'}">
+          ${themeIcon(!dark)}
+        </button>
+      </div>
     </header>
 
     <!-- Cards grid -->

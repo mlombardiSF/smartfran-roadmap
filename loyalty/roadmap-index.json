@@ -3,7 +3,7 @@
     {
       "year": 2025,
       "label": "2025 — Actual",
-      "file": "roadmap-2025.json",
+      "file": "roadmaps/roadmap-2025.json",
       "current": true
     }
   ]

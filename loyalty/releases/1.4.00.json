@@ -1,0 +1,34 @@
+{
+  "version": "1.4.00",
+  "date": "2026-05-20",
+  "environment": "production",
+  "author": "Equipo CRM",
+  "ticketRef": "LOY-88",
+  "summary": "Motor de campañas automáticas por segmento y nuevos KPIs de retención en el dashboard de métricas.",
+  "sections": [
+    {
+      "title": "Campañas Automáticas",
+      "description": "Motor de disparadores automáticos basado en comportamiento de compra.",
+      "category": "campanas",
+      "items": [
+        {
+          "ticket": "LOY-72",
+          "title": "Disparadores por segmento de cliente",
+          "description": "Campañas automáticas activadas por reglas de comportamiento: frecuencia de visita, ticket promedio, días sin compra o acumulación de puntos."
+        }
+      ]
+    },
+    {
+      "title": "Analytics — Nuevos KPIs",
+      "description": "Expansión del dashboard con métricas de retención y churn.",
+      "category": "analytics",
+      "items": [
+        {
+          "ticket": "LOY-81",
+          "title": "KPIs de retención y churn rate",
+          "description": "Retención mensual, tasa de churn y cohort analysis por período de incorporación al programa."
+        }
+      ]
+    }
+  ]
+}

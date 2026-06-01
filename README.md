@@ -6,10 +6,12 @@
 2. [Estructura de archivos](#estructura-de-archivos)
 3. [Cómo agregar un nuevo proyecto](#cómo-agregar-un-nuevo-proyecto)
 4. [Cómo agregar una nueva versión anual](#cómo-agregar-una-nueva-versión-anual)
-5. [Referencia del JSON de roadmap](#referencia-del-json-de-roadmap)
-6. [Cómo usar las notas desde el frontend](#cómo-usar-las-notas-desde-el-frontend)
-7. [Cómo funcionan las notas internamente](#cómo-funcionan-las-notas-internamente)
-8. [Preguntas frecuentes](#preguntas-frecuentes)
+5. [Cómo registrar un release](#cómo-registrar-un-release)
+6. [Referencia del JSON de roadmap](#referencia-del-json-de-roadmap)
+7. [Referencia del JSON de release](#referencia-del-json-de-release)
+8. [Cómo usar las notas desde el frontend](#cómo-usar-las-notas-desde-el-frontend)
+9. [Cómo funcionan las notas internamente](#cómo-funcionan-las-notas-internamente)
+10. [Preguntas frecuentes](#preguntas-frecuentes)
 
 ---
 
@@ -21,13 +23,15 @@ El roadmap de SmartFran es una aplicación web estática — **un solo archivo H
 
 - Ver el avance de todos los productos en el dashboard ejecutivo
 - Entrar al roadmap de su proyecto y ver el detalle por trimestre
+- Consultar el historial de releases desplegados en producción
 - Registrar notas y observaciones en cada tarea, con autor y timestamp automático
 - Consultar el historial de comentarios de su equipo
 
 **Lo que se administra editando JSON:**
 
 - Agregar o modificar tareas, fechas, responsables y progreso
-- Crear nuevas versiones anuales
+- Crear nuevas versiones anuales del roadmap
+- Registrar releases con sus cambios y tickets asociados
 - Incorporar nuevos proyectos al dashboard
 
 ---
@@ -36,33 +40,50 @@ El roadmap de SmartFran es una aplicación web estática — **un solo archivo H
 
 ```bash
 /
-├── index.html                  ← La aplicación completa (no modificar)
-├── projects-index.json         ← Índice maestro de proyectos (EDITAR para sumar proyectos)
+├── index.html                      ← La aplicación principal (no modificar)
+├── changelog.html                  ← Vista de releases y changelog (no modificar)
+├── projects-index.json             ← Índice maestro de proyectos (EDITAR para sumar proyectos)
+│
+├── assets/
+│   └── *.svg, *.png               ← Logos e íconos de los proyectos
 │
 ├── smartfran/
-│   ├── roadmap-index.json      ← Versiones disponibles del proyecto
-│   ├── roadmap-2025.json       ← Datos del roadmap 2025
-│   ├── roadmap-2024.json       ← Datos del roadmap 2024
-│   └── notes.json              ← Notas del equipo (se actualiza automáticamente)
+│   ├── roadmap-index.json          ← Versiones disponibles del roadmap
+│   ├── releases-index.json         ← Índice de releases del proyecto
+│   ├── notes.json                  ← Notas del equipo (se actualiza automáticamente)
+│   ├── roadmaps/
+│   │   ├── roadmap-2026.json       ← Datos del roadmap 2026
+│   │   └── roadmap-2025.json       ← Datos del roadmap 2025 (histórico)
+│   └── releases/
+│       ├── 2.27.00.json            ← Detalle del release 2.27.00
+│       └── 2.26.00.json            ← Detalle del release 2.26.00
 │
 ├── loyalty/
 │   ├── roadmap-index.json
-│   ├── roadmap-2025.json
-│   └── notes.json
+│   ├── releases-index.json
+│   ├── notes.json
+│   ├── roadmaps/
+│   │   └── roadmap-2025.json
+│   └── releases/
+│       └── 1.4.00.json
 │
 └── pedidos/
     ├── roadmap-index.json
-    ├── roadmap-2025.json
-    └── notes.json
+    ├── releases-index.json
+    ├── notes.json
+    ├── roadmaps/
+    │   └── roadmap-2025.json
+    └── releases/
+        └── 1.2.00.json
 ```
 
-> **Regla:** cada proyecto vive en su propia carpeta. El nombre de la carpeta es el identificador del proyecto.
+> **Regla:** cada proyecto vive en su propia carpeta. Los roadmaps anuales van dentro de `roadmaps/` y cada release tiene su propio archivo JSON dentro de `releases/`.
 
 ---
 
 ## Cómo agregar un nuevo proyecto
 
-Seguí estos 4 pasos en orden.
+Seguí estos 5 pasos en orden.
 
 ### Paso 1 — Crear la carpeta del proyecto en el repo
 
@@ -71,15 +92,17 @@ En GitHub, dentro del repo creá la siguiente estructura (reemplazá `miproyecto
 ```bash
 miproyecto/
 ├── roadmap-index.json
-├── roadmap-2025.json
-└── notes.json
+├── releases-index.json
+├── notes.json
+└── roadmaps/
+    └── roadmap-2025.json
 ```
 
-Para crear archivos en GitHub: **Add file → Create new file** y escribís el path completo, por ejemplo `miproyecto/notes.json`.
+Para crear archivos en GitHub: **Add file → Create new file** y escribís el path completo, por ejemplo `miproyecto/roadmaps/roadmap-2025.json`.
 
 ### Paso 2 — Crear `roadmap-index.json`
 
-Este archivo lista las versiones anuales disponibles del proyecto.
+Este archivo lista las versiones anuales disponibles del proyecto. Notar que `file` apunta a la subcarpeta `roadmaps/`.
 
 ```json
 {
@@ -87,7 +110,7 @@ Este archivo lista las versiones anuales disponibles del proyecto.
     {
       "year": 2025,
       "label": "2025 — Actual",
-      "file": "roadmap-2025.json",
+      "file": "roadmaps/roadmap-2025.json",
       "current": true
     }
   ]
@@ -96,7 +119,7 @@ Este archivo lista las versiones anuales disponibles del proyecto.
 
 > `current: true` indica cuál es la versión activa. Solo una versión puede tenerlo en `true`.
 
-### Paso 3 — Crear `roadmap-2025.json`
+### Paso 3 — Crear `roadmaps/roadmap-2025.json`
 
 Copiá la estructura base y completá con los datos de tu proyecto. Ver la [referencia completa del JSON](#referencia-del-json-de-roadmap) más abajo.
 
@@ -114,7 +137,17 @@ Copiá la estructura base y completá con los datos de tu proyecto. Ver la [refe
 }
 ```
 
-### Paso 4 — Crear `notes.json`
+### Paso 4 — Crear `releases-index.json`
+
+Creá el archivo con el array vacío:
+
+```json
+{
+  "releases": []
+}
+```
+
+### Paso 5 — Crear `notes.json`
 
 Creá el archivo con contenido vacío:
 
@@ -122,7 +155,7 @@ Creá el archivo con contenido vacío:
 {}
 ```
 
-### Paso 5 — Registrar el proyecto en `projects-index.json`
+### Paso 6 — Registrar el proyecto en `projects-index.json`
 
 Abrí `projects-index.json` en la raíz del repo y agregá tu proyecto al array `projects`:
 
@@ -163,11 +196,11 @@ Una vez que commitiás los cambios, GitHub Actions hace el deploy automáticamen
 
 ## Cómo agregar una nueva versión anual
 
-Cuando empieza un nuevo año (ej: 2026), seguí estos pasos:
+Cuando empieza un nuevo año (ej: 2027), seguí estos pasos:
 
 ### Paso 1 — Crear el archivo del nuevo año
 
-Dentro de la carpeta de tu proyecto, creá `roadmap-2026.json` con la estructura del nuevo año. Podés partir del año anterior como base.
+Dentro de `roadmaps/` del proyecto, creá `roadmap-2027.json` con la estructura del nuevo año. Podés partir del año anterior como base.
 
 ### Paso 2 — Actualizar `roadmap-index.json`
 
@@ -177,15 +210,15 @@ Agregá la nueva versión y marcá la anterior como `current: false`:
 {
   "versions": [
     {
-      "year": 2026,
-      "label": "2026 — Actual",
-      "file": "roadmap-2026.json",
+      "year": 2027,
+      "label": "2027 — Actual",
+      "file": "roadmaps/roadmap-2027.json",
       "current": true
     },
     {
-      "year": 2025,
-      "label": "2025 — Histórico",
-      "file": "roadmap-2025.json",
+      "year": 2026,
+      "label": "2026 — Histórico",
+      "file": "roadmaps/roadmap-2026.json",
       "current": false
     }
   ]
@@ -193,6 +226,64 @@ Agregá la nueva versión y marcá la anterior como `current: false`:
 ```
 
 > El selector de versión en el roadmap del proyecto mostrará automáticamente todas las versiones listadas aquí.
+
+---
+
+## Cómo registrar un release
+
+Cuando se despliega una nueva versión a producción, hay que crear el archivo de detalle y registrarlo en el índice del proyecto.
+
+### Paso 1 — Crear el archivo del release
+
+Dentro de `releases/` del proyecto, creá un archivo con el número de versión como nombre (ej: `2.28.00.json`). Ver la [referencia completa](#referencia-del-json-de-release) más abajo.
+
+```json
+{
+  "version": "2.28.00",
+  "date": "2026-07-10",
+  "environment": "production",
+  "author": "Nombre Apellido",
+  "ticketRef": "GSFC-420",
+  "summary": "Descripción breve del release.",
+  "sections": [
+    {
+      "title": "Nombre del módulo o área",
+      "description": "Qué se trabajó en esta sección.",
+      "category": "comercial",
+      "items": [
+        {
+          "ticket": "GSFC-410",
+          "title": "Nombre del cambio",
+          "description": "Detalle de qué hace este cambio."
+        }
+      ]
+    }
+  ]
+}
+```
+
+### Paso 2 — Actualizar `releases-index.json`
+
+Agregá el nuevo release al principio del array `releases` (orden cronológico descendente):
+
+```json
+{
+  "releases": [
+    {
+      "version": "2.28.00",
+      "date": "2026-07-10",
+      "environment": "production",
+      "author": "Nombre Apellido",
+      "ticketRef": "GSFC-420",
+      "summary": "Descripción breve del release.",
+      "file": "smartfran/releases/2.28.00.json"
+    },
+    { ...releases anteriores... }
+  ]
+}
+```
+
+> El campo `file` debe ser la ruta completa relativa a la raíz del repo.
 
 ---
 
@@ -287,6 +378,71 @@ Texto libre de observación inicial (nota del sistema). Aparece en la card con a
 **`categories`**
 
 Cada categoría tiene un `id` (referenciado en `tasks[].category`), un `label` visible y un `color` hex. Podés definir las categorías que necesites para tu proyecto.
+
+---
+
+## Referencia del JSON de release
+
+### Estructura de `releases-index.json`
+
+Índice liviano con un objeto por release. Se usa para listar todos los releases en el changelog sin cargar el detalle completo.
+
+```json
+{
+  "releases": [
+    {
+      "version": "2.27.00",
+      "date": "2026-05-28",
+      "environment": "production",
+      "author": "Nombre Apellido",
+      "ticketRef": "GSFC-394",
+      "summary": "Descripción breve del release.",
+      "file": "smartfran/releases/2.27.00.json"
+    }
+  ]
+}
+```
+
+| Campo | Descripción | Ejemplo |
+| --- | --- | --- |
+| `version` | Número de versión | `"2.27.00"` |
+| `date` | Fecha de deploy en producción | `"2026-05-28"` |
+| `environment` | Entorno desplegado | `"production"` |
+| `author` | Responsable del release | `"Matias Lombardi"` |
+| `ticketRef` | Ticket principal del release | `"GSFC-394"` |
+| `summary` | Descripción breve visible en la lista | `"Mejoras en..."` |
+| `file` | Ruta al JSON de detalle | `"smartfran/releases/2.27.00.json"` |
+
+### Estructura del archivo de detalle (`releases/X.XX.XX.json`)
+
+Contiene el detalle completo agrupado por secciones funcionales.
+
+```json
+{
+  "version": "2.27.00",
+  "date": "2026-05-28",
+  "environment": "production",
+  "author": "Nombre Apellido",
+  "ticketRef": "GSFC-394",
+  "summary": "Descripción breve del release.",
+  "sections": [
+    {
+      "title": "Nombre del módulo o área",
+      "description": "Qué se trabajó en esta sección.",
+      "category": "comercial",
+      "items": [
+        {
+          "ticket": "GSFC-380",
+          "title": "Nombre del cambio",
+          "description": "Detalle de qué hace este cambio y su impacto."
+        }
+      ]
+    }
+  ]
+}
+```
+
+**`sections[].category`** — Valor libre que agrupa visualmente los cambios. Ejemplos: `"comercial"`, `"fintech"`, `"infra"`, `"ux"`, `"campanas"`, `"analytics"`.
 
 ---
 
@@ -394,6 +550,9 @@ Sí. Cambiá `"status": "active"` a `"status": "paused"` en `projects-index.json
 **¿Qué pasa si el deploy de GitHub Actions falla?**
 La app sigue funcionando en la versión anterior. Revisá la pestaña **Actions** del repo para ver el log de error.
 
+**¿Puedo editar o borrar un release ya publicado?**
+Sí. Editá directamente el archivo `releases/X.XX.XX.json` correspondiente para corregir el contenido, o remové la entrada de `releases-index.json` para que deje de aparecer en el changelog (sin borrar el archivo de detalle). Cualquier cambio requiere un commit.
+
 ---
 
-*Para cambios en el diseño o funcionalidad del `index.html`, contactar al equipo de desarrollo.*
+*Para cambios en el diseño o funcionalidad de `index.html` o `changelog.html`, contactar al equipo de desarrollo.*

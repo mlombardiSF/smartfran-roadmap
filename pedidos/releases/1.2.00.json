@@ -1,0 +1,34 @@
+{
+  "version": "1.2.00",
+  "date": "2026-05-10",
+  "environment": "production",
+  "author": "Equipo Canales",
+  "ticketRef": "PED-44",
+  "summary": "Canal WhatsApp operativo en staging con flujo completo de pedido. KDS v1 instalado en locales piloto.",
+  "sections": [
+    {
+      "title": "Canal WhatsApp",
+      "description": "Bot conversacional para recepción de pedidos vía WhatsApp Business.",
+      "category": "canal",
+      "items": [
+        {
+          "ticket": "PED-31",
+          "title": "Flujo de pedido simple vía bot",
+          "description": "Flujo conversacional básico: bienvenida, selección de productos del menú activo, confirmación y notificación al local. Operativo en staging con 3 locales piloto."
+        }
+      ]
+    },
+    {
+      "title": "Kitchen Display System v1",
+      "description": "Pantalla de cocina con cola de pedidos en tiempo real.",
+      "category": "cocina",
+      "items": [
+        {
+          "ticket": "PED-38",
+          "title": "KDS — Cola y tiempos estimados",
+          "description": "Visualización en tiempo real de pedidos entrantes con priorización automática, tiempos estimados y alertas de demora configurables."
+        }
+      ]
+    }
+  ]
+}

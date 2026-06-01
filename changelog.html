@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>SmartFran — Releases</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'surface':              '#fdf7ff',
+        'surface-low':         '#f8f1ff',
+        'surface-container':   '#f3eaff',
+        'surface-high':        '#ede4ff',
+        'surface-dim':         '#e0d4ff',
+        'on-surface':          '#1f1144',
+        'on-surface-variant':  '#4f4255',
+        'outline-variant':     '#d3c0d8',
+        'primary':             '#8a00cb',
+        'primary-container':   '#ae00ff',
+        'inverse-surface':     '#35285b',
+        'inverse-on-surface':  '#f5eeff',
+        'secondary-fixed-dim': '#cebefb',
+        'tertiary':            '#006267',
+      },
+      fontFamily: {
+        headline: ['Plus Jakarta Sans'],
+        body:     ['Manrope'],
+        label:    ['Manrope'],
+      },
+    }
+  }
+}
+</script>
+<style>
+:root {
+  --grad: linear-gradient(135deg, #8a00cb 0%, #ae00ff 100%);
+}
+
+body {
+  background-image: radial-gradient(ellipse 70% 40% at 70% -5%, rgba(174,0,255,0.07) 0%, transparent 65%);
+  transition: background-color 0.3s ease;
+}
+.dark body {
+  background-image: radial-gradient(ellipse 70% 40% at 70% -5%, rgba(174,0,255,0.13) 0%, transparent 65%);
+}
+
+/* Glass header */
+.glass {
+  background: rgba(253,247,255,0.85);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+.dark .glass { background: rgba(28,10,55,0.85); }
+
+/* Shadows */
+.shadow-ambient { box-shadow: 0 8px 40px -5px rgba(31,17,68,0.07); }
+.shadow-float   { box-shadow: 0 16px 40px -5px rgba(31,17,68,0.13); }
+.dark .shadow-ambient { box-shadow: 0 8px 40px -5px rgba(0,0,0,0.3); }
+.dark .shadow-float   { box-shadow: 0 16px 40px -5px rgba(0,0,0,0.45); }
+
+/* Ghost border */
+.ghost-border { box-shadow: inset 0 0 0 1px rgba(211,192,216,0.5); }
+.dark .ghost-border { box-shadow: inset 0 0 0 1px rgba(230,180,255,0.15); }
+
+/* Grad utilities */
+.grad-primary { background: var(--grad); }
+.grad-text {
+  background: var(--grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Timeline line */
+.timeline-line {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, rgba(138,0,203,0.5) 0%, rgba(174,0,255,0.1) 100%);
+}
+
+/* Release card */
+.release-card {
+  border-radius: 1.25rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.release-card:hover { transform: translateY(-1px); }
+
+/* Accordion */
+.release-body {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s cubic-bezier(0.4,0,0.2,1);
+}
+.release-card.open .release-body { grid-template-rows: 1fr; }
+.release-body-inner { overflow: hidden; }
+
+/* Chevron */
+.chevron-icon { transition: transform 0.35s cubic-bezier(0.4,0,0.2,1); }
+.release-card.open .chevron-icon { transform: rotate(180deg); }
+
+/* Category badge colors */
+.cat-core      { background: #534AB720; color: #534AB7; }
+.cat-comercial { background: #99355620; color: #993556; }
+.cat-fintech   { background: #0F6E5620; color: #0F6E56; }
+.cat-campanas  { background: #3B6D1120; color: #3B6D11; }
+.cat-analytics { background: #854F0B20; color: #854F0B; }
+.cat-canal     { background: #185FA520; color: #185FA5; }
+.cat-cocina    { background: #993C1D20; color: #993C1D; }
+.cat-mobile    { background: #D4537E20; color: #D4537E; }
+
+/* Env badge */
+.env-production { background: rgba(0,98,103,0.12); color: #006267; box-shadow: inset 0 0 0 1px rgba(0,98,103,0.3); }
+.env-staging    { background: rgba(133,79,11,0.12);  color: #854F0B;  box-shadow: inset 0 0 0 1px rgba(133,79,11,0.3); }
+.dark .env-production { background: rgba(64,218,227,0.1); color: #40dae3; }
+.dark .env-staging    { background: rgba(250,199,117,0.1); color: #FAC775; }
+
+/* Project selector tabs */
+.proj-tab {
+  padding: 0.45rem 1.1rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  font-family: 'Manrope', sans-serif;
+  white-space: nowrap;
+}
+
+/* Search */
+.search-input {
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.82rem;
+  width: 100%;
+}
+
+/* Ticket chip */
+.ticket-chip {
+  font-family: 'Courier New', monospace;
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 0.18rem 0.55rem;
+  border-radius: 5px;
+  background: rgba(138,0,203,0.1);
+  color: #8a00cb;
+  flex-shrink: 0;
+}
+.dark .ticket-chip { background: rgba(230,180,255,0.1); color: #e6b4ff; }
+
+/* Theme toggle */
+.theme-btn {
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.2s, transform 0.15s;
+  flex-shrink: 0;
+}
+.theme-btn:hover { transform: scale(1.08); }
+
+/* Spinner */
+@keyframes spin { to { transform: rotate(360deg); } }
+.spinner {
+  width: 20px; height: 20px;
+  border: 2.5px solid #ede4ff;
+  border-top-color: #8a00cb;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+/* Entry animation */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-up { animation: fadeUp 0.4s cubic-bezier(0.4,0,0.2,1) both; }
+
+/* Dark overrides */
+.dark .dk-bg     { background-color: #1c0a37 !important; }
+.dark .dk-card   { background-color: #35285b !important; }
+.dark .dk-low    { background-color: #3d2f66 !important; }
+.dark .dk-mid    { background-color: #473870 !important; }
+.dark .dk-input  { background-color: #2e2050 !important; }
+.dark .dk-text   { color: #f5eeff !important; }
+.dark .dk-muted  { color: #cebefb !important; }
+.dark .dk-dim    { background-color: #2e2050 !important; }
+</style>
+</head>
+
+<body class="bg-surface text-on-surface font-body min-h-screen">
+
+<!-- ── App ─────────────────────────────────────────────────── -->
+<div id="loading" class="flex items-center justify-center h-screen gap-3 font-headline font-semibold text-on-surface-variant">
+  <div class="spinner"></div> Cargando releases…
+</div>
+<div id="app" style="display:none"></div>
+
+<script>
+/* ── Config ──────────────────────────────────────────────── */
+const PROJECTS_META = {
+  smartfran: { name: 'SmartFran Cloud', color: '#6e59ee', indexFile: 'smartfran/releases-index.json' },
+  loyalty:   { name: 'Smart Loyalty',   color: '#2cced7', indexFile: 'loyalty/releases-index.json'   },
+  pedidos:   { name: 'Smart Pedidos',   color: '#f0b034', indexFile: 'pedidos/releases-index.json'   },
+};
+
+const CAT_LABELS = {
+  core: 'Core & Infra', comercial: 'Comercial', fintech: 'Fintech',
+  campanas: 'Campañas', analytics: 'Analytics', canal: 'Canales',
+  cocina: 'Cocina & KDS', mobile: 'Mobile',
+};
+
+/* ── State ───────────────────────────────────────────────── */
+let ALL_RELEASES  = {};   // { projectId: [ ...index entries (no sections) ] }
+let DETAIL_CACHE  = {};   // { 'path/to/file.json': { sections: [...] } }
+let LOADING_FILES = {};   // in-flight guards
+let activeProject = 'smartfran';
+let searchQuery   = '';
+
+/* ── Dark mode ───────────────────────────────────────────── */
+const ROOT = document.documentElement;
+function isDark() { return ROOT.classList.contains('dark'); }
+function setTheme(dark) {
+  ROOT.classList.toggle('dark', dark);
+  localStorage.setItem('sfTheme', dark ? 'dark' : 'light');
+  const btn = document.getElementById('theme-toggle');
+  if (btn) btn.innerHTML = themeIcon(!dark);
+}
+function toggleTheme() { setTheme(!isDark()); render(); }
+function themeIcon(showMoon) {
+  return showMoon
+    ? `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>`
+    : `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>`;
+}
+(function() {
+  const saved = localStorage.getItem('sfTheme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  setTheme(saved ? saved === 'dark' : prefersDark);
+})();
+
+/* ── Helpers ──────────────────────────────────────────────── */
+function fmtDate(str) {
+  if (!str) return '—';
+  const [y, m, d] = str.split('-');
+  return `${d}/${m}/${y}`;
+}
+function relativeDate(str) {
+  const diff = Math.floor((Date.now() - new Date(str)) / 86400000);
+  if (diff === 0) return 'Hoy';
+  if (diff === 1) return 'Ayer';
+  if (diff < 7)  return `Hace ${diff} días`;
+  if (diff < 30) return `Hace ${Math.floor(diff/7)} sem.`;
+  if (diff < 365) return `Hace ${Math.floor(diff/30)} meses`;
+  return `Hace ${Math.floor(diff/365)} año${Math.floor(diff/365)>1?'s':''}`;
+}
+function catClass(cat) {
+  return `cat-${cat || 'core'}`;
+}
+function catLabel(cat) { return CAT_LABELS[cat] || cat; }
+
+/* ── Data loading ─────────────────────────────────────────── */
+async function loadAllReleases() {
+  await Promise.all(Object.entries(PROJECTS_META).map(async ([id, meta]) => {
+    try {
+      const data = await fetch(meta.indexFile).then(r => r.json());
+      ALL_RELEASES[id] = data.releases || [];
+    } catch(e) {
+      console.warn(`Could not load release index for ${id}:`, e);
+      ALL_RELEASES[id] = [];
+    }
+  }));
+}
+
+async function loadReleaseDetail(file) {
+  if (DETAIL_CACHE[file]) return DETAIL_CACHE[file];
+  if (LOADING_FILES[file]) return null;
+  LOADING_FILES[file] = true;
+  try {
+    const data = await fetch(file).then(r => r.json());
+    DETAIL_CACHE[file] = data;
+    return data;
+  } catch(e) {
+    console.warn('Could not load release detail: ' + file, e);
+    return null;
+  } finally {
+    delete LOADING_FILES[file];
+  }
+}
+
+/* ── Helpers ──────────────────────────────────────────────── */
+function renderTicketChips(ticket) {
+  const list = Array.isArray(ticket) ? ticket : [ticket];
+  return `<div class="flex flex-col gap-1 flex-shrink-0 mt-0.5">${list.map(t => `<span class="ticket-chip">${t.trim()}</span>`).join('')}</div>`;
+}
+
+/* ── Render ───────────────────────────────────────────────── */
+function getFilteredReleases() {
+  const releases = ALL_RELEASES[activeProject] || [];
+  if (!searchQuery) return releases;
+  const q = searchQuery.toLowerCase();
+  return releases.filter(r =>
+    r.version.includes(q) ||
+    r.summary.toLowerCase().includes(q) ||
+    r.sections.some(s =>
+      s.title.toLowerCase().includes(q) ||
+      s.items.some(i => i.title.toLowerCase().includes(q) || i.ticket.toLowerCase().includes(q))
+    )
+  );
+}
+
+function buildHeader() {
+  const dark = isDark();
+  const textPri  = dark ? '#f5eeff' : '#1f1144';
+  const textMut  = dark ? '#cebefb' : '#4f4255';
+  const badgeBg  = dark ? '#473870' : '#f3eaff';
+  const inputBg  = dark ? '#2e2050' : '#f3eaff';
+  const themeBg  = dark ? '#473870' : '#f3eaff';
+  const themeCol = dark ? '#e6b4ff' : '#8a00cb';
+
+  const tabs = Object.entries(PROJECTS_META).map(([id, meta]) => {
+    const active = id === activeProject;
+    const style = active
+      ? `background:${meta.color};color:#fff;box-shadow:0 4px 16px -4px ${meta.color}66`
+      : `background:${dark ? '#3d2f66' : '#f3eaff'};color:${dark ? '#cebefb' : '#4f4255'}`;
+    return `<button class="proj-tab" style="${style}" onclick="switchProject('${id}')">${meta.name}</button>`;
+  }).join('');
+
+  return `
+    <header class="glass sticky top-0 z-50 px-8 py-4"
+            style="box-shadow:0 1px 0 0 rgba(138,0,203,0.10),0 8px 40px -5px rgba(31,17,68,0.07)">
+      <div class="flex items-center gap-4 flex-wrap">
+        <!-- Back + title -->
+        <div class="flex items-center gap-3 flex-shrink-0">
+          <a href="index.html"
+             class="flex items-center gap-1.5 font-label text-[11px] font-bold uppercase tracking-widest border-none bg-transparent cursor-pointer p-0 no-underline transition-opacity hover:opacity-60"
+             style="color:${PROJECTS_META[activeProject].color}">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            Roadmap
+          </a>
+          <span style="color:${textMut};font-size:11px">›</span>
+          <div>
+            <h1 class="font-headline font-extrabold tracking-tight leading-tight grad-text" style="font-size:1.1rem">Releases</h1>
+            <p class="font-body text-[10px] mt-0" style="color:${textMut}">Historial de versiones publicadas</p>
+          </div>
+        </div>
+
+        <!-- Project tabs -->
+        <div class="flex items-center gap-2 flex-1 flex-wrap">${tabs}</div>
+
+        <!-- Search -->
+        <div class="flex items-center gap-2 px-3 py-1.5 rounded-full ghost-border flex-shrink-0" style="background:${inputBg};min-width:180px">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="${textMut}" stroke-width="2" stroke-linecap="round">
+            <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+          </svg>
+          <input class="search-input dk-text" style="color:${textPri}" placeholder="Buscar versión, ticket…"
+                 value="${searchQuery}" oninput="onSearch(this.value)"/>
+        </div>
+
+        <!-- Theme toggle -->
+        <button id="theme-toggle" onclick="toggleTheme()" class="theme-btn shadow-ambient"
+                style="background:${themeBg};color:${themeCol}">
+          ${themeIcon(!dark)}
+        </button>
+      </div>
+    </header>`;
+}
+
+function buildRelease(release, idx, projColor) {
+  const dark    = isDark();
+  const textPri = dark ? '#f5eeff' : '#1f1144';
+  const textMut = dark ? '#cebefb' : '#4f4255';
+  const cardBg  = dark ? '#35285b' : '#ffffff';
+  const sectBg  = dark ? '#3d2f66' : '#f8f1ff';
+  const itemBg  = dark ? '#2e2050' : '#f3eaff';
+  const divCol  = dark ? 'rgba(230,180,255,0.08)' : 'rgba(138,0,203,0.07)';
+  const delay   = idx * 0.07;
+
+  const envClass = release.environment === 'production' ? 'env-production' : 'env-staging';
+  const envLabel = release.environment === 'production' ? 'Producción' : 'Staging';
+
+  // sections are lazy-loaded — placeholder until detail is fetched
+  const detail = DETAIL_CACHE[release.file];
+  const sections = detail ? detail.sections.map(sec => {
+    const items = sec.items.map(item => `
+      <div class="flex gap-3 py-3" style="border-bottom:1px solid ${divCol}">
+        ${renderTicketChips(item.ticket)}
+        <div class="flex-1 min-w-0">
+          <p class="font-label text-[12px] font-bold mb-0.5" style="color:${textPri}">${item.title}</p>
+          <p class="font-body text-[11px] leading-relaxed m-0" style="color:${textMut}">${item.description}</p>
+        </div>
+      </div>`).join('');
+    return `
+      <div class="mb-4 rounded-xl overflow-hidden" style="background:${sectBg}">
+        <div class="flex items-center gap-2 px-4 py-3" style="border-bottom:1px solid ${divCol}">
+          <span class="font-label text-[9px] font-extrabold uppercase tracking-widest px-2.5 py-0.5 rounded-full ${catClass(sec.category)}">${catLabel(sec.category)}</span>
+          <span class="font-headline text-[13px] font-bold" style="color:${textPri}">${sec.title}</span>
+        </div>
+        <p class="font-body text-[11px] leading-relaxed px-4 pt-2.5 pb-1" style="color:${textMut}">${sec.description}</p>
+        <div class="px-4 pb-2">${items}</div>
+      </div>`;
+  }).join('') : `<div class="flex items-center gap-3 py-6 px-2" style="color:${textMut}">
+    <div class="spinner" style="border-top-color:${projColor}"></div>
+    <span class="font-body text-[11px]">Cargando detalle…</span>
+  </div>`;
+
+  const totalTickets = detail
+    ? detail.sections.reduce((s, sec) => s + sec.items.length, 0)
+    : '—';
+
+  return `
+    <div class="release-card shadow-ambient hover:shadow-float fade-up" id="rel-${release.version}"
+         style="background:${cardBg};animation-delay:${delay}s;border-left:3px solid ${projColor}">
+      <!-- Header row -->
+      <div class="flex items-start gap-4 px-6 py-5 cursor-pointer select-none"
+           onclick="toggleRelease('${release.version}', '${release.file}')"
+           onmouseenter="this.style.background='${dark ? 'rgba(255,255,255,0.03)' : 'rgba(138,0,203,0.025)'}'"
+           onmouseleave="this.style.background='transparent'">
+
+        <!-- Version badge -->
+        <div class="flex-shrink-0 flex flex-col items-center gap-1 pt-0.5">
+          <div class="w-10 h-10 rounded-xl flex items-center justify-center grad-primary">
+            <span class="font-headline text-[10px] font-extrabold text-white leading-none">v</span>
+          </div>
+        </div>
+
+        <!-- Meta -->
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center flex-wrap gap-2 mb-1">
+            <span class="font-headline text-lg font-extrabold tracking-tight" style="color:${textPri}">${release.version}</span>
+            <span class="font-label text-[9px] font-extrabold uppercase tracking-widest px-2.5 py-0.5 rounded-full ${envClass}">${envLabel}</span>
+            ${release.ticketRef ? `<span class="ticket-chip">${release.ticketRef}</span>` : ''}
+          </div>
+          <div class="flex items-center flex-wrap gap-3 mb-2 font-body text-[11px]" style="color:${textMut}">
+            <span>${fmtDate(release.date)}</span>
+            <span style="opacity:0.4">·</span>
+            <span>${relativeDate(release.date)}</span>
+            <span style="opacity:0.4">·</span>
+            <span>${release.author}</span>
+            <span style="opacity:0.4">·</span>
+            <span>${totalTickets} ticket${totalTickets !== 1 ? 's' : ''}</span>
+          </div>
+          <p class="font-body text-[12px] leading-relaxed m-0" style="color:${textMut}">${release.summary}</p>
+        </div>
+
+        <!-- Chevron -->
+        <div class="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center mt-1"
+             style="background:${dark ? '#473870' : '#f3eaff'}">
+          <svg class="chevron-icon" width="12" height="12" viewBox="0 0 24 24" fill="none"
+               stroke="${dark ? '#cebefb' : '#4f4255'}" stroke-width="2.5" stroke-linecap="round">
+            <path d="M6 9l6 6 6-6"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Expandable body -->
+      <div class="release-body">
+        <div class="release-body-inner">
+          <div class="px-6 pb-6 pt-1">${sections}</div>
+        </div>
+      </div>
+    </div>`;
+}
+
+function buildEmptyState() {
+  const dark = isDark();
+  const textMut = dark ? '#cebefb' : '#4f4255';
+  return `
+    <div class="flex flex-col items-center justify-center py-24 gap-4">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="${PROJECTS_META[activeProject].color}" stroke-width="1.2" stroke-linecap="round">
+        <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+      </svg>
+      <p class="font-headline font-bold text-base" style="color:${textMut}">Sin resultados para "${searchQuery}"</p>
+      <p class="font-body text-sm" style="color:${textMut}">Probá con otro término o número de versión</p>
+    </div>`;
+}
+
+function render() {
+  const dark    = isDark();
+  const textMut = dark ? '#cebefb' : '#4f4255';
+  const projColor = PROJECTS_META[activeProject].color;
+  const releases  = getFilteredReleases();
+  const total     = (ALL_RELEASES[activeProject] || []).length;
+
+  const feed = releases.length > 0
+    ? `<div class="relative pl-6">
+        <div class="timeline-line" style="background:linear-gradient(to bottom, ${projColor}88 0%, ${projColor}18 100%)"></div>
+        <div class="flex flex-col gap-4">
+          ${releases.map((r, i) => buildRelease(r, i, projColor)).join('')}
+        </div>
+       </div>`
+    : buildEmptyState();
+
+  const html = `
+    ${buildHeader()}
+
+    <main class="max-w-4xl mx-auto px-8 py-10">
+      <!-- Section label -->
+      <div class="flex items-center justify-between mb-6">
+        <div>
+          <h2 class="font-headline text-[11px] font-bold uppercase tracking-[0.14em]" style="color:${textMut}">
+            ${PROJECTS_META[activeProject].name}
+          </h2>
+          <p class="font-body text-[11px] mt-0.5" style="color:${textMut}">
+            ${total} versión${total !== 1 ? 'es' : ''} publicada${total !== 1 ? 's' : ''}
+            ${searchQuery ? ` · ${releases.length} resultado${releases.length !== 1 ? 's' : ''}` : ''}
+          </p>
+        </div>
+        <button onclick="expandAll()" class="font-body text-[11px] font-semibold rounded-full px-3 py-1.5 border-none cursor-pointer shadow-ambient"
+                style="background:${dark ? '#473870' : '#f3eaff'};color:${textMut}">
+          Expandir todo
+        </button>
+      </div>
+
+      ${feed}
+    </main>`;
+
+  document.getElementById('app').innerHTML = html;
+  document.getElementById('loading').style.display = 'none';
+  document.getElementById('app').style.display = 'block';
+  document.body.style.backgroundColor = dark ? '#1c0a37' : '';
+
+  // Animate progress
+  requestAnimationFrame(() => {
+    document.querySelectorAll('.fade-up').forEach((el, i) => {
+      el.style.animationDelay = `${i * 0.07}s`;
+    });
+  });
+}
+
+/* ── Interactions ──────────────────────────────────────────── */
+async function toggleRelease(version, file) {
+  const card = document.getElementById('rel-' + version);
+  if (!card) return;
+
+  const isOpening = !card.classList.contains('open');
+
+  if (isOpening && !DETAIL_CACHE[file]) {
+    // Open immediately to show spinner, then load detail
+    card.classList.add('open');
+    const detail = await loadReleaseDetail(file);
+    if (detail) {
+      // Re-render just this card's body with loaded sections
+      const bodyInner = card.querySelector('.release-body-inner');
+      if (bodyInner) {
+        const releases = ALL_RELEASES[activeProject] || [];
+        const release  = releases.find(r => r.version === version);
+        if (release) {
+          const dark    = isDark();
+          const projColor = PROJECTS_META[activeProject].color;
+          const textPri = dark ? '#f5eeff' : '#1f1144';
+          const textMut = dark ? '#cebefb' : '#4f4255';
+          const sectBg  = dark ? '#3d2f66' : '#f8f1ff';
+          const divCol  = dark ? 'rgba(230,180,255,0.08)' : 'rgba(138,0,203,0.07)';
+
+          const sections = detail.sections.map(sec => {
+            const items = sec.items.map(item => `
+              <div class="flex gap-3 py-3" style="border-bottom:1px solid ${divCol}">
+                ${renderTicketChips(item.ticket)}
+                <div class="flex-1 min-w-0">
+                  <p class="font-label text-[12px] font-bold mb-0.5" style="color:${textPri}">${item.title}</p>
+                  <p class="font-body text-[11px] leading-relaxed m-0" style="color:${textMut}">${item.description}</p>
+                </div>
+              </div>`).join('');
+            return `
+              <div class="mb-4 rounded-xl overflow-hidden" style="background:${sectBg}">
+                <div class="flex items-center gap-2 px-4 py-3" style="border-bottom:1px solid ${divCol}">
+                  <span class="font-label text-[9px] font-extrabold uppercase tracking-widest px-2.5 py-0.5 rounded-full cat-${sec.category || 'core'}">${CAT_LABELS[sec.category] || sec.category}</span>
+                  <span class="font-headline text-[13px] font-bold" style="color:${textPri}">${sec.title}</span>
+                </div>
+                <p class="font-body text-[11px] leading-relaxed px-4 pt-2.5 pb-1" style="color:${textMut}">${sec.description}</p>
+                <div class="px-4 pb-2">${items}</div>
+              </div>`;
+          }).join('');
+          bodyInner.innerHTML = `<div class="px-6 pb-6 pt-1">${sections}</div>`;
+        }
+      }
+    }
+  } else {
+    card.classList.toggle('open');
+  }
+}
+
+function expandAll() {
+  const releases = ALL_RELEASES[activeProject] || [];
+  releases.forEach(r => { if (r.file) toggleRelease(r.version, r.file); });
+}
+function switchProject(id) {
+  activeProject = id;
+  searchQuery   = '';
+  render();
+  window.scrollTo(0, 0);
+}
+let searchTimer;
+function onSearch(val) {
+  clearTimeout(searchTimer);
+  searchTimer = setTimeout(() => {
+    searchQuery = val.trim();
+    render();
+  }, 250);
+}
+
+/* ── Init ─────────────────────────────────────────────────── */
+loadAllReleases()
+  .then(() => render())
+  .catch(err => {
+    document.getElementById('loading').innerHTML =
+      `<div style="text-align:center;color:#8a00cb">
+        <p style="font-size:0.9rem;font-family:Manrope">Error al cargar los releases</p>
+        <p style="font-size:0.75rem;color:#4f4255">${err.message}</p>
+      </div>`;
+  });
+</script>
+</body>
+</html>
