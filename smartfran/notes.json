@@ -1,1 +1,14 @@
-{}
+{
+  "q2-05": [
+    {
+      "author": "Matias Lombardi",
+      "text": "El alcance de esta tarea abarca:\n- Mercado Pago QR\n- Mercado Pago Delivery",
+      "ts": 1780409743453
+    },
+    {
+      "author": "Matias Lombardi",
+      "text": "Mercado Point esta fuera de alcance.",
+      "ts": 1780409760801
+    }
+  ]
+}
