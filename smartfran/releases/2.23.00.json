@@ -1,0 +1,73 @@
+{
+  "version": "2.23.00",
+  "date": "2026-04-27",
+  "environment": "production",
+  "author": "Matias Nahuel Lombardi Burgos",
+  "ticketRef": "GSFC-195",
+  "summary": "Enfocada en mejorar la precisión de sus inventarios, automatizar procesos en el punto de venta y brindar reportes más claros para la toma de decisiones.",
+  "sections": [
+    {
+      "title": "Nuevo Módulo: Logística Mayorista",
+      "description": "Iniciamos la estructura para la gestión de repartos y ventas a gran escala. Este módulo seré entregado parcialmente y solo se habilitara al usuario una vez finalizado.",
+      "category": "canal",
+      "items": [
+        {
+          "ticket": ["GSFC-203", "GSFC-204"],
+          "title": "Gestión de Zonas Logísticas",
+          "description": "Ahora se pueden crear y editar Zonas de Reparto. Estas zonas permiten agrupar clientes y organizar las rutas de los vendedores de forma sencilla y ordenada."
+        },
+        {
+          "ticket": "GSFC-205",
+          "title": "Control de Integridad Logística",
+          "description": "El sistema ahora protege sus datos: no permitirá eliminar una zona si todavía tiene clientes o vendedores asignados a ella, evitando que sus reportes de preventa queden incompletos."
+        }
+      ]
+    },
+    {
+      "title": "Punto de Venta (POS) y Seguridad",
+      "description": "Más control sobre el efectivo y mejor visibilidad en los tickets de preparación.",
+      "category": "core",
+      "items": [
+        {
+          "ticket": "GSFC-134",
+          "title": "Cierre Ciego Real",
+          "description": "Si tiene activa la opción de Cierre Ciego, el cajero ya no podrá ver cuánto dinero 'debería' haber en el sistema al terminar su turno. Solo verá el campo para ingresar el efectivo contado, evitando que se calculen diferencias antes de tiempo."
+        },
+        {
+          "ticket": "GSFC-270",
+          "title": "Mejora en Comandas (Cocina)",
+          "description": "Ajustamos las comandas en Grido. Ahora el Número de Orden aparece primero y en negrita, facilitando la lectura rápida para el equipo de producción y entrega."
+        },
+        {
+          "ticket": "GSFC-169",
+          "title": "Preparación para Billeteras Digitales",
+          "description": "Trabajamos en la 'sala de máquinas' del sistema para que, muy pronto, puedan vincular múltiples cuentas de cobro digital (QR, Apps de Delivery) de forma más ágil y centralizada."
+        }
+      ]
+    },
+    {
+      "title": "Reportes y Administración",
+      "description": "Corrección de horarios y filtros para una gestión sin errores.",
+      "category": "core",
+      "items": [
+        {
+          "ticket": "GSFC-31",
+          "title": "Corrección de Filtros (Hora Local)",
+          "description": "Solucionamos el problema donde los turnos de la mañana no aparecían en el reporte del día. Ahora el sistema respeta estrictamente la hora de Argentina, mostrando todos los movimientos desde las 00:00 hasta las 23:59 sin necesidad de buscar en días anteriores."
+        }
+      ]
+    },
+    {
+      "title": "Impresión de Comandas",
+      "description": "Corrección de errores visuales y estructurales",
+      "category": "core",
+      "items": [
+        {
+          "ticket": "GSFC-270",
+          "title": "Refactorización de proceso de armado de comandas",
+          "description": "Se eliminaron dependencias técnicas rígidas, permitiendo que el diseño de los tickets de impresión pueda actualizarse de forma dinámica sin necesidad de reinstalar el sistema."
+        }
+      ]
+    }
+  ]
+}

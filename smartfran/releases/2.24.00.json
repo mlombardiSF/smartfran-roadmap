@@ -1,0 +1,118 @@
+{
+  "version": "2.24.00",
+  "date": "2026-05-07",
+  "environment": "production",
+  "author": "Matias Nahuel Lombardi Burgos",
+  "ticketRef": "GSFC-226",
+  "summary": "Esta versión introduce controles estructurales en la forma en que el sistema procesa el stock y los costos, garantizando que su Informe de Resultados (IDR) refleje la realidad económica de su negocio sin distorsiones.",
+  "sections": [
+    {
+      "title": "Precisión en Stock y Finanzas (IDR)",
+      "description": "Simplificamos procesos técnicos para que la información contable sea más clara y precisa.",
+      "category": "fintech",
+      "items": [
+        {
+          "ticket": "GSFC-89",
+          "title": "Nueva lógica económica (IDR)",
+          "description": "Definimos una 'matriz inteligente' que decide qué movimientos afectan sus ganancias y cuáles son solo logística interna. Esto asegura que el IDR no se ensucie con transferencias de mercadería o aperturas de caja."
+        },
+        {
+          "ticket": "GSFC-90",
+          "title": "Nuevo proceso de 'Stock Real'",
+          "description": "Simplificamos el ajuste de inventario. Ahora, en lugar de hacer dos registros (vaciar y volver a llenar), el sistema calcula automáticamente la diferencia y genera un single movement. Además, ahora este ajuste impacta correctamente en sus costos y utilidades."
+        },
+        {
+          "ticket": "GSFC-91",
+          "title": "Anulaciones de venta exactas",
+          "description": "Garantizamos que, al anular una venta, el sistema recupere exactamente el costo que tenía el producto al momento de venderse. Esto evita que las anulaciones generen ganancias o pérdidas ficticias en sus informes."
+        },
+        {
+          "ticket": "GSFC-100",
+          "title": "Inteligencia en Costos (Recetas)",
+          "description": "Optimizamos el cálculo de costos para productos compuestos (como helados o hamburguesas). El sistema ahora es lo suficientemente inteligente para sumar solo el costo de los ingredientes reales, evitando duplicar valores en sus reportes financieros."
+        },
+        {
+          "ticket": "GSFC-231",
+          "title": "Corrección en precios de ajuste",
+          "description": "Corregimos un error donde los ajustes de stock usaban el 'precio por bulto' en lugar del 'precio unitario'. Ahora sus costos de inventario se calculan con total exactitud."
+        }
+      ]
+    },
+    {
+      "title": "Experiencia en el Punto de Venta (POS)",
+      "description": "Mejoras en la estabilidad y actualización del sistema en las tiendas.",
+      "category": "core",
+      "items": [
+        {
+          "ticket": ["GSFC-217", "GSFC-241"],
+          "title": "Arreglo en Facturación",
+          "description": "Solucionamos el error que impedía emitir facturas electrónicas de combos en AutoWeiss y habilitamos la facturación manual para ventas pendientes de 2 o 3 pasos."
+        },
+        {
+          "ticket": "GSFC-180",
+          "title": "Alarma de Límite de Efectivo",
+          "description": "Corregimos el sistema de bloqueo por exceso de dinero en caja. Ahora el POS notificará correctamente cuando se supere el límite configurado, evitando que el sistema se bloquee o falle."
+        },
+        {
+          "ticket": "GSFC-215",
+          "title": "Notificaciones optimizadas",
+          "description": "Eliminamos las notificaciones repetitivas e innecesarias de 'Promociones actualizadas' que aparecían cada minuto, mejorando la fluidez del trabajo del cajero."
+        },
+        {
+          "ticket": "GSFC-230",
+          "title": "Notificaciones optimizadas",
+          "description": "Corregimos el error que hacía fallar el sistema al intentar modificar un combo ya confirmado desde el panel de órdenes."
+        },
+        {
+          "ticket": "GSFC-146",
+          "title": "Actualización garantizada del POS",
+          "description": "Implementamos un nuevo mecanismo para asegurar que, cada vez que lancemos una mejora, su terminal de ventas descargue siempre la última configuración disponible, evitando errores por versiones antiguas guardadas en la memoria del navegador. Evitando ejecutar constantemente un reseteo de cache (Ctrl+F5)."
+        },
+        {
+          "ticket": "GSFC-194",
+          "title": "Estabilidad del sistema",
+          "description": "Se mejoró la forma en que el sistema lee la información interna para prevenir errores inesperados durante la navegación."
+        }
+      ]
+    },
+    {
+      "title": "Administración y Seguridad (Manager)",
+      "description": "Nuevas herramientas para gestionar los accesos y usuarios de forma más segura.",
+      "category": "core",
+      "items": [
+        {
+          "ticket": "GSFC-184",
+          "title": "Gestión de Permisos por Rol",
+          "description": "Ahora los administradores pueden definir exactamente qué acciones puede realizar cada rol en el sistema a través de una nueva pantalla de gestión de permisos."
+        },
+        {
+          "ticket": "GSFC-183",
+          "title": "Corrección en Asignación de Roles",
+          "description": "Corregimos un error que permitía visualizar usuarios de otras franquicias al asignar roles. Ahora la gestión está limitada correctamente a su propia unidad de negocio, mejorando la seguridad de los datos."
+        },
+        {
+          "ticket": "GSFC-114",
+          "title": "Columna 'Código' en Excel",
+          "description": "Ahora los reportes de Stock y Ventas en Excel incluyen una columna independiente con el código del artículo. Esto permite hacer cruces de datos (BuscarV/VLOOKUP) de forma inmediata y sin errores."
+        }
+      ]
+    },
+    {
+      "title": "Mejoras Técnicas Internas",
+      "description": "Cambios 'detrás de escena' que ayudan a nuestro equipo de soporte a resolver problemas más rápido.",
+      "category": "core",
+      "items": [
+        {
+          "ticket": "GSFC-168",
+          "title": "Configuracion entornos APIs, Client y POS",
+          "description": "Facilitamos a nuestro equipo de DESARROLLO la capacidad de replicar errores reportados por los clientes en entornos de prueba, lo que reduce el tiempo de resolución de tickets."
+        },
+        {
+          "ticket": "GSFC-212",
+          "title": "Cambiar nombre del Proceso de Logueo",
+          "description": "Se actualizó el nombre interno del proceso de inicio de sesión para mayor claridad técnica."
+        }
+      ]
+    }
+  ]
+}

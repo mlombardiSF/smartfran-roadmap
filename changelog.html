@@ -114,6 +114,7 @@ body {
 .cat-canal     { background: #185FA520; color: #185FA5; }
 .cat-cocina    { background: #993C1D20; color: #993C1D; }
 .cat-mobile    { background: #D4537E20; color: #D4537E; }
+.cat-plataforma { background: #116E8C20; color: #116E8C; }
 
 /* Env badge */
 .env-production { background: rgba(0,98,103,0.12); color: #006267; box-shadow: inset 0 0 0 1px rgba(0,98,103,0.3); }
@@ -414,7 +415,7 @@ function buildRelease(release, idx, projColor) {
   </div>`;
 
   const totalTickets = detail
-    ? detail.sections.reduce((s, sec) => s + sec.items.length, 0)
+    ? detail.sections.reduce((s, sec) => s + sec.items.reduce((a, item) => a + (Array.isArray(item.ticket) ? item.ticket.length : 1), 0), 0)
     : '—';
 
   return `
@@ -447,7 +448,7 @@ function buildRelease(release, idx, projColor) {
             <span style="opacity:0.4">·</span>
             <span>${release.author}</span>
             <span style="opacity:0.4">·</span>
-            <span>${totalTickets} ticket${totalTickets !== 1 ? 's' : ''}</span>
+            <span class="ticket-count" data-version="${release.version}">${totalTickets} ticket${totalTickets !== 1 ? 's' : ''}</span>
           </div>
           <p class="font-body text-[12px] leading-relaxed m-0" style="color:${textMut}">${release.summary}</p>
         </div>
@@ -582,6 +583,10 @@ async function toggleRelease(version, file) {
               </div>`;
           }).join('');
           bodyInner.innerHTML = `<div class="px-6 pb-6 pt-1">${sections}</div>`;
+
+          const totalTickets = detail.sections.reduce((s, sec) => s + sec.items.reduce((a, item) => a + (Array.isArray(item.ticket) ? item.ticket.length : 1), 0), 0);
+          const countSpan = card.querySelector('.ticket-count');
+          if (countSpan) countSpan.textContent = `${totalTickets} ticket${totalTickets !== 1 ? 's' : ''}`;
         }
       }
     }

@@ -3,35 +3,101 @@
   "date": "2026-04-15",
   "environment": "production",
   "author": "Matias Nahuel Lombardi Burgos",
-  "ticketRef": "GSFC-371",
-  "summary": "Cuenta Corriente Mayorista operativa, tunelización de clientes por segmento y nuevos parsers de medios de pago.",
+  "ticketRef": "GSFC-342",
+  "summary": "Esta versión trae grandes avances en la operativa del Punto de Venta (POS), permitiendo por primera vez dar de baja productos con receta, unificando los tipos de entrega para mejorar el KDS y los reportes, y cerrando brechas de seguridad en el Plan de Cuentas.",
   "sections": [
     {
-      "title": "Módulo Mayorista — Cuenta Corriente",
-      "description": "Primera versión operativa de Cuenta Corriente para clientes mayoristas.",
-      "category": "comercial",
+      "title": "Gestión de Stock e Inventarios Avanzada",
+      "description": "Más herramientas en el POS para controlar la mercadería y mayor precisión en el Manager.",
+      "category": "core",
       "items": [
         {
-          "ticket": "GSFC-310",
-          "title": "Gestión de Cuenta Corriente Mayorista",
-          "description": "Alta, consulta y gestión de límites de crédito por cliente mayorista. Vista de saldo, movimientos y alertas de vencimiento."
+          "ticket": "GSFC-113",
+          "title": "Registro de Hora en Stock",
+          "description": "Al crear un movimiento de stock en el Manager se puede especificar la Fecha y Hora exacta de la toma, permitiendo un seguimiento mucho más preciso del inventario."
         },
         {
-          "ticket": "GSFC-325",
-          "title": "Segmentación Minorista / Mayorista",
-          "description": "Tunelización del flujo de venta según tipo de cliente. Detección automática del segmento con aplicación de reglas de precio y condiciones de pago correspondientes."
+          "ticket": "GSFC-88",
+          "title": "Protección del Plan de Cuentas",
+          "description": "Implementamos un 'firewall' de seguridad: las cuentas exclusivas del sistema (como el costo de mercadería o diferencias automáticas) ahora están ocultas para los usuarios. Esto evita errores humanos por registros manuales equivocados."
         }
       ]
     },
     {
-      "title": "Fintech — Parsers de Medios de Pago",
-      "description": "Expansión de cobertura de parsers para nuevos medios.",
+      "title": "Unificación de Canales y Entregas (Omnicanalidad)",
+      "description": "Estandarizamos cómo el sistema lee el delivery, el retiro en local y el consumo en salón.",
+      "category": "canal",
+      "items": [
+        {
+          "ticket": ["GSFC-44", "GSFC-125", "GSFC-290"],
+          "title": "Tipos de Entrega Universales",
+          "description": "Centralizamos los tipos de entrega para el POS y plataformas externas (Mostrador, Retiro en local, Delivery propio o de apps). Ninguna venta puede guardarse sin este dato, asegurando información limpia."
+        },
+        {
+          "ticket": ["GSFC-127", "GSFC-128"],
+          "title": "Visibilidad en Pedidos y KDS",
+          "description": "Las pantallas de despacho de pedidos y los monitores de cocina (KDS) ahora muestran de forma clara y visible cómo debe entregarse cada pedido (ej: SALON, RETIRO, DELIVERY)."
+        },
+        {
+          "ticket": "GSFC-129",
+          "title": "Filtro en Informe de Ventas",
+          "description": "Ahora el informe de ventas permite filtrar por el tipo de entrega, ayudando a los dueños a analizar qué canal está vendiendo más. Las ventas antiguas se mostrarán como 'Sin datos' sin romper el reporte."
+        }
+      ]
+    },
+    {
+      "title": "Reportes y Gestión Mayorista (Manager)",
+      "description": "Normalización visual y avance en el canal mayorista.",
+      "category": "canal",
+      "items": [
+        {
+          "ticket": "GSFC-328",
+          "title": "Normalización de Informes",
+          "description": "Unificamos los nombres de los menús y los títulos de las pantallas para que navegar sea más intuitivo. Además, garantizamos que el 100% de los informes que listan artículos incluyan su ID/Código al exportar a Excel."
+        },
+        {
+          "ticket": ["GSFC-199", "GSFC-200", "GSFC-201"],
+          "title": "Sectores Comerciales (Rubros)",
+          "description": "Siguiendo con el módulo Mayorista, ahora se pueden crear, editar y eliminar 'Sectores Comerciales' (ej: Almacén, Heladería) para clasificar las cuentas de los clientes mayoristas. Esto aun no estará disponible para los usuarios finales. Sera entregará el desarrollo de manera granular. "
+        }
+      ]
+    },
+    {
+      "title": "Punto de Venta (POS) y Experiencia de Usuario",
+      "description": "Corrección de errores visuales, integraciones y agilidad en caja.",
+      "category": "core",
+      "items": [
+        {
+          "ticket": "GSFC-312",
+          "title": "Carga rápida de Clientes Loyalty",
+          "description": "En las ventas de salón, al ingresar el código de un socio registrado, se registrará un tipo de entrega delivery con autocarga de los datos de contacto del cliente socio, automatizando la obtención del cliente en la venta de tipo Salón."
+        },
+        {
+          "ticket": "GSFC-131",
+          "title": "Fijación del menú Favoritos",
+          "description": "Corregimos el error visual que renombraba la pestaña de 'Favoritos' a 'Promos' de manera incorrecta después de finalizar una venta."
+        },
+        {
+          "ticket": "GSFC-266",
+          "title": "Corrección en Precios de Venta",
+          "description": "Se solucionó un comportamiento intermitente donde el precio unitario final de algunos artículos no se calculaba correctamente en el POS."
+        },
+        {
+          "ticket": "GSFC-293",
+          "title": "Solución a la Carga Infinita",
+          "description": "Corregimos el error de pantalla bloqueada (carga infinita) que ocurría al activar la integración de Smart Pedidos en la configuración de sucursales."
+        }
+      ]
+    },
+    {
+      "title": "Conectividad y Billeteras Digitales (Fondo Técnico)",
+      "description": "Implementación de endpoints backend para integración completa con billeteras digitales (Sync, QR, Stats)",
       "category": "fintech",
       "items": [
         {
-          "ticket": "GSFC-358",
-          "title": "Parser Modo / Billetera Virtual",
-          "description": "Soporte para pagos con Modo en QR y link de pago. Conciliación automática y manejo de rechazos."
+          "ticket": "GSFC-288",
+          "title": "Infraestructura técnica para Billeteras Digitales",
+          "description": "Completamos la infraestructura técnica del backend para soportar cobros QR, sincronización automática de cajas con Mercado Pago, estadísticas y webhooks de validación. El sistema queda listo para activar estas funciones en el frente de venta próximamente, continuaremos con la implementación de la pantalla de configuración en el manager."
         }
       ]
     }

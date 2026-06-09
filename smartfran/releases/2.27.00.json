@@ -9,7 +9,7 @@
     {
       "title": "Nueva Arquitectura Comercial: Canales y Subcanales",
       "description": "Implementamos la estructura base para permitir configuraciones comerciales independientes por cada canal de venta.",
-      "category": "comercial",
+      "category": "canal",
       "items": [
         {
           "ticket": "GSFC-59",
@@ -48,7 +48,7 @@
     {
       "title": "Expansión del Módulo Mayorista",
       "description": "Continuamos robusteciendo las herramientas para el control y seguimiento de activos en la calle. Es importante entender que el modulo de mayorista se encuentra en desarrollo, por lo tanto, no se disponibilizá el desarrollo al cliente final hasta se tenga un flujo de proceso funcional.",
-      "category": "core",
+      "category": "canal",
       "items": [
         {
           "ticket": ["GSFC-218", "GSFC-220", "GSFC-221", "GSFC-222"],
@@ -86,23 +86,40 @@
     },
     {
       "title": "Seguridad, Permisos y Deuda Técnica",
-      "description": "Mayor estabilidad en las cajas y reportes contables transparentes.",
+      "description": "Aseguramos la integridad del sistema contra accesos no autorizados mediante URL directas.",
       "category": "core",
       "items": [
         {
-          "ticket": "GSFC-321",
-          "title": "Informe de Turnos - Filtro de Fechas Inclusivo",
-          "description": "Corregimos la lógica de búsqueda de turnos en el Manager. El filtro ahora ignora la fecha de creación interna en la base de datos y se rige por el horario de apertura y cierre real (OpenDate/EndDate). Además, la búsqueda es inclusiva: si un turno abarcó varios días, aparecerá al buscar fechas intermedias."
+          "ticket": "GSFC-387",
+          "title": "Bloqueo por URL Directa (Stock)",
+          "description": "Corregimos una vulnerabilidad donde usuarios sin permisos de administrador (como Franquiciados) podían evadir el menú navegando directamente mediante la URL al gestor de movimientos de stock. Ahora, tanto el Frontend como el Backend rechazan la acción con un error de Acceso Denegado (403)."
         },
         {
-          "ticket": "GSFC-339",
-          "title": "Fix Alerta de Saldo de Caja",
-          "description": "Solucionamos el error de sistema ('Oops! Tenemos un inconveniente') que bloqueaba el POS al iniciar. Ocurría cuando un turno previo se cerraba sin un arqueo manual de efectivo, dejando el saldo de caja inicializado como vacío (null)."
+          "ticket": "GSFC-345",
+          "title": "Renovación de Roles Multitenant",
+          "description": "Rediseñamos la persistencia de permisos al iniciar sesión. Solucionamos el problema que impedía guardar los roles de Ejecutivo del franquiciante/franquiciado y mejoramos la eficiencia al levantar los locales asignados al usuario."
         },
         {
-          "ticket": "GSFC-363",
-          "title": "Optimización de Ventas (Weiss)",
-          "description": "Eliminamos procesos intermediarios innecesarios al momento de generar el número de orden en ventas comunes y en AutoWeiss. Esto reduce los tiempos de espera y agiliza el flujo de pago final para el cliente."
+          "ticket": "GSFC-356",
+          "title": "Modernización del Código (AuthorizeView)",
+          "description": "Migramos los módulos de Catálogos, Precios, Artículos y Compañías a las directivas de seguridad más modernas del framework, optimizando la velocidad de respuesta y consistencia del Manager."
+        }
+      ]
+    },
+    {
+      "title": "Conectividad y Cupones",
+      "description": "Aseguramos la integridad del sistema contra accesos no autorizados mediante URL directas.",
+      "category": "fintech",
+      "items": [
+        {
+          "ticket": "GSFC-171",
+          "title": "Implementación UI de onboarding y gestión de billeteras digitales",
+          "description": "Implementamos formalmente el asistente visual (Stepper) paso a paso en el Administrador para que las tiendas puedan realizar el onboarding, vinculación de cuentas y sincronización de cajas automáticas con plataformas externas y QR."
+        },
+        {
+          "ticket": "GSFC-305",
+          "title": "Inconsistencias en la venta por Cupón Descuento",
+          "description": "Se finalizaron con éxito las pruebas en producción del motor de lectura de Cupones de Descuento, validando que los precios unitarios, los desgloses fiscales y los totales cierren matemáticamente de forma perfecta."
         }
       ]
     }

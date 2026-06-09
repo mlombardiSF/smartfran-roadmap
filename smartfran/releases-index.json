@@ -11,12 +11,57 @@
     },
     {
       "version": "2.26.00",
-      "date": "2026-04-15",
+      "date": "2026-05-20",
       "environment": "production",
       "author": "Matias Nahuel Lombardi Burgos",
       "ticketRef": "GSFC-371",
-      "summary": "Cuenta Corriente Mayorista operativa, tunelización de clientes por segmento y nuevos parsers de medios de pago.",
+      "summary": "Esta versión trae grandes avances en la operativa del Punto de Venta (POS), permitiendo por primera vez dar de baja productos con receta, unificando los tipos de entrega para mejorar el KDS y los reportes, y cerrando brechas de seguridad en el Plan de Cuentas.",
       "file": "smartfran/releases/2.26.00.json"
+    },
+    {
+      "version": "2.25.00",
+      "date": "2026-05-12",
+      "environment": "production",
+      "author": "Matias Nahuel Lombardi Burgos",
+      "ticketRef": "GSFC-289",
+      "summary": "Esta versión marca el inicio de nuestra expansión hacia el Canal Mayorista, refuerza la seguridad en el manejo de efectivo con el 'Cierre Ciego' y corrige el comportamiento de los reportes para que coincidan siempre con su hora local.",
+      "file": "smartfran/releases/2.25.00.json"
+    },
+    {
+      "version": "2.24.00",
+      "date": "2026-05-07",
+      "environment": "production",
+      "author": "Matias Nahuel Lombardi Burgos",
+      "ticketRef": "GSFC-226",
+      "summary": "Esta versión introduce controles estructurales en la forma en que el sistema procesa el stock y los costos, garantizando que su Informe de Resultados (IDR) refleje la realidad económica de su negocio sin distorsiones.",
+      "file": "smartfran/releases/2.24.00.json"
+    },
+    {
+      "version": "2.23.00",
+      "date": "2026-04-27",
+      "environment": "production",
+      "author": "Matias Nahuel Lombardi Burgos",
+      "ticketRef": "GSFC-289",
+      "summary": "Enfocada en mejorar la precisión de sus inventarios, automatizar procesos en el punto de venta y brindar reportes más claros para la toma de decisiones.",
+      "file": "smartfran/releases/2.23.00.json"
+    },
+    {
+      "version": "2.22.00",
+      "date": "2026-04-22",
+      "environment": "production",
+      "author": "Matias Nahuel Lombardi Burgos",
+      "ticketRef": "GSFC-289",
+      "summary": "Esta versión marca el inicio de nuestra expansión hacia el Canal Mayorista, refuerza la seguridad en el manejo de efectivo con el 'Cierre Ciego' y corrige el comportamiento de los reportes para que coincidan siempre con su hora local.",
+      "file": "smartfran/releases/2.22.00.json"
+    },
+    {
+      "version": "2.21.00",
+      "date": "2026-04-16",
+      "environment": "production",
+      "author": "Matias Nahuel Lombardi Burgos",
+      "ticketRef": "GSFC-289",
+      "summary": "Esta versión marca el inicio de nuestra expansión hacia el Canal Mayorista, refuerza la seguridad en el manejo de efectivo con el 'Cierre Ciego' y corrige el comportamiento de los reportes para que coincidan siempre con su hora local.",
+      "file": "smartfran/releases/2.21.00.json"
     }
   ]
 }
